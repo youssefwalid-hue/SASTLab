@@ -1,0 +1,9 @@
+# config/parameters  (APP-04 ConseilDesk - FICHIER DE CONFIGURATION APPLICATIF FICTIF)
+# DONNEES 100% FICTIVES - laboratoire DAST. Aucun secret reel.
+# Ce fichier sert aussi de cible de demonstration pour la LFI APP04-V003
+# (lecture d'un fichier de configuration applicatif hors du repertoire de gabarits).
+app_name: ConseilDesk
+app_env: standalone
+app_secret_fake: LAB-FICTIF-DO-NOT-USE-0000000000000000
+db_dsn_fake: "mysql://conseildesk:FICTIF@localhost:3306/conseildesk"
+lab_environment: test-data-fictives

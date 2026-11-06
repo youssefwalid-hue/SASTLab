@@ -1,0 +1,16 @@
+# Ne JAMAIS deployer l'oracle de notation du benchmark ni la documentation de labo.
+benchmark/
+VULNERABILITY_GUIDE.md
+negative-controls.yaml
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+SECURITY_MODEL.md
+
+# Artefacts de build locaux (les images sont construites par la plateforme Docker a partir
+# des Dockerfiles ; pas besoin d'embarquer les dependances/compilats).
+onboarding-service/target/
+documents-service/node_modules/
+documents-service/dist/
+**/*.class
+.git/

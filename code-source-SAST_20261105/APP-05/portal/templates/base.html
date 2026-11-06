@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CréditFlux — Portail de crédit{% endblock %}</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #0f172a; color: #e2e8f0; }
+    .lab-banner { background: #b45309; color: #fff; padding: .4rem 1rem; font-size: .85rem; text-align: center; }
+    header { background: #1e293b; padding: .8rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    header a { color: #93c5fd; text-decoration: none; margin-right: 1rem; }
+    main { max-width: 860px; margin: 1.2rem auto; padding: 0 1rem; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid #334155; }
+    input, select, button, textarea { padding: .45rem .6rem; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #e2e8f0; }
+    button { background: #2563eb; border: none; cursor: pointer; }
+    .err { color: #fca5a5; }
+    .muted { color: #94a3b8; font-size: .85rem; }
+  </style>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="lab-banner">Environnement de test — données fictives — Banking DAST Benchmark Lab (usage défensif)</div>
+  <header>
+    <div><a href="/"><strong>CréditFlux</strong></a><a href="/applications">Mes dossiers</a></div>
+    <div>
+      {% if user %}<span class="muted">{{ user.username }} ({{ user.role }})</span>
+      <form action="/logout" method="post" style="display:inline">{% csrf_token %}<button type="submit">Déconnexion</button></form>
+      {% else %}<a href="/login">Connexion</a>{% endif %}
+    </div>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Synthese du portefeuille</h2>
+  <table>
+    <tr><th>Cartes</th><td><%= @total %></td></tr>
+    <tr><th>Actives</th><td><%= @active %></td></tr>
+    <tr><th>En opposition</th><td><%= @blocked %></td></tr>
+    <tr><th>Disponible cumule</th><td><%= @available_sum %> €</td></tr>
+  </table>
+  <p class="muted"><%= link_to "Mes cartes", "/cards" %></p>
+</div>

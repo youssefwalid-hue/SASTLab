@@ -1,0 +1,12 @@
+# Ne JAMAIS déployer l'oracle de notation du benchmark ni les sources de dév.
+benchmark/
+src/
+test/
+*.spec.ts
+.git/
+node_modules/.cache/
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+VULNERABILITY_GUIDE.md
+negative-controls.yaml

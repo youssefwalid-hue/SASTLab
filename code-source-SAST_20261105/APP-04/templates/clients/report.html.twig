@@ -1,0 +1,9 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Rapport de recherche</h1>
+    {
+    <p class="report-term">Resultats pour la recherche : {% if secure %}{{ q }}{% else %}{{ q|raw }}{% endif %}</p>
+    <p class="hint">Astuce : affinez votre recherche depuis la liste des clients.</p>
+    <p><a href="/clients?search=">Retour a la recherche</a></p>
+</section>
+{% include 'partials/footer.html.twig' %}

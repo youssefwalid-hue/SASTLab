@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PayGate XML — Guide utilisateur</title>
+<meta name="description" content="PayGate XML — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="fr">Aller au contenu</span><span class="en">Skip to content</span></a>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">P</span>
+    <span class="brand">PayGate XML<small><span class="fr">Passerelle de paiements (SOAP/XML) — laboratoire DAST</span><span class="en">Payment gateway (SOAP/XML) — DAST laboratory</span></small></span>
+    <nav class="top" aria-label="Navigation du document / Document navigation"><a href="USER_GUIDE.html"><span class="fr">Guide utilisateur</span><span class="en">User guide</span></a><a href="ARCHITECTURE.html"><span class="fr">Architecture</span><span class="en">Architecture</span></a><a href="VULNERABILITY_GUIDE.html"><span class="fr">Guide d'exploitation</span><span class="en">Exploitation guide</span></a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="paygate-xml-guide-utilisateur">PayGate XML — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>PayGate XML est une passerelle de paiements inter-entreprises exposée sous forme de service web SOAP/XML. Elle permet à un opérateur d'entreprise de remettre des ordres de paiement, de les consulter et de récupérer leurs accusés de réception. Les utilisateurs sont des systèmes et opérateurs techniques qui dialoguent avec le service via des enveloppes SOAP, pas via une interface graphique.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://paygate.lab.exemple</code> (HTTPS)</li>
+<li>Service SOAP : <code>POST /PaymentService.svc</code></li>
+<li>Contrat (WSDL) : <code>GET /PaymentService.svc?wsdl</code></li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>operateur-ent</code> — opérateur d'entreprise, remise et consultation d'ordres (jeton SOAP standard).</li>
+<li><code>service-interne</code> — compte interne, opérations d'administration et traitement de lots.</li>
+<li>Authentification : jeton d'identité porté dans l'en-tête SOAP <code>wsse:Security</code> / <code>wsse:UsernameToken</code> (WS-Security simulé), en complément de la couche HTTP. Le code OTP de laboratoire, si demandé, est <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Peut faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>operateur-ent</td>
+<td>Soumettre un ordre (<code>SubmitOrder</code>), consulter un ordre (<code>GetOrder</code>), télécharger l'accusé de réception correspondant.</td>
+</tr>
+<tr>
+<td>service-interne</td>
+<td>Tout ce que fait l'opérateur, plus les opérations d'administration (gestion et annulation de lots, ex. <code>CancelAllBatches</code>, <code>ListBatches</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-recuperer-le-contrat-du-service">1. Récupérer le contrat du service</h3>
+<ol>
+<li>Appeler <code>GET /PaymentService.svc?wsdl</code>.</li>
+<li>Générer un proxy client à partir du WSDL ou construire les enveloppes SOAP manuellement.</li>
+</ol>
+<h3 id="2-sauthentifier-en-tete-soap">2. S'authentifier (en-tête SOAP)</h3>
+<p>Chaque appel métier inclut un en-tête de sécurité :</p>
+<pre><code class="language-xml">&lt;soap:Header&gt;
+  &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+    &lt;wsse:UsernameToken&gt;
+      &lt;wsse:Username&gt;operateur-ent&lt;/wsse:Username&gt;
+      &lt;wsse:Password&gt;Password1!&lt;/wsse:Password&gt;
+    &lt;/wsse:UsernameToken&gt;
+  &lt;/wsse:Security&gt;
+&lt;/soap:Header&gt;
+</code></pre>
+<h3 id="3-remettre-un-ordre-de-paiement-submitorder">3. Remettre un ordre de paiement (<code>SubmitOrder</code>)</h3>
+<ol>
+<li>Construire l'enveloppe SOAP avec l'en-tête d'authentification et le corps de l'ordre.</li>
+<li>Envoyer <code>POST /PaymentService.svc</code> (SOAPAction <code>SubmitOrder</code>).</li>
+</ol>
+<p>Exemple de requête (fictive) :</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+               xmlns:pay=&quot;https://paygate.lab.exemple/payment&quot;&gt;
+  &lt;soap:Header&gt;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+      &lt;wsse:UsernameToken&gt;
+        &lt;wsse:Username&gt;operateur-ent&lt;/wsse:Username&gt;
+        &lt;wsse:Password&gt;Password1!&lt;/wsse:Password&gt;
+      &lt;/wsse:UsernameToken&gt;
+    &lt;/wsse:Security&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;pay:SubmitOrder&gt;
+      &lt;pay:reference&gt;ORD-LAB-100&lt;/pay:reference&gt;
+      &lt;pay:amount&gt;100.00&lt;/pay:amount&gt;
+      &lt;pay:currency&gt;EUR&lt;/pay:currency&gt;
+      &lt;pay:creditorIban&gt;FR7630001007941234567890185&lt;/pay:creditorIban&gt;
+    &lt;/pay:SubmitOrder&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+<p>Exemple de réponse (fictive) :</p>
+<pre><code class="language-xml">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+               xmlns:pay=&quot;https://paygate.lab.exemple/payment&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;pay:SubmitOrderResponse&gt;
+      &lt;pay:reference&gt;ORD-LAB-100&lt;/pay:reference&gt;
+      &lt;pay:status&gt;ACCEPTED&lt;/pay:status&gt;
+      &lt;pay:receiptId&gt;ACK-ORD-LAB-100&lt;/pay:receiptId&gt;
+    &lt;/pay:SubmitOrderResponse&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+<h3 id="4-consulter-un-ordre-getorder">4. Consulter un ordre (<code>GetOrder</code>)</h3>
+<ol>
+<li>Envoyer <code>POST /PaymentService.svc</code> (SOAPAction <code>GetOrder</code>) avec la référence de l'ordre.</li>
+</ol>
+<pre><code class="language-xml">&lt;soap:Body&gt;
+  &lt;pay:GetOrder&gt;
+    &lt;pay:ref&gt;ORD-LAB-100&lt;/pay:ref&gt;
+  &lt;/pay:GetOrder&gt;
+&lt;/soap:Body&gt;
+</code></pre>
+<ol start="2">
+<li>La réponse renvoie l'état, le montant et les informations de l'ordre.</li>
+</ol>
+<h3 id="5-telecharger-laccuse-de-reception">5. Télécharger l'accusé de réception</h3>
+<ol>
+<li>Appeler <code>GET /receipts/download?name=ACK-ORD-LAB-100.xml</code>.</li>
+<li>Le fichier d'accusé XML correspondant à l'ordre est retourné.</li>
+</ol>
+<h3 id="6-administration-des-lots-service-interne">6. Administration des lots (service-interne)</h3>
+<ol>
+<li>S'authentifier avec le compte <code>service-interne</code>.</li>
+<li>Lister les lots : <code>POST /PaymentService.svc</code> (SOAPAction <code>ListBatches</code>).</li>
+<li>Gérer un lot selon le besoin métier (traitement, annulation) via les opérations d'administration prévues au contrat.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="paygate-xml-user-guide">PayGate XML — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Laboratory application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>PayGate XML is a business-to-business payment gateway exposed as a SOAP/XML web service. It lets a corporate operator submit payment orders, look them up and retrieve their acknowledgements. Users are technical systems and operators that talk to the service through SOAP envelopes, not through a graphical interface.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://paygate.lab.exemple</code> (HTTPS)</li>
+<li>SOAP service: <code>POST /PaymentService.svc</code></li>
+<li>Contract (WSDL): <code>GET /PaymentService.svc?wsdl</code></li>
+<li>Demonstration accounts (password <code>Password1!</code>):</li>
+<li><code>operateur-ent</code> — corporate operator, order submission and lookup (standard SOAP token).</li>
+<li><code>service-interne</code> — internal account, administration operations and batch processing.</li>
+<li>Authentication: identity token carried in the SOAP header <code>wsse:Security</code> / <code>wsse:UsernameToken</code> (simulated WS-Security), in addition to the HTTP layer. The laboratory OTP code, if requested, is <code>123456</code>.</li>
+</ul>
+<h2 id="roles-and-rights">Roles and rights</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>operateur-ent</td>
+<td>Submit an order (<code>SubmitOrder</code>), look up an order (<code>GetOrder</code>), download the corresponding acknowledgement.</td>
+</tr>
+<tr>
+<td>service-interne</td>
+<td>Everything the operator does, plus administration operations (batch management and cancellation, e.g. <code>CancelAllBatches</code>, <code>ListBatches</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-retrieve-the-service-contract">1. Retrieve the service contract</h3>
+<ol>
+<li>Call <code>GET /PaymentService.svc?wsdl</code>.</li>
+<li>Generate a client proxy from the WSDL or build the SOAP envelopes manually.</li>
+</ol>
+<h3 id="2-authenticate-soap-header">2. Authenticate (SOAP header)</h3>
+<p>Every business call includes a security header:</p>
+<pre><code class="language-xml">&lt;soap:Header&gt;
+  &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+    &lt;wsse:UsernameToken&gt;
+      &lt;wsse:Username&gt;operateur-ent&lt;/wsse:Username&gt;
+      &lt;wsse:Password&gt;Password1!&lt;/wsse:Password&gt;
+    &lt;/wsse:UsernameToken&gt;
+  &lt;/wsse:Security&gt;
+&lt;/soap:Header&gt;
+</code></pre>
+<h3 id="3-submit-a-payment-order-submitorder">3. Submit a payment order (<code>SubmitOrder</code>)</h3>
+<ol>
+<li>Build the SOAP envelope with the authentication header and the order body.</li>
+<li>Send <code>POST /PaymentService.svc</code> (SOAPAction <code>SubmitOrder</code>).</li>
+</ol>
+<p>Example request (fictitious):</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+               xmlns:pay=&quot;https://paygate.lab.exemple/payment&quot;&gt;
+  &lt;soap:Header&gt;
+    &lt;wsse:Security xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+      &lt;wsse:UsernameToken&gt;
+        &lt;wsse:Username&gt;operateur-ent&lt;/wsse:Username&gt;
+        &lt;wsse:Password&gt;Password1!&lt;/wsse:Password&gt;
+      &lt;/wsse:UsernameToken&gt;
+    &lt;/wsse:Security&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;pay:SubmitOrder&gt;
+      &lt;pay:reference&gt;ORD-LAB-100&lt;/pay:reference&gt;
+      &lt;pay:amount&gt;100.00&lt;/pay:amount&gt;
+      &lt;pay:currency&gt;EUR&lt;/pay:currency&gt;
+      &lt;pay:creditorIban&gt;FR7630001007941234567890185&lt;/pay:creditorIban&gt;
+    &lt;/pay:SubmitOrder&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+<p>Example response (fictitious):</p>
+<pre><code class="language-xml">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+               xmlns:pay=&quot;https://paygate.lab.exemple/payment&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;pay:SubmitOrderResponse&gt;
+      &lt;pay:reference&gt;ORD-LAB-100&lt;/pay:reference&gt;
+      &lt;pay:status&gt;ACCEPTED&lt;/pay:status&gt;
+      &lt;pay:receiptId&gt;ACK-ORD-LAB-100&lt;/pay:receiptId&gt;
+    &lt;/pay:SubmitOrderResponse&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</code></pre>
+<h3 id="4-look-up-an-order-getorder">4. Look up an order (<code>GetOrder</code>)</h3>
+<ol>
+<li>Send <code>POST /PaymentService.svc</code> (SOAPAction <code>GetOrder</code>) with the order reference.</li>
+</ol>
+<pre><code class="language-xml">&lt;soap:Body&gt;
+  &lt;pay:GetOrder&gt;
+    &lt;pay:ref&gt;ORD-LAB-100&lt;/pay:ref&gt;
+  &lt;/pay:GetOrder&gt;
+&lt;/soap:Body&gt;
+</code></pre>
+<ol start="2">
+<li>The response returns the status, amount and order details.</li>
+</ol>
+<h3 id="5-download-the-acknowledgement">5. Download the acknowledgement</h3>
+<ol>
+<li>Call <code>GET /receipts/download?name=ACK-ORD-LAB-100.xml</code>.</li>
+<li>The XML acknowledgement file corresponding to the order is returned.</li>
+</ol>
+<h3 id="6-batch-administration-service-interne">6. Batch administration (service-interne)</h3>
+<ol>
+<li>Authenticate with the <code>service-interne</code> account.</li>
+<li>List batches: <code>POST /PaymentService.svc</code> (SOAPAction <code>ListBatches</code>).</li>
+<li>Manage a batch according to business need (processing, cancellation) via the administration operations defined in the contract.</li>
+</ol>
+<h2 id="notes-en">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages.</li>
+<li>To reset the demonstration data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>PayGate XML</strong><br><span class="fr">Service fictif de démonstration</span><span class="en">Fictitious demonstration service</span><br>paygate.lab.exemple</div>
+    <div><span class="fr"><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@paygate.lab.exemple</span><span class="en"><a href="#">Legal notice</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a><br>Support (fictitious): support@paygate.lab.exemple</span></div>
+    <div class="fnote"><span class="fr">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</span><span class="en">Test environment — all data, brands and contact details are fictitious. No real data is processed.</span></div>
+  </div>
+</footer>
+<script>
+(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed', b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}
+var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}
+function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}
+if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();
+</script>
+</body>
+</html>

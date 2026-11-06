@@ -1,0 +1,18 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Historique d'activite</h1>
+    <table class="grid">
+        <thead><tr><th>Horodatage</th><th>IP source</th><th>Action</th></tr></thead>
+        <tbody>
+        {% for e in events %}
+            <tr class="event-row">
+                <td>{{ e.ts }}</td>
+                <td>{{ e.source_ip }}</td>
+                <td>{{ e.action }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if events %}{% else %}<p class="hint">Aucune activite enregistree pour le moment.</p>{% endif %}
+</section>
+{% include 'partials/footer.html.twig' %}

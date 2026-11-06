@@ -1,0 +1,19 @@
+# Ne JAMAIS deployer l'oracle de notation du benchmark ni les sources de dev.
+benchmark/
+Controllers/
+Services/
+Models/
+Middleware/
+Properties/
+obj/
+bin/Debug/
+*.cs
+*.csproj
+*.sln
+.git/
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+VULNERABILITY_GUIDE.md
+negative-controls.yaml
+SECURITY_MODEL.md

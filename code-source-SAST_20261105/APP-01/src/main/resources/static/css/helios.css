@@ -1,0 +1,186 @@
+/* Helios Banque — design bancaire sobre et accessible (contrastes AA). Palette neutre bleus/gris. */
+:root {
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --ink: #1a2230;
+    --ink-soft: #4a5567;
+    --muted: #6b7686;
+    --border: #d7dde7;
+    --primary: #11487e;
+    --primary-ink: #ffffff;
+    --primary-hover: #0d3a67;
+    --secondary: #e8eef6;
+    --secondary-ink: #11487e;
+    --accent: #1f7a4d;
+    --warn-bg: #fdf3e3;
+    --warn-ink: #8a5a12;
+    --error-bg: #fbe7e7;
+    --error-ink: #96241f;
+    --info-bg: #e9f1fb;
+    --info-ink: #11487e;
+    --banner-bg: #8a5a12;
+    --banner-ink: #ffffff;
+    --radius: 8px;
+    --shadow: 0 1px 2px rgba(16, 34, 60, .06), 0 2px 8px rgba(16, 34, 60, .05);
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+}
+
+/* Bandeau permanent de laboratoire */
+.lab-banner {
+    background: var(--banner-bg);
+    color: var(--banner-ink);
+    text-align: center;
+    font-weight: 600;
+    font-size: .9rem;
+    letter-spacing: .02em;
+    padding: .5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* En-tete */
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: .75rem 1rem;
+    flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
+.brand-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--primary); color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.brand-name { font-weight: 700; font-size: 1.15rem; }
+.main-nav { display: flex; gap: .25rem; flex: 1; flex-wrap: wrap; }
+.main-nav a {
+    text-decoration: none; color: var(--ink-soft);
+    padding: .5rem .75rem; border-radius: 6px; font-weight: 500;
+}
+.main-nav a:hover { background: var(--secondary); color: var(--secondary-ink); }
+.main-nav a.active { background: var(--primary); color: #fff; }
+.header-user { display: flex; align-items: center; gap: .75rem; }
+.user-name { font-weight: 600; color: var(--ink-soft); }
+.logout-form { margin: 0; }
+
+/* Conteneurs */
+.container { max-width: 1100px; margin: 1.5rem auto; padding: 0 1rem 3rem; }
+h1 { font-size: 1.6rem; margin: .25rem 0 1rem; }
+h2 { font-size: 1.2rem; margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.mono, code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.break { word-break: break-all; }
+.breadcrumb { color: var(--muted); font-size: .9rem; margin-bottom: .5rem; }
+.breadcrumb a { color: var(--primary); }
+
+/* Cartes de comptes */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.account-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow);
+}
+.account-card-head { display: flex; justify-content: space-between; color: var(--muted); font-size: .85rem; }
+.account-id { font-family: ui-monospace, monospace; }
+.account-label { font-size: 1.05rem; margin: .4rem 0; }
+.account-balance { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin: .25rem 0 1rem; }
+.account-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+.account-summary { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.account-summary span { display: block; font-size: .85rem; }
+
+/* Panneaux */
+.panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow);
+    margin-bottom: 1.25rem;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+/* Tableaux */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid var(--border); }
+.table th { font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
+.table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.actions-cell { display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; }
+
+/* Formulaires */
+.form { display: flex; flex-direction: column; gap: 1rem; }
+.form-inline { flex-direction: row; flex-wrap: wrap; align-items: flex-end; gap: 1rem; }
+.filter-form { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1rem; }
+.inline-form { display: inline-flex; gap: .35rem; align-items: center; margin: 0; }
+.form-row { display: flex; flex-direction: column; gap: .3rem; }
+.form-row label { font-size: .85rem; font-weight: 600; color: var(--ink-soft); }
+.form-check { flex-direction: row; align-items: center; gap: .5rem; }
+input[type=text], input[type=password], input[type=email], input[type=number], select {
+    padding: .55rem .7rem; border: 1px solid var(--border); border-radius: 6px;
+    font-size: .95rem; background: #fff; color: var(--ink); min-width: 180px;
+}
+input:focus, select:focus, button:focus-visible, a:focus-visible {
+    outline: 3px solid rgba(17, 72, 126, .35); outline-offset: 1px;
+}
+
+/* Boutons */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .55rem .9rem; border-radius: 6px; border: 1px solid transparent;
+    font-weight: 600; font-size: .9rem; cursor: pointer; text-decoration: none;
+}
+.btn-primary { background: var(--primary); color: var(--primary-ink); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: var(--secondary); color: var(--secondary-ink); border-color: var(--border); }
+.btn-secondary:hover { background: #dce6f3; }
+.btn-ghost { background: transparent; color: var(--primary); border-color: var(--border); }
+.btn-ghost:hover { background: var(--secondary); }
+.btn-block { width: 100%; }
+
+/* Badges */
+.badge { display: inline-block; padding: .2rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+.badge-ok { background: #e3f1ea; color: var(--accent); }
+.badge-wait { background: var(--warn-bg); color: var(--warn-ink); }
+
+/* Alertes */
+.alert { padding: .75rem 1rem; border-radius: 6px; margin: .5rem 0 1rem; font-size: .92rem; }
+.alert-error { background: var(--error-bg); color: var(--error-ink); }
+.alert-info { background: var(--info-bg); color: var(--info-ink); }
+.lab-mailbox { text-align: left; }
+
+/* Authentification */
+.auth-wrap { min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1rem; }
+.auth-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); padding: 2rem; width: 100%; max-width: 420px;
+}
+.auth-brand { display: flex; align-items: center; gap: .55rem; margin-bottom: 1rem; }
+.auth-card h1 { font-size: 1.3rem; }
+.auth-help { margin-top: 1rem; }
+.auth-help a { color: var(--primary); }
+.auth-note { margin-top: 1rem; font-size: .82rem; color: var(--muted); }
+.search-echo { font-size: 1.05rem; }
+
+/* Pied de page */
+.site-footer { border-top: 1px solid var(--border); background: var(--surface); margin-top: 2rem; }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1rem; color: var(--muted); font-size: .85rem; }
+.footer-sub { margin: .25rem 0 0; font-size: .8rem; }
+
+@media (max-width: 640px) {
+    .header-inner { gap: .75rem; }
+    .main-nav { order: 3; width: 100%; }
+}

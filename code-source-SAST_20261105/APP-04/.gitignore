@@ -1,0 +1,8 @@
+/vendor/
+/var/cache/
+/var/log/
+/var/data.db
+/var/sessions/
+/var/uploads/
+*.log
+.DS_Store

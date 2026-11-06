@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <title th:text="${title} + ' — Hélios Banque (lab)'">Hélios Banque</title>
+    <link rel="stylesheet" th:href="@{/css/helios.css}"/>
+</head>
+<body>
+
+<!-- Bandeau permanent de laboratoire (non masquable) -->
+<div th:fragment="labBanner" class="lab-banner" role="status">
+    Environnement de test – données fictives
+</div>
+
+<!-- En-tete + navigation -->
+<header th:fragment="header(activeNav, username)" class="site-header">
+    <div class="header-inner">
+        <a class="brand" th:href="@{/}">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span class="brand-name">Hélios Banque</span>
+        </a>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a th:href="@{/}" th:classappend="${activeNav == 'dashboard'} ? 'active'">Tableau de bord</a>
+            <a th:href="@{/beneficiaries}" th:classappend="${activeNav == 'beneficiaries'} ? 'active'">Bénéficiaires</a>
+            <a th:href="@{/transfers}" th:classappend="${activeNav == 'transfers'} ? 'active'">Virements</a>
+            <a th:href="@{/statements}" th:classappend="${activeNav == 'statements'} ? 'active'">Relevés</a>
+            <a th:href="@{/search}" th:classappend="${activeNav == 'search'} ? 'active'">Recherche</a>
+            <a th:href="@{/notifications}" th:classappend="${activeNav == 'notifications'} ? 'active'">Notifications</a>
+            <a th:href="@{/profile}" th:classappend="${activeNav == 'profile'} ? 'active'">Profil</a>
+            <a th:href="@{/help}" th:classappend="${activeNav == 'help'} ? 'active'">Aide</a>
+        </nav>
+        <div class="header-user">
+            <span class="user-name" th:if="${username}" th:text="${username}">utilisateur</span>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="btn btn-ghost">Déconnexion</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Pied de page fictif -->
+<footer th:fragment="footer" class="site-footer">
+    <div class="footer-inner">
+        <p>Hélios Banque — établissement fictif de démonstration. Aucune donnée réelle.</p>
+        <p class="footer-sub">Banking DAST Benchmark Lab · APP-01 · usage défensif interne</p>
+    </div>
+</footer>
+
+</body>
+</html>

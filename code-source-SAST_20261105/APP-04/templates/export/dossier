@@ -1,0 +1,10 @@
+=== DOSSIER CLIENT (ConseilDesk) ===
+Environnement de test - donnees fictives.
+
+Client #{{id}}
+Nom        : {{nom}}
+Segment    : {{segment}}
+Ville      : {{ville}}
+Conseiller : {{conseiller}}
+
+Synthese standard : champs restreints (NIR, revenus, note de risque) masques.

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CartaVie — Gestion des cartes (lab)</title>
+    <%= csrf_meta_tags %>
+    <style>
+      body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:0;background:#f5f6f8;color:#1b1f23}
+      .lab-banner{background:#fff4ce;border-bottom:1px solid #e3c766;padding:6px 14px;font-size:13px;text-align:center}
+      header{background:#0b3d5c;color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+      header a{color:#cfe3f0;text-decoration:none;margin-left:14px}
+      .wrap{max-width:960px;margin:0 auto;padding:20px 16px}
+      .card{background:#fff;border:1px solid #e1e4e8;border-radius:8px;padding:14px 16px;margin-bottom:12px}
+      table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e1e4e8;border-radius:8px;overflow:hidden}
+      th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eee;font-size:14px}
+      th{background:#eef1f4}
+      input,select{padding:6px 8px;border:1px solid #c7ccd1;border-radius:6px;font-size:14px}
+      button,.btn{background:#0b6cb0;color:#fff;border:0;border-radius:6px;padding:7px 12px;font-size:14px;cursor:pointer;text-decoration:none;display:inline-block}
+      .alert{background:#fde8e8;border:1px solid #f5b5b5;color:#8a1f1f;padding:8px 12px;border-radius:6px;margin-bottom:12px}
+      .muted{color:#667;font-size:13px}
+    </style>
+  </head>
+  <body>
+    <div class="lab-banner">Environnement de test — données fictives — usage défensif (laboratoire DAST interne).</div>
+    <header>
+      <strong>CartaVie</strong>
+      <nav>
+        <%= link_to "Mes cartes", "/cards" %>
+        <% if logged_in? %>
+          <span class="muted" style="color:#9fc3dc"><%= current_client.username %></span>
+          <%= button_to "Déconnexion", "/logout", method: :delete, form_class: "inline", class: "btn", style: "background:#15507a" %>
+        <% else %>
+          <%= link_to "Connexion", "/login" %>
+        <% end %>
+      </nav>
+    </header>
+    <div class="wrap">
+      <% if flash[:alert] %><div class="alert"><%= flash[:alert] %></div><% end %>
+      <% if flash[:notice] %><div class="alert" style="background:#e8f6ec;border-color:#b5e0c1;color:#1a7f37"><%= flash[:notice] %></div><% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

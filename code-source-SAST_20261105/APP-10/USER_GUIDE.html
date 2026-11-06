@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="fr" data-lang="fr" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnboardR — Guide utilisateur</title>
+<meta name="description" content="OnboardR — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="fr">Aller au contenu</span><span class="en">Skip to content</span></a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">O</span>
+    <span class="brand">OnboardR<small><span class="fr">Entrée en relation (KYC) — laboratoire DAST</span><span class="en">Client onboarding (KYC) — DAST laboratory</span></small></span>
+    <nav class="top fr" aria-label="Navigation du document"><a href="USER_GUIDE.html">Guide utilisateur</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Guide d'exploitation</a></nav><nav class="top en" aria-label="Document navigation"><a href="USER_GUIDE.html">User guide</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Exploitation guide</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="onboardr-guide-utilisateur">OnboardR — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>OnboardR est la plateforme d'entrée en relation (KYC) fictive du laboratoire : elle permet à un prospect d'ouvrir un compte en déposant ses pièces d'identité, puis à un agent de conformité de vérifier le dossier et de décider de son acceptation. L'application est composée de microservices Java (Spring Boot) et Node.js (NestJS) orchestrés par Docker, exposés au travers d'un reverse proxy Nginx dédié qui sert de passerelle unique.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://onboardr.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>prospect1</code> — PROSPECT (titulaire d'un dossier d'onboarding)</li>
+<li><code>prospect2</code> — PROSPECT (seconde identité fictive)</li>
+<li><code>conformite1</code> — CONFORMITE (vérification et décision)</li>
+<li>Authentification : formulaire de connexion via la passerelle, complété par un code à usage unique (OTP) simulé à l'étape de vérification du dossier (code de laboratoire : <code>123456</code>). Les appels inter-services sont protégés par une clé de service interne.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROSPECT</td>
+<td>Créer et compléter son propre dossier d'onboarding, déposer ses pièces, suivre l'avancement, consulter uniquement son dossier.</td>
+</tr>
+<tr>
+<td>CONFORMITE</td>
+<td>Consulter l'ensemble des dossiers, vérifier les pièces, prendre une décision d'acceptation ou de refus via la zone d'administration.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion">1. Connexion</h3>
+<ol>
+<li>Ouvrir <code>https://onboardr.lab.exemple</code>.</li>
+<li>Saisir l'identifiant (ex. <code>prospect1</code>) et le mot de passe <code>Password1!</code>.</li>
+<li>La passerelle ouvre la session et redirige vers le tableau de bord du prospect.</li>
+</ol>
+<h3 id="2-ouverture-dun-dossier-donboarding">2. Ouverture d'un dossier d'onboarding</h3>
+<ol>
+<li>Depuis le tableau de bord, démarrer un nouveau parcours d'ouverture de compte.</li>
+<li>L'application crée le dossier : <code>POST /api/onboarding</code> → renvoie l'identifiant du dossier (ex. <code>1001</code>).</li>
+<li>Renseigner les informations d'identité fictives demandées, puis enregistrer (<code>PUT /api/onboarding/1001</code>).</li>
+</ol>
+<h3 id="3-depot-de-pieces-justificatives">3. Dépôt de pièces justificatives</h3>
+<ol>
+<li>Dans le dossier, choisir « Ajouter une pièce » (justificatif d'identité, de domicile).</li>
+<li>Téléverser le fichier : <code>POST /api/onboarding/1001/documents</code> (multipart, image ou PDF).</li>
+<li>La pièce apparaît dans la liste des documents du dossier.</li>
+</ol>
+<h3 id="4-verification-otp">4. Vérification OTP</h3>
+<ol>
+<li>À l'étape de vérification, saisir le code à usage unique de laboratoire <code>123456</code>.</li>
+<li>L'application confirme l'étape : <code>POST /api/onboarding/1001/verify</code>.</li>
+</ol>
+<h3 id="5-decision-de-conformite">5. Décision de conformité</h3>
+<ol>
+<li>Se connecter en tant que <code>conformite1</code>.</li>
+<li>Consulter le dossier à traiter puis trancher via la zone d'administration : <code>POST /api/admin/onboarding/1001/decision</code> avec <code>{"decision":"APPROVED"}</code> ou <code>{"decision":"REJECTED"}</code>.</li>
+<li>Le prospect voit le statut mis à jour dans le suivi de son dossier.</li>
+</ol>
+<h3 id="6-exemple-dappel-api-rest-via-la-passerelle">6. Exemple d'appel API (REST via la passerelle)</h3>
+<ul>
+<li>Consulter son dossier :</li>
+</ul>
+<p>Requête :
+  <code>GET /api/onboarding/1001 HTTP/1.1
+  Host: onboardr.lab.exemple
+  Cookie: session=&lt;jeton prospect1&gt;</code>
+  Réponse (fictive) :
+  <code>json
+  {
+    "id": 1001,
+    "subject": "Prospect Un",
+    "status": "PENDING",
+    "documents": [{ "id": 5001, "type": "ID", "name": "piece.pdf" }]
+  }</code></p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="onboardr-user-guide-en">OnboardR — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Laboratory application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview-en">Overview</h2>
+<p>OnboardR is the laboratory's fictitious client onboarding (KYC) platform: it lets a prospect open an account by uploading their ID documents, then a compliance officer verify the dossier and decide whether to accept it. The application is made up of Java (Spring Boot) and Node.js (NestJS) microservices orchestrated by Docker, exposed through a dedicated Nginx reverse proxy that acts as the single gateway.</p>
+<h2 id="access-en">Access</h2>
+<ul>
+<li>URL: <code>https://onboardr.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>prospect1</code> — PROSPECT (holder of an onboarding dossier)</li>
+<li><code>prospect2</code> — PROSPECT (second fictitious identity)</li>
+<li><code>conformite1</code> — CONFORMITE (verification and decision)</li>
+<li>Authentication: a login form via the gateway, completed by a simulated one-time code (OTP) at the dossier verification step (lab code: <code>123456</code>). Inter-service calls are protected by an internal service key.</li>
+</ul>
+<h2 id="roles-and-rights-en">Roles and rights</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Rights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROSPECT</td>
+<td>Create and complete their own onboarding dossier, upload their documents, track progress, view only their own dossier.</td>
+</tr>
+<tr>
+<td>CONFORMITE</td>
+<td>View all dossiers, verify documents, make an accept or reject decision via the administration area.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys-en">Main journeys</h2>
+<h3 id="1-login-en">1. Login</h3>
+<ol>
+<li>Open <code>https://onboardr.lab.exemple</code>.</li>
+<li>Enter the username (e.g. <code>prospect1</code>) and the password <code>Password1!</code>.</li>
+<li>The gateway opens the session and redirects to the prospect dashboard.</li>
+</ol>
+<h3 id="2-opening-dossier-en">2. Opening an onboarding dossier</h3>
+<ol>
+<li>From the dashboard, start a new account opening journey.</li>
+<li>The application creates the dossier: <code>POST /api/onboarding</code> → returns the dossier identifier (e.g. <code>1001</code>).</li>
+<li>Fill in the requested fictitious identity information, then save (<code>PUT /api/onboarding/1001</code>).</li>
+</ol>
+<h3 id="3-uploading-documents-en">3. Uploading supporting documents</h3>
+<ol>
+<li>In the dossier, choose "Add a document" (proof of identity, of address).</li>
+<li>Upload the file: <code>POST /api/onboarding/1001/documents</code> (multipart, image or PDF).</li>
+<li>The document appears in the dossier's document list.</li>
+</ol>
+<h3 id="4-otp-verification-en">4. OTP verification</h3>
+<ol>
+<li>At the verification step, enter the laboratory one-time code <code>123456</code>.</li>
+<li>The application confirms the step: <code>POST /api/onboarding/1001/verify</code>.</li>
+</ol>
+<h3 id="5-compliance-decision-en">5. Compliance decision</h3>
+<ol>
+<li>Log in as <code>conformite1</code>.</li>
+<li>Review the dossier to process, then decide via the administration area: <code>POST /api/admin/onboarding/1001/decision</code> with <code>{"decision":"APPROVED"}</code> or <code>{"decision":"REJECTED"}</code>.</li>
+<li>The prospect sees the updated status in the tracking of their dossier.</li>
+</ol>
+<h3 id="6-example-api-call-en">6. Example API call (REST via the gateway)</h3>
+<ul>
+<li>View your dossier:</li>
+</ul>
+<p>Request:</p>
+<pre><code>GET /api/onboarding/1001 HTTP/1.1
+Host: onboardr.lab.exemple
+Cookie: session=&lt;jeton prospect1&gt;
+</code></pre>
+<p>Response (fictitious):</p>
+<pre><code class="language-json">{
+  "id": 1001,
+  "subject": "Prospect Un",
+  "status": "PENDING",
+  "documents": [{ "id": 5001, "type": "ID", "name": "piece.pdf" }]
+}
+</code></pre>
+<h2 id="notes-en">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on every page.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div class="fr"><strong>OnboardR</strong><br>Service fictif de démonstration<br>onboardr.lab.exemple</div>
+    <div class="en"><strong>OnboardR</strong><br>Fictitious demonstration service<br>onboardr.lab.exemple</div>
+    <div class="fr"><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@onboardr.lab.exemple</div>
+    <div class="en"><a href="#">Legal notice</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a><br>Support (fictitious): support@onboardr.lab.exemple</div>
+    <div class="fnote fr">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</div>
+    <div class="fnote en">Test environment — all data, brands and contact details are fictitious. No real data is processed.</div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

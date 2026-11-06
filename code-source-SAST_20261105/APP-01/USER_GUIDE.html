@@ -1,0 +1,265 @@
+<!doctype html><html lang="fr" data-lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hélios Banque — Guide utilisateur / User guide — APP-01</title>
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+</style>
+<style>
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head><body>
+<div class="testbar"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<main class="doc"><div class="fr">
+<h1 id="helios-banque-guide-utilisateur">Hélios Banque — Guide utilisateur</h1>
+<blockquote>
+<p>🇫🇷 Version française ci-dessous — 🇬🇧 English version below (same content).</p>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>Hélios Banque est une banque en ligne destinée aux particuliers. Les clients y consultent leurs comptes et opérations, gèrent leurs bénéficiaires, téléchargent leurs relevés et émettent des virements sécurisés par un code à usage unique (OTP). Les conseillers disposent d'un accès d'accompagnement, et un administrateur assure la gestion de la plateforme. Toutes les données (comptes, soldes, opérations, identités) sont fictives et réservées aux tests.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://helios.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>alice</code> — CLIENT</li>
+<li><code>bruno</code> — CLIENT</li>
+<li><code>claire</code> — ADVISOR (conseiller)</li>
+<li><code>admin</code> — ADMIN (administrateur)</li>
+<li>Authentification : formulaire de connexion classique. Une session serveur est établie via le cookie <code>JSESSIONID</code>. Les opérations sensibles (virement) requièrent une seconde vérification par OTP simulé ; le code OTP de laboratoire est <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits principaux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIENT (alice, bruno)</td>
+<td>Consulter ses comptes, soldes et opérations ; gérer ses bénéficiaires ; télécharger ses relevés ; émettre des virements avec OTP.</td>
+</tr>
+<tr>
+<td>ADVISOR (claire)</td>
+<td>Accès d'accompagnement aux clients suivis, consultation des opérations dans le cadre du conseil.</td>
+</tr>
+<tr>
+<td>ADMIN (admin)</td>
+<td>Administration de la plateforme et réinitialisation de l'état de démonstration.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion">1. Connexion</h3>
+<ol>
+<li>Ouvrir <code>https://helios.lab.exemple</code>.</li>
+<li>Saisir l'identifiant (ex. <code>alice</code>) et le mot de passe <code>Password1!</code>.</li>
+<li><code>POST /login</code> établit la session (<code>Set-Cookie: JSESSIONID=...</code>) et redirige vers le tableau de bord.</li>
+</ol>
+<h3 id="2-consulter-un-compte-et-ses-operations">2. Consulter un compte et ses opérations</h3>
+<ol>
+<li>Depuis le tableau de bord, ouvrir un compte (ex. <code>ACC-1001</code>).</li>
+<li><code>GET /accounts/ACC-1001</code> affiche le détail et le solde.</li>
+<li>Filtrer les opérations par libellé : <code>GET /accounts/ACC-1001/transactions?label=courses</code>.</li>
+</ol>
+<h3 id="3-gerer-les-beneficiaires">3. Gérer les bénéficiaires</h3>
+<ol>
+<li>Rubrique « Bénéficiaires » → « Ajouter ».</li>
+<li>Saisir le nom et l'IBAN, puis valider : <code>POST /beneficiaries</code> (<code>name=...&amp;iban=...</code>).</li>
+<li>Un nouveau bénéficiaire est soumis à un court délai d'activation avant de pouvoir être utilisé pour un virement.</li>
+</ol>
+<h3 id="4-emettre-un-virement-avec-otp">4. Émettre un virement avec OTP</h3>
+<ol>
+<li>Rubrique « Virement » → choisir un bénéficiaire actif et un montant.</li>
+<li>Créer le virement : <code>POST /transfers</code> (<code>beneficiaryId=BEN-01&amp;amount=50.00</code>) → virement en état <code>PENDING</code>.</li>
+<li>Saisir le code OTP de laboratoire <code>123456</code> pour valider l'étape de sécurité.</li>
+<li>Confirmer : <code>POST /transfers/{id}/confirm</code> (<code>otp=123456</code>) → le virement passe à <code>EXECUTED</code>.</li>
+</ol>
+<h3 id="5-telecharger-un-releve">5. Télécharger un relevé</h3>
+<ol>
+<li>Rubrique « Relevés » → sélectionner un mois.</li>
+<li><code>GET /statements/download?file=releve-2026-01.pdf</code> renvoie le relevé fictif au format PDF.</li>
+</ol>
+<h3 id="6-reinitialisation-de-mot-de-passe">6. Réinitialisation de mot de passe</h3>
+<ol>
+<li>Depuis la page de connexion, « Mot de passe oublié ».</li>
+<li><code>POST /password/reset</code> (<code>email=alice@helios.lab.exemple</code>) envoie un lien de réinitialisation (boîte de laboratoire).</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+<hr />
+</div><div class="en">
+<h1 id="english-version">English version</h1>
+<h1 id="helios-banque-user-guide">Hélios Banque — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Laboratory application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>Hélios Banque is an online bank for retail customers. Clients can view their accounts and operations, manage their beneficiaries, download their statements and issue transfers secured by a one-time code (OTP). Advisors have a support access, and an administrator manages the platform. All data (accounts, balances, operations, identities) is fictitious and reserved for testing.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://helios.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>alice</code> — CLIENT</li>
+<li><code>bruno</code> — CLIENT</li>
+<li><code>claire</code> — ADVISOR</li>
+<li><code>admin</code> — ADMIN</li>
+<li>Authentication: standard login form. A server session is established via the <code>JSESSIONID</code> cookie. Sensitive operations (transfer) require a second verification by simulated OTP; the lab OTP code is <code>123456</code>.</li>
+</ul>
+<h2 id="roles-and-permissions">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Main permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIENT (alice, bruno)</td>
+<td>View own accounts, balances and operations; manage own beneficiaries; download own statements; issue transfers with OTP.</td>
+</tr>
+<tr>
+<td>ADVISOR (claire)</td>
+<td>Support access to the clients being followed, viewing operations in an advisory context.</td>
+</tr>
+<tr>
+<td>ADMIN (admin)</td>
+<td>Platform administration and reset of the demo state.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-login">1. Login</h3>
+<ol>
+<li>Open <code>https://helios.lab.exemple</code>.</li>
+<li>Enter the identifier (e.g. <code>alice</code>) and the password <code>Password1!</code>.</li>
+<li><code>POST /login</code> establishes the session (<code>Set-Cookie: JSESSIONID=...</code>) and redirects to the dashboard.</li>
+</ol>
+<h3 id="2-view-an-account-and-its-operations">2. View an account and its operations</h3>
+<ol>
+<li>From the dashboard, open an account (e.g. <code>ACC-1001</code>).</li>
+<li><code>GET /accounts/ACC-1001</code> displays the detail and the balance.</li>
+<li>Filter operations by label: <code>GET /accounts/ACC-1001/transactions?label=courses</code>.</li>
+</ol>
+<h3 id="3-manage-beneficiaries">3. Manage beneficiaries</h3>
+<ol>
+<li>"Beneficiaries" section → "Add".</li>
+<li>Enter the name and the IBAN, then validate: <code>POST /beneficiaries</code> (<code>name=...&amp;iban=...</code>).</li>
+<li>A new beneficiary is subject to a short activation delay before it can be used for a transfer.</li>
+</ol>
+<h3 id="4-issue-a-transfer-with-otp">4. Issue a transfer with OTP</h3>
+<ol>
+<li>"Transfer" section → choose an active beneficiary and an amount.</li>
+<li>Create the transfer: <code>POST /transfers</code> (<code>beneficiaryId=BEN-01&amp;amount=50.00</code>) → transfer in <code>PENDING</code> state.</li>
+<li>Enter the lab OTP code <code>123456</code> to validate the security step.</li>
+<li>Confirm: <code>POST /transfers/{id}/confirm</code> (<code>otp=123456</code>) → the transfer moves to <code>EXECUTED</code>.</li>
+</ol>
+<h3 id="5-download-a-statement">5. Download a statement</h3>
+<ol>
+<li>"Statements" section → select a month.</li>
+<li><code>GET /statements/download?file=releve-2026-01.pdf</code> returns the fictitious statement in PDF format.</li>
+</ol>
+<h3 id="6-password-reset">6. Password reset</h3>
+<ol>
+<li>From the login page, "Forgot password".</li>
+<li><code>POST /password/reset</code> (<code>email=alice@helios.lab.exemple</code>) sends a reset link (lab mailbox).</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>"Environnement de test – données fictives" banner present on all pages.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div></main>
+
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+
+</body></html>

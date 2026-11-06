@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PayGate XML — passerelle de paiement (laboratoire)</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    h1 small { font-weight: normal; color: #777; font-size: .6em; }
+    .lab { background: #fff3cd; color: #664d03; padding: .4rem .7rem; border-radius: 6px; display: inline-block; }
+    section { margin: 1.5rem 0; padding: 1rem; border: 1px solid #ccc3; border-radius: 10px; }
+    code { background: #8881; padding: .1rem .3rem; border-radius: 4px; }
+    .lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+    .lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+    .lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+    html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+    @media print{.lang-switch{display:none}}
+  </style>
+</head>
+<body>
+  <div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+  <header>
+    <h1>PayGate XML <small><span class="fr">— passerelle de paiement SOAP (laboratoire)</span><span class="en">— SOAP payment gateway (laboratory)</span></small></h1>
+    <p class="lab"><span class="fr">DONNÉES 100 % FICTIVES · environnement de test DAST défensif · données fictives</span><span class="en">100% FICTITIOUS DATA · defensive DAST test environment · fictitious data</span></p>
+  </header>
+
+  <main>
+    <section class="fr">
+      <p>Passerelle de remise d'ordres de paiement au format XML/SOAP. Environnement de
+      laboratoire destiné au test de scanners de sécurité applicative (DAST).</p>
+      <p>Service applicatif : <code>/PaymentService.svc</code>.</p>
+    </section>
+    <section class="en">
+      <p>Gateway for submitting payment orders in XML/SOAP format. Laboratory
+      environment intended for testing application security scanners (DAST).</p>
+      <p>Application service: <code>/PaymentService.svc</code>.</p>
+    </section>
+  </main>
+  <script>
+  (function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed', b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}
+  var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}
+  function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}
+  if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();
+  </script>
+</body>
+</html>

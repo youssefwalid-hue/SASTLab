@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CartaVie — Guide utilisateur / User guide</title>
+<meta name="description" content="CartaVie — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">C</span>
+    <span class="brand">CartaVie<small>Gestion des cartes — laboratoire DAST</small></span>
+    <nav class="top" aria-label="Navigation du document"><a href="USER_GUIDE.html">Guide utilisateur</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Guide d'exploitation</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="cartavie-guide-utilisateur">CartaVie — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>CartaVie est un service fictif de gestion des cartes bancaires permettant aux clients de piloter leurs cartes physiques et virtuelles : plafonds, opposition, création de cartes virtuelles et contestations. Il s'adresse à des clients particuliers et à des gestionnaires du service cartes, et expose à la fois une interface web et une API REST JSON (décrite par une spécification OpenAPI).</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://cartavie.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>client-a</code> — client, propriétaire de cartes</li>
+<li><code>client-b</code> — client, propriétaire de cartes</li>
+<li><code>gestionnaire</code> — gestionnaire du service cartes</li>
+<li>Authentification : formulaire web avec cookie de session pour l'interface ; clé d'API transmise dans l'en-tête <code>X-API-Key</code> pour la partie REST. Les actions web sensibles sont protégées par un jeton anti-CSRF.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client (<code>client-a</code>, <code>client-b</code>)</td>
+<td>Consulter ses propres cartes, modifier les libellés, demander une évolution de plafond, mettre en opposition ses cartes, créer une carte virtuelle, ouvrir une contestation, appeler l'API REST avec sa clé</td>
+</tr>
+<tr>
+<td>Gestionnaire (<code>gestionnaire</code>)</td>
+<td>Consulter les cartes des clients, instruire les demandes de plafond, traiter les oppositions et les contestations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion">1. Connexion</h3>
+<ol>
+<li>Ouvrir <code>https://cartavie.lab.exemple</code> et saisir l'identifiant (ex. <code>client-a</code>) et le mot de passe <code>Password1!</code>.</li>
+<li>Un cookie de session est émis ; le tableau de bord des cartes s'affiche.</li>
+</ol>
+<h3 id="2-consulter-et-renommer-une-carte-web">2. Consulter et renommer une carte (web)</h3>
+<ol>
+<li>Depuis le tableau de bord, ouvrir la carte souhaitée (seuls les 4 derniers chiffres du numéro sont affichés).</li>
+<li>Modifier le libellé via le formulaire d'édition (<code>card[label]</code>) et enregistrer ; le libellé apparaît dans la liste.</li>
+</ol>
+<h3 id="3-mettre-une-carte-en-opposition">3. Mettre une carte en opposition</h3>
+<ol>
+<li>Ouvrir la carte concernée et choisir « Mettre en opposition ».</li>
+<li>Le statut de la carte passe à <code>blocked</code> ; une confirmation est affichée.</li>
+</ol>
+<h3 id="4-creer-une-carte-virtuelle">4. Créer une carte virtuelle</h3>
+<ol>
+<li>Choisir « Créer une carte virtuelle » et définir un plafond initial dans le cadre autorisé.</li>
+<li>La nouvelle carte virtuelle apparaît dans la liste avec son propre identifiant.</li>
+</ol>
+<h3 id="5-ouvrir-une-contestation">5. Ouvrir une contestation</h3>
+<ol>
+<li>Sur une opération, choisir « Contester » et indiquer le montant contesté.</li>
+<li>Un recrédit provisoire est appliqué en attendant l'instruction par le gestionnaire.</li>
+</ol>
+<h3 id="6-utiliser-lapi-rest">6. Utiliser l'API REST</h3>
+<ol>
+<li>Obtenir sa clé d'API dans l'espace client et l'utiliser dans l'en-tête <code>X-API-Key</code>.</li>
+<li>Lister ses cartes :
+   - Requête : <code>GET /api/cards</code> avec en-tête <code>X-API-Key: key-client-a-7f3a</code>
+   - Réponse (exemple fictif) :
+     <code>json
+     {
+       "cards": [
+         {"id": 1001, "label": "Carte perso", "pan_masked": "**** **** **** 1234", "limit": 1000, "status": "active"}
+       ]
+     }</code></li>
+<li>Consulter une carte : <code>GET /api/cards/1001</code>
+   - Réponse (exemple fictif) :
+     <code>json
+     {"id": 1001, "label": "Carte perso", "pan_masked": "**** **** **** 1234", "limit": 1000, "available": 1000, "status": "active"}</code></li>
+<li>Renommer une carte : <code>PUT /api/cards/1001</code> avec le corps <code>{"label": "Vacances"}</code> et l'en-tête <code>X-API-Key</code>.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="cartavie-user-guide-en">CartaVie — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="introduction-en">Introduction</h2>
+<p>CartaVie is a fictitious bank-card management service letting clients manage their physical and virtual cards: limits, card blocking, virtual-card creation and disputes. It targets individual clients and card-service managers, and exposes both a web interface and a JSON REST API (described by an OpenAPI specification).</p>
+<h2 id="access-en">Access</h2>
+<ul>
+<li>URL: <code>https://cartavie.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>client-a</code> — client, card owner</li>
+<li><code>client-b</code> — client, card owner</li>
+<li><code>gestionnaire</code> — card-service manager</li>
+<li>Authentication: web form with a session cookie for the interface; API key passed in the <code>X-API-Key</code> header for the REST part. Sensitive web actions are protected by an anti-CSRF token.</li>
+</ul>
+<h2 id="roles-permissions-en">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client (<code>client-a</code>, <code>client-b</code>)</td>
+<td>View their own cards, edit labels, request a limit change, block their cards, create a virtual card, open a dispute, call the REST API with their key</td>
+</tr>
+<tr>
+<td>Manager (<code>gestionnaire</code>)</td>
+<td>View clients' cards, process limit requests, handle card blockings and disputes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-workflows-en">Main workflows</h2>
+<h3 id="1-login-en">1. Login</h3>
+<ol>
+<li>Open <code>https://cartavie.lab.exemple</code> and enter the username (e.g. <code>client-a</code>) and the password <code>Password1!</code>.</li>
+<li>A session cookie is issued; the card dashboard is displayed.</li>
+</ol>
+<h3 id="2-view-rename-en">2. View and rename a card (web)</h3>
+<ol>
+<li>From the dashboard, open the desired card (only the last 4 digits of the number are shown).</li>
+<li>Edit the label via the edit form (<code>card[label]</code>) and save; the label appears in the list.</li>
+</ol>
+<h3 id="3-block-card-en">3. Block a card</h3>
+<ol>
+<li>Open the relevant card and choose "Block".</li>
+<li>The card status changes to <code>blocked</code>; a confirmation is displayed.</li>
+</ol>
+<h3 id="4-create-virtual-card-en">4. Create a virtual card</h3>
+<ol>
+<li>Choose "Create a virtual card" and set an initial limit within the allowed range.</li>
+<li>The new virtual card appears in the list with its own identifier.</li>
+</ol>
+<h3 id="5-open-dispute-en">5. Open a dispute</h3>
+<ol>
+<li>On a transaction, choose "Dispute" and enter the disputed amount.</li>
+<li>A provisional re-credit is applied while awaiting the manager's review.</li>
+</ol>
+<h3 id="6-use-rest-api-en">6. Use the REST API</h3>
+<ol>
+<li>Obtain your API key from the client area and use it in the <code>X-API-Key</code> header.</li>
+<li>List your cards:
+   <ul>
+   <li>Request: <code>GET /api/cards</code> with header <code>X-API-Key: key-client-a-7f3a</code></li>
+   <li>Response (fictitious example):
+<pre><code>{
+  "cards": [
+    {"id": 1001, "label": "Carte perso", "pan_masked": "**** **** **** 1234", "limit": 1000, "status": "active"}
+  ]
+}</code></pre></li>
+   </ul></li>
+<li>View a card: <code>GET /api/cards/1001</code>
+   <ul>
+   <li>Response (fictitious example):
+<pre><code>{"id": 1001, "label": "Carte perso", "pan_masked": "**** **** **** 1234", "limit": 1000, "available": 1000, "status": "active"}</code></pre></li>
+   </ul></li>
+<li>Rename a card: <code>PUT /api/cards/1001</code> with body <code>{"label": "Vacances"}</code> and the <code>X-API-Key</code> header.</li>
+</ol>
+<h2 id="notes-en">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>CartaVie</strong><br>Service fictif de démonstration<br>cartavie.lab.exemple</div>
+    <div><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@cartavie.lab.exemple</div>
+    <div class="fnote">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

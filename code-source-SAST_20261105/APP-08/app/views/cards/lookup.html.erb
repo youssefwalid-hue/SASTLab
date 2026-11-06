@@ -1,0 +1,14 @@
+<div class="card">
+  <h2>Recherche de cartes</h2>
+  <%# 
+      desactivant l'echappement HTML automatique d'ERB. Une charge fournie dans q
+      s'execute au rendu de cette page (variante reflechie, distincte du stocke V007). %>
+  <p class="muted">Resultats pour « <%= raw @q %> »</p>
+  <table>
+    <tr><th>ID</th><th>Libelle</th><th>Statut</th></tr>
+    <% @results.each do |c| %>
+      <tr><td><%= c.id %></td><td><%= c.label %></td><td><%= c.status %></td></tr>
+    <% end %>
+  </table>
+  <p class="muted"><%= link_to "Recherche echappee (NC)", "/cards/lookup-safe?q=#{CGI.escape(@q)}" %></p>
+</div>

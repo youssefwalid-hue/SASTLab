@@ -1,0 +1,23 @@
+# APP-07 "PayGate XML" - Ne JAMAIS deployer l'oracle de notation ni la doc sensible.
+# Banking DAST Benchmark Lab - DONNEES 100% FICTIVES - usage defensif.
+benchmark/
+fixtures/
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+VULNERABILITY_GUIDE.md
+SECURITY_MODEL.md
+negative-controls.yaml
+# Sources de dev (le site deploye utilise bin\PayGate.dll + .svc/.aspx/.config).
+Contracts/
+Core/
+Services/
+Handlers/
+Properties/
+*.cs
+*.csproj
+*.sln
+obj/
+bin/Debug/
+.git/
+.elasticbeanstalk/

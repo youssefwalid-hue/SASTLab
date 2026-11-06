@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h1>Portail de crédit CréditFlux</h1>
+  <p>Demande de prêt, dépôt de justificatifs, import de documents et suivi de dossier.</p>
+  <p class="muted">Application de laboratoire volontairement vulnérable — données 100 % fictives — test de scanners DAST.</p>
+  {% if user %}
+    <p>Connecté en tant que <strong>{{ user.username }}</strong>. <a href="/applications">Voir mes dossiers</a>.</p>
+  {% else %}
+    <p><a href="/login?next=/applications">Se connecter</a> pour accéder à vos dossiers.</p>
+  {% endif %}
+</div>
+{% endblock %}

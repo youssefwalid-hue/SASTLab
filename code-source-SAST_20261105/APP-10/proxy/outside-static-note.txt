@@ -1,0 +1,3 @@
+LAB-OUTSIDE-STATIC: fichier hors de la racine /static/ du proxy.
+Si ce contenu est servi via /static/../ c'est la preuve de la traversee APP10-V015.
+Donnees fictives — environnement de laboratoire.

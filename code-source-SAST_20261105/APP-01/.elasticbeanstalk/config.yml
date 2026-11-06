@@ -1,0 +1,25 @@
+# .elasticbeanstalk/config.yml — gabarit (normalement généré par `eb init`).
+# Fourni ici pour fixer les valeurs du laboratoire. Adapter l'ARN de plateforme si besoin
+# (résolu dynamiquement par deploy/20-deploy-eb.sh via list-available-solution-stacks).
+#
+# POINT CLÉ — déploiement par ARTEFACT MAÎTRISÉ :
+#   deploy.artifact pointe vers un bundle construit par deploy/15-package-bundle.sh, qui ne
+#   contient QUE le JAR + Procfile + .ebextensions + .platform. Ainsi `eb deploy` n'embarque
+#   jamais benchmark/ ni les guides (garde-fou de laboratoire).
+
+branch-defaults:
+  default:
+    environment: app01-helios-env
+    group_suffix: null
+
+global:
+  application_name: app01-helios
+  default_region: eu-west-3
+  default_platform: Corretto 21 running on 64bit Amazon Linux 2023
+  branch: null
+  repository: null
+  sc: null
+  workspace_type: Application
+
+deploy:
+  artifact: dist/app01-helios-eb.zip

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Aide')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('help', ${username})}"></header>
+
+<main class="container">
+    <h1>Aide &amp; à propos</h1>
+
+    <section class="panel">
+        <h2>À propos de Hélios Banque</h2>
+        <p>Hélios Banque est un établissement <strong>fictif</strong> de démonstration. Toutes les données
+            (comptes, bénéficiaires, relevés, virements) sont <strong>100 % fictives</strong> et servent
+            exclusivement à un environnement de test interne.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Questions fréquentes</h2>
+        <ul>
+            <li>Comment ajouter un bénéficiaire ? Depuis la page <a th:href="@{/beneficiaries}">Bénéficiaires</a>.</li>
+            <li>Comment initier un virement ? Depuis la page <a th:href="@{/transfers}">Virements</a> (code OTP de laboratoire requis).</li>
+            <li>Où consulter mes relevés ? Sur la page <a th:href="@{/statements}">Relevés</a>.</li>
+            <li>Comment mettre à jour mon profil ? Depuis la page <a th:href="@{/profile}">Profil</a>.</li>
+        </ul>
+    </section>
+
+    <section class="panel">
+        <h2>Assistance</h2>
+        <p class="muted">Assistance fictive : support@helios.lab.exemple — ligne de démonstration.</p>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

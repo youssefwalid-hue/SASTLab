@@ -1,0 +1,23 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Recherche clients</h1>
+    <form method="get" action="{% if secure %}/clients/v2{% else %}/clients{% endif %}" class="form-inline">
+        <input type="text" name="search" value="{{ search }}" placeholder="Nom du client">
+        <button type="submit">Rechercher</button>
+    </form>
+    <table class="grid">
+        <thead><tr><th>ID</th><th>Nom</th><th>Segment</th><th>Conseiller</th><th>Ville</th></tr></thead>
+        <tbody>
+        {% for c in clients %}
+            <tr class="client-row" data-client-id="{{ c.id }}">
+                <td>{{ c.id }}</td>
+                <td>{{ c.nom }}</td>
+                <td>{{ c.segment }}</td>
+                <td>{{ c.conseiller }}</td>
+                <td>{{ c.ville }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% include 'partials/footer.html.twig' %}

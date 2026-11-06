@@ -1,0 +1,8 @@
+{% include 'partials/header.html.twig' %}
+<section class="card print" data-file-id="{{ file.id }}" data-file-etat="{{ file.etat }}">
+    <h1>Fiche imprimable - Dossier {{ file.id }}</h1>
+    <p>Intitule : {{ file.intitule }}</p>
+    <p>Etat courant : <strong class="etat">{{ file.etat }}</strong></p>
+    <p class="hint">Version imprimable du dossier (donnees fictives).</p>
+</section>
+{% include 'partials/footer.html.twig' %}

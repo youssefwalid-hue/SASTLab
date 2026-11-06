@@ -1,0 +1,295 @@
+<!doctype html><html lang="fr" data-lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Trésoria — Guide utilisateur / User guide</title>
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+</style>
+<style>
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head><body>
+<div class="testbar"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<main class="doc"><div class="fr">
+<blockquote>
+<p>🇫🇷 Version française ci-dessous — 🇬🇧 English version below (same content).</p>
+</blockquote>
+<h1 id="tresoria-guide-utilisateur">Trésoria — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>Trésoria est un portail de trésorerie pour entreprises permettant de préparer et d'exécuter des virements de masse selon un circuit de double validation (saisie puis validation). Il s'adresse aux opérateurs de saisie, aux valideurs et aux administrateurs d'entreprise qui gèrent les lots de paiement, le suivi des plafonds et le reporting. L'application se compose d'une interface Angular (SPA) adossée à une API REST ASP.NET Core.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://tresoria.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>saisie1</code> — rôle saisie, entreprise A</li>
+<li><code>valideur1</code> — rôle validation, entreprise A</li>
+<li><code>admin-ent</code> — rôle administrateur, entreprise A</li>
+<li><code>saisie2</code> — rôle saisie, entreprise B</li>
+<li>Authentification : connexion par formulaire renvoyant un couple de jetons JWT (access token court + refresh token). L'access token est transmis en en-tête <code>Authorization: Bearer &lt;token&gt;</code> sur chaque appel API ; le refresh token permet d'obtenir un nouvel access token via <code>POST /api/token/refresh</code>. Le code OTP de laboratoire est <code>123456</code> lorsque demandé.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits principaux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>saisie</td>
+<td>Importer et créer des lots de virements, éditer un lot en brouillon, soumettre un lot pour approbation, consulter le reporting de son entreprise. Ne peut pas approuver ni valider.</td>
+</tr>
+<tr>
+<td>validation (valideur)</td>
+<td>Consulter les lots en attente, approuver puis valider les lots (circuit des quatre yeux), consulter le reporting.</td>
+</tr>
+<tr>
+<td>administrateur d'entreprise (admin-ent)</td>
+<td>Gérer les utilisateurs et les plafonds de l'entreprise, consulter tous les lots de l'entreprise, accéder aux exports.</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque utilisateur est rattaché à une entreprise (tenant) ; les données sont cloisonnées par entreprise.</p>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion-et-obtention-des-jetons">1. Connexion et obtention des jetons</h3>
+<ol>
+<li>Accéder à <code>https://tresoria.lab.exemple</code> et saisir identifiant et mot de passe (<code>Password1!</code>).</li>
+<li>L'appel <code>POST /api/login</code> renvoie un access token et un refresh token.</li>
+<li>Exemple de réponse fictive :
+   <code>json
+   { "access_token": "&lt;jwt&gt;", "refresh_token": "&lt;rt&gt;", "expires_in": 900, "role": "saisie", "company": "A" }</code></li>
+<li>Les appels suivants portent l'en-tête <code>Authorization: Bearer &lt;access_token&gt;</code>.</li>
+</ol>
+<h3 id="2-import-dun-lot-de-virements-de-masse">2. Import d'un lot de virements de masse</h3>
+<ol>
+<li>Dans « Lots », cliquer sur « Importer » et déposer un fichier, ou créer un lot manuellement.</li>
+<li>Appel : <code>POST /api/batches</code>
+   <code>json
+   {
+     "label": "Loyers octobre",
+     "transfers": [
+       { "iban": "FR7630000000000000000000001", "amount": 1500.00, "label": "Loyer siège" },
+       { "iban": "FR7630000000000000000000002", "amount": 820.00, "label": "Loyer agence" }
+     ]
+   }</code></li>
+<li>Réponse fictive : <code>201 { "id": 9001, "status": "DRAFT", "createdBy": "saisie1", "company": "A" }</code></li>
+</ol>
+<h3 id="3-soumission-puis-workflow-de-double-validation">3. Soumission puis workflow de double validation</h3>
+<ol>
+<li>L'opérateur de saisie soumet le lot : <code>POST /api/batches/9001/submit</code> → statut <code>PENDING_APPROVAL</code>.</li>
+<li>Un valideur (distinct du créateur) approuve : <code>POST /api/batches/9001/approve</code> → statut <code>APPROVED</code>.</li>
+<li>Le même valideur valide l'exécution : <code>POST /api/batches/9001/validate</code> → statut <code>VALIDATED</code>.</li>
+<li>Le circuit respecte la règle des quatre yeux : le créateur du lot ne peut pas l'approuver lui-même.</li>
+</ol>
+<h3 id="4-creation-dun-virement-unitaire">4. Création d'un virement unitaire</h3>
+<ol>
+<li>Dans « Virements », saisir le compte émetteur, le bénéficiaire (IBAN), le montant et le libellé.</li>
+<li>Appel : <code>POST /api/transfers</code>
+   <code>json
+   { "accountId": "A-001", "amount": 250.00, "iban": "FR7630000000000000000000003", "label": "Fournisseur" }</code></li>
+<li>Le montant est contrôlé (positif, dans le plafond quotidien de l'entreprise) avant acceptation.</li>
+</ol>
+<h3 id="5-reporting-et-export">5. Reporting et export</h3>
+<ol>
+<li>Consulter le reporting trié : <code>GET /api/reports?sort=amount</code> renvoie les mouvements agrégés de l'entreprise.</li>
+<li>Exporter un lot : <code>GET /api/batches/9001/export</code> fournit les données fonctionnelles du lot (bénéficiaires, montants, libellés) au format exportable.</li>
+</ol>
+<h3 id="6-rafraichissement-de-session-et-deconnexion">6. Rafraîchissement de session et déconnexion</h3>
+<ol>
+<li>À l'expiration de l'access token : <code>POST /api/token/refresh</code> avec <code>{ "refresh_token": "&lt;rt&gt;" }</code> → nouvel access token.</li>
+<li>Déconnexion : <code>POST /api/logout</code> invalide la session et le refresh token.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+<hr />
+</div><div class="en">
+<h1 id="english-version">English version</h1>
+<h1 id="tresoria-user-guide">Trésoria — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>Trésoria is a corporate treasury portal for preparing and executing mass transfers through a dual-validation circuit (entry then validation). It is aimed at entry operators, validators and company administrators who manage payment batches, cap tracking and reporting. The application consists of an Angular interface (SPA) backed by an ASP.NET Core REST API.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://tresoria.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>saisie1</code> — saisie role, company A</li>
+<li><code>valideur1</code> — validation role, company A</li>
+<li><code>admin-ent</code> — administrator role, company A</li>
+<li><code>saisie2</code> — saisie role, company B</li>
+<li>Authentication: form login returning a pair of JWT tokens (short access token + refresh token). The access token is sent in the <code>Authorization: Bearer &lt;token&gt;</code> header on every API call; the refresh token allows obtaining a new access token via <code>POST /api/token/refresh</code>. The lab OTP code is <code>123456</code> when requested.</li>
+</ul>
+<h2 id="roles-and-permissions">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Main permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>saisie</td>
+<td>Import and create transfer batches, edit a draft batch, submit a batch for approval, view the reporting of their company. Cannot approve or validate.</td>
+</tr>
+<tr>
+<td>validation (validator)</td>
+<td>View pending batches, approve then validate batches (four-eyes circuit), view reporting.</td>
+</tr>
+<tr>
+<td>company administrator (admin-ent)</td>
+<td>Manage the company's users and caps, view all the company's batches, access exports.</td>
+</tr>
+</tbody>
+</table>
+<p>Each user is attached to a company (tenant); data is isolated per company.</p>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-login-and-obtaining-tokens">1. Login and obtaining tokens</h3>
+<ol>
+<li>Go to <code>https://tresoria.lab.exemple</code> and enter username and password (<code>Password1!</code>).</li>
+<li>The <code>POST /api/login</code> call returns an access token and a refresh token.</li>
+<li>Example fictitious response:
+   <code>json
+   { "access_token": "&lt;jwt&gt;", "refresh_token": "&lt;rt&gt;", "expires_in": 900, "role": "saisie", "company": "A" }</code></li>
+<li>Subsequent calls carry the <code>Authorization: Bearer &lt;access_token&gt;</code> header.</li>
+</ol>
+<h3 id="2-importing-a-mass-transfer-batch">2. Importing a mass-transfer batch</h3>
+<ol>
+<li>In "Batches", click "Import" and drop a file, or create a batch manually.</li>
+<li>Call: <code>POST /api/batches</code>
+   <code>json
+   {
+     "label": "Loyers octobre",
+     "transfers": [
+       { "iban": "FR7630000000000000000000001", "amount": 1500.00, "label": "Loyer siège" },
+       { "iban": "FR7630000000000000000000002", "amount": 820.00, "label": "Loyer agence" }
+     ]
+   }</code></li>
+<li>Fictitious response: <code>201 { "id": 9001, "status": "DRAFT", "createdBy": "saisie1", "company": "A" }</code></li>
+</ol>
+<h3 id="3-submission-then-dual-validation-workflow">3. Submission then dual-validation workflow</h3>
+<ol>
+<li>The entry operator submits the batch: <code>POST /api/batches/9001/submit</code> → status <code>PENDING_APPROVAL</code>.</li>
+<li>A validator (distinct from the creator) approves: <code>POST /api/batches/9001/approve</code> → status <code>APPROVED</code>.</li>
+<li>The same validator validates execution: <code>POST /api/batches/9001/validate</code> → status <code>VALIDATED</code>.</li>
+<li>The circuit enforces the four-eyes rule: the batch creator cannot approve it themselves.</li>
+</ol>
+<h3 id="4-creating-a-single-transfer">4. Creating a single transfer</h3>
+<ol>
+<li>In "Transfers", enter the originating account, the beneficiary (IBAN), the amount and the label.</li>
+<li>Call: <code>POST /api/transfers</code>
+   <code>json
+   { "accountId": "A-001", "amount": 250.00, "iban": "FR7630000000000000000000003", "label": "Fournisseur" }</code></li>
+<li>The amount is checked (positive, within the company's daily cap) before acceptance.</li>
+</ol>
+<h3 id="5-reporting-and-export">5. Reporting and export</h3>
+<ol>
+<li>View sorted reporting: <code>GET /api/reports?sort=amount</code> returns the company's aggregated movements.</li>
+<li>Export a batch: <code>GET /api/batches/9001/export</code> provides the batch's functional data (beneficiaries, amounts, labels) in an exportable format.</li>
+</ol>
+<h3 id="6-session-refresh-and-logout">6. Session refresh and logout</h3>
+<ol>
+<li>When the access token expires: <code>POST /api/token/refresh</code> with <code>{ "refresh_token": "&lt;rt&gt;" }</code> → new access token.</li>
+<li>Logout: <code>POST /api/logout</code> invalidates the session and the refresh token.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div></main>
+
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+
+</body></html>

@@ -1,0 +1,11 @@
+<div class="card" style="max-width:420px;margin:40px auto">
+  <h2>Connexion</h2>
+  <%= form_with url: "/login", method: :post, local: true do |f| %>
+    <!-- Le parametre redirect est propage (
+    <%= hidden_field_tag :redirect, @redirect %>
+    <p><label>Identifiant<br><%= text_field_tag :username, params[:username], autofocus: true %></label></p>
+    <p><label>Mot de passe<br><%= password_field_tag :password %></label></p>
+    <p><%= submit_tag "Se connecter", class: "btn" %></p>
+  <% end %>
+  <p class="muted">Comptes : client-a / client-b / gestionnaire — mot de passe <code>Password1!</code></p>
+</div>

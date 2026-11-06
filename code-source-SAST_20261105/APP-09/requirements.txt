@@ -1,0 +1,5 @@
+# APP-09 Novabourse — dependances applicatives (runtime).
+# Stockage SQLite via la bibliotheque standard (sqlite3) : aucune base externe.
+fastapi>=0.111,<1
+uvicorn[standard]>=0.30,<1
+python-multipart>=0.0.9,<1

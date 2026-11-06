@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Widget carte <%= @card.id %> (sur)</title>
+    <%# // NC: APP08-N009 — meme widget, cadrage explicitement interdit via les en-tetes
+        X-Frame-Options: DENY et CSP frame-ancestors 'none' (poses dans le controleur). %>
+    <style>body{font-family:system-ui,Arial,sans-serif;margin:0;padding:12px}
+      .w{border:1px solid #ddd;border-radius:8px;padding:12px}</style>
+  </head>
+  <body>
+    <div class="w">
+      <h3>Carte <%= @card.id %> — <%= @card.label %></h3>
+      <p>Statut : <%= @card.status %> · Disponible : <%= @card.available %> €</p>
+      <%= form_with url: "/cards/#{@card.id}/rename", method: :post, local: true do %>
+        <%= text_field_tag :label, @card.label %>
+        <%= submit_tag "Renommer" %>
+      <% end %>
+    </div>
+  </body>
+</html>

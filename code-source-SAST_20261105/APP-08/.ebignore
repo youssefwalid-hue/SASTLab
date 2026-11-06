@@ -1,0 +1,23 @@
+# .ebignore — ce qui NE DOIT JAMAIS être embarqué dans le bundle déployé sur EB.
+# Garde-fou de laboratoire : le dossier benchmark/ (ground-truth, negative-controls,
+# guide, validateur) et la documentation de conception ne doivent jamais partir sur
+# l'environnement ni être servis par HTTP.
+
+# Artefacts de benchmark — NE JAMAIS DÉPLOYER (oracle de notation du benchmark)
+benchmark/
+
+# Documentation (guides, conception) — hors environnement
+*.md
+USER_GUIDE.*
+VULNERABILITY_GUIDE.*
+ARCHITECTURE.*
+SECURITY_MODEL.*
+negative-controls.yaml
+BUILD_SPEC.md
+
+# Base locale et divers
+storage/*.sqlite3
+log/
+tmp/
+.git/
+*.zip

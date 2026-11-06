@@ -1,0 +1,504 @@
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Services/MemoryStore.cs:9:/// (voir TransfersController - GT: APP03-V003) ; ce depot expose donc une lecture/ecriture
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Services/ReportService.cs:9:/// Le parametre `sort` est VOLONTAIREMENT concatene (GT: APP03-V008) ; `groupBy` est, lui,
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Services/ReportService.cs:70:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/wwwroot/app.js:2:// Securisee par defaut SAUF le rendu du libelle de virement (GT: APP03-V009).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/wwwroot/app.js:66:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/wwwroot/index.html:12:    NB : ce front sert a EXERCER le rendu du libelle de virement (GT: APP03-V009)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Program.cs:25:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Program.cs:82:// 2) En-tetes "securite" : GT: APP03-V014 (durcissement absent) + GT: APP03-V016 (X-Powered-By).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Program.cs:85:// 3) GT: APP03-V013 - Developer Exception Page ACTIVE (meme hors developpement) :
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Program.cs:89:// 4) GT: APP03-V015 - filtrage de chemin "proxy" contournable par double slash.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SecurityHeadersMiddleware.cs:6:/
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SecurityHeadersMiddleware.cs:10:/
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SecurityHeadersMiddleware.cs:23:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SecurityHeadersMiddleware.cs:26:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SwaggerPathMiddleware.cs:6:/
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Middleware/SwaggerPathMiddleware.cs:30:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/IngestionController.cs:27:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/IngestionController.cs:41:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/AuthController.cs:33:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/AuthController.cs:54:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/AuthController.cs:69:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/SignInController.cs:11:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/SignInController.cs:20:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/FramingController.cs:22:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/FramingController.cs:32:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:22:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:24:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:26:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:45:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:54:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:63:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/TransfersController.cs:78:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:60:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:61:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:67:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:73:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:88:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:104:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:130:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:140:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:148:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:161:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:172:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/BatchesController.cs:182:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/PreferencesController.cs:16:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/PreferencesController.cs:28:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/AccountRecoveryController.cs:17:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/AccountRecoveryController.cs:27:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/ReportsController.cs:17:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/PartnerController.cs:21:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/PartnerController.cs:33:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/LegacyAuthController.cs:28:    /
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Controllers/LegacyAuthController.cs:49:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Tresoria.csproj:16:    <!-- GT: APP03-V016 - on NE neutralise PAS la banniere serveur (pas de GenerateDocumentationFile masque). -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-03/Tresoria.csproj:23:    <!-- GT: APP03-V020 - deserialisation de preferences avec resolution de type ($type). -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/introspect.go:4:// introspect.go — Introspection GraphQL (GT: APP06-V003).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/jwt.go:26:	algNone  bool   // non sérialisé : vrai si le jeton a été accepté avec alg:none (GT: APP06-V018)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/jwt.go:81:	
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:18:const serverBanner = "Go-http (go1.22 net/http)" 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:34:// volontairement ABSENTS (GT: APP06-V014), et la bannière serveur est exposée
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:35:// (GT: APP06-V016).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:38:	w.Header().Set("Server", serverBanner)           
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:39:	w.Header().Set("X-Powered-By", "gqlgen/Go 1.22") 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:42:// applyCORS reflète l'Origin avec credentials (GT: APP06-V013).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:46:		w.Header().Set("Access-Control-Allow-Origin", origin) 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:75:	
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:106:	// revérifiée (GT: APP06-V007).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:110:			ex.authAlgNone = c.algNone 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:138:// redirectHandler : GT: APP06-V020 — redirection ouverte. Le paramètre `next`
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:148:	w.Header().Set("Location", next) 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:187:	// Volontairement SANS en-têtes de durcissement (GT: APP06-V014), avec
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:188:	// bannière serveur exposée (GT: APP06-V016).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/main.go:200:	mux.HandleFunc("/go", redirectHandler)          
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:56:		return &introSchema{}, nil 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:75:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:88:			
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:98:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:138:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:158:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:202:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:221:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:330:	
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:411:			role, _ = in["role"].(string) 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:435:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:462:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:492:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:517:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:535:		
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:603:	resp, err := client.Get(raw) 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:703:		return o.c.PAN, nil 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:705:		return o.c.CVV, nil 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/schema.go:876:		return o.exists, nil 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/execute.go:31:	authAlgNone bool   // vrai si le jeton a été accepté via alg:none (GT: APP06-V018)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/execute.go:157:	
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/data.go:249:	if role != "" { 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/data.go:323:// transferVulnerable : GT: APP06-V021 — aucun controle de signe ni de solde.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/data.go:335:	from.Balance -= amount 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-06/data.go:369:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/health/health.controller.ts:10:    // Réponse volontairement dépourvue d'en-têtes de durcissement (GT: APP02-V015)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/health/health.controller.ts:11:    // et servie par un Express exposant X-Powered-By (GT: APP02-V016) — voir main.ts.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/exports/exports.controller.ts:28:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/oauth.controller.ts:53:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/oauth.controller.ts:79:   *  - GT: APP02-V017 — la `redirect_uri` fournie n'est PAS validée contre une allowlist :
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/oauth.controller.ts:81:   *  - GT: APP02-V022 — le `code` d'autorisation est SÉQUENTIEL et prévisible
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/oauth.controller.ts:94:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/oauth.controller.ts:98:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/idp.service.ts:100:   *  - GT: APP02-V006 — accepte HS256 signé avec le PEM de la clé PUBLIQUE comme secret
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/idp.service.ts:102:   *  - GT: APP02-V005 — ne vérifie PAS le claim `aud` (aucune contrainte d'audience).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/idp.service.ts:109:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/idp.service.ts:127:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/idp/idp.service.ts:141:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/consents/consents.service.ts:29:   * GT: APP02-V009 — la callbackUrl fournie est appelée côté serveur sans allowlist
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/consents/consents.controller.ts:30:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/consents/consents.controller.ts:47:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/consents/consents.controller.ts:64:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.service.ts:16: * (GT: APP02-V019) : il ne contient AUCUN secret réel.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.service.ts:59:   * Lecture de fichier VULNÉRABLE (GT: APP02-V019).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.service.ts:64:    const full = join(ReportsService.REPORTS_DIR, name); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.service.ts:97:   * Export CSV VULNÉRABLE (GT: APP02-V020).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.service.ts:104:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.controller.ts:16:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.controller.ts:22:    const content = this.reports.readUnsafe(name ?? ''); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.controller.ts:26:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/reports/reports.controller.ts:32:    const csv = this.reports.buildCsvUnsafe(auth.clientId); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/store/memory.store.ts:53:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/filters/all-exceptions.filter.ts:13: * GT: APP02-V014 — sur les routes /v1 (hors /v1/secure), une exception non-HTTP
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/filters/all-exceptions.filter.ts:51:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/guards/lab-auth.guard.ts:26: *  - X-API-Key statique — GT: APP02-V012 (clé rejouable, journalisée en clair).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/guards/lab-auth.guard.ts:45:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/guards/lab-auth.guard.ts:56:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/guards/rate-limit.guard.ts:7: * NB — GT: APP02-V010 : l'endpoint /oauth/token n'est VOLONTAIREMENT pas protégé
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/request-log.service.ts:7: * GT: APP02-V012 — la valeur de l'en-tête X-API-Key est journalisée EN CLAIR puis
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/common/request-log.service.ts:20:      apiKey: entry.apiKey, 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/debug/debug.controller.ts:10:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.controller.ts:33:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.controller.ts:41:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.controller.ts:44:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.controller.ts:48:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.service.ts:45:      iban: a.iban, 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/accounts/accounts.service.ts:46:      linkedCardPan: a.linkedCardPan, 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/main.ts:20:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/main.ts:23:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/main.ts:29:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/main.ts:31:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/payments/payments.controller.ts:18:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/notifications/notifications.controller.ts:35:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/notifications/notifications.controller.ts:41:    const html = this.notifications.wrapPreview(message ?? ''); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/notifications/notifications.controller.ts:45:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/notifications/notifications.service.ts:36:   * Rendu de template VULNÉRABLE (GT: APP02-V021).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-02/src/notifications/notifications.service.ts:42:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/batches/web.config:4:     GT: APP07-V010 - Directory Browsing ACTIVE sur ce dossier : GET /batches/
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/legacy/ReportSecure.aspx:6:     Pendant securise de GT: APP07-V019 (Report.aspx sans en-tete anti-cadrage). --%>
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/legacy/Report.aspx.cs:5:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/legacy/ReportSecure.aspx.cs:5:// NC: APP07-N011 - pendant securise de GT: APP07-V019 (clickjacking).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/legacy/Report.aspx:4:<%-- GT: APP07-V015 - page WebForms heritee avec enableViewStateMac DESACTIVE :
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:80:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:83:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:91:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:94:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:99:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:230:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:233:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:302:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:304:        // (La fuite de cette operation dans le WSDL public = GT: APP07-V004.)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:331:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:374:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:413:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:445:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Services/PaymentService.cs:476:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/SoapAuth.cs:40:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/PathUtil.cs:28:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/RemoteFetch.cs:22:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/XmlParsing.cs:29:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/XmlParsing.cs:31:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/XmlParsing.cs:108:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/OrderRepository.cs:44:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/OrderRepository.cs:48:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Core/BeneficiaryDirectory.cs:38:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:50:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:59:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:68:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:76:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:84:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Contracts/IPaymentService.cs:93:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Global.asax.cs:27:            // NOTE SECURITE (GT: APP07-V013) : les en-tetes de durcissement
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Global.asax.cs:30:            // headers faible. Les en-tetes de version (GT: APP07-V009) ne sont pas
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Hosting/DtdHosting.cs:2:// APP-07 "PayGate XML" - Hebergement WCF custom (GT: APP07-V001 / V006).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Handlers/Handlers.cs:28:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/App_Code/Handlers/Handlers.cs:73:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/win-deploy/install.ps1:22:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/win-deploy/install.ps1:42:# 2b) GT: APP07-V012 - WebDAV installe + authoring actif (OPTIONS annonce DAV, PROPFIND). Best-effort.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/win-deploy/install.ps1:48:# 2c) GT: APP07-V008 - laisser le filtrage de requetes IIS transmettre la forme tilde (*~1*) jusqu'au
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:7:       GT: APP07-V008 - generation des noms courts 8.3 laissee ACTIVE sur le
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:19:         sur la page heritee (GT: APP07-V015). -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:34:    <!-- GT: APP07-V009 - pages d'erreur detaillees (customErrors Off) : les traces
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:38:    <!-- GT: APP07-V015 - MAC du ViewState desactive globalement pour le heritage.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:48:               GT: APP07-V004 - le contrat PUBLIC inclut l'operation d'administration
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:51:          <!-- GT: APP07-V009 - details d'exception inclus dans les Faults. -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:85:    <!-- GT: APP07-V013 - aucun en-tete de durcissement (HSTS, X-Content-Type-Options,
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:87:         GT: APP07-V009 - les en-tetes de version NE sont PAS supprimes
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:98:        <!-- GT: APP07-V012 - verbes non listes AUTORISES : les verbes WebDAV
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:132:  <!-- GT: APP07-V015 - la page heritee conserve le MAC ViewState desactive. -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-07/web.config:148:  <!-- GT: APP07-V014 - traversee de chemin (ResolveReceiptInsecure, sans confinement). -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/main.py:32:# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/main.py:33:# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/main.py:58:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/main.py:69:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/main.py:78:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/jwtlab.py:75:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/security.py:30:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/portfolios.py:26:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/portfolios.py:39:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/orders.py:20:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/orders.py:21:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/orders.py:22:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/orders.py:75:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/orders.py:93:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/oidc.py:49:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/oidc.py:81:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/oidc.py:121:    if not _redirect_uri_weakly_valid(redirect_uri):  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/oidc.py:138:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/instruments.py:15:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:44:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:59:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:71:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:92:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:108:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/app/routers/extras.py:129:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/static/app.js:5: * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-09/static/app.js:91:          {/* 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:12:    path("", views.home, name="home"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:13:    path("login", views.login_view, name="login"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:16:    path("applications", views.applications_list, name="applications"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:17:    path("applications/err", views.applications_err, name="applications_err"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:19:    path("applications/search", views.applications_search, name="applications_search"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:24:    path("applications/<int:app_id>/print", views.application_print, name="application_print"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:26:    path("applications/<int:app_id>/documents", views.upload_document, name="upload_document"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:27:    path("applications/<int:app_id>/amount", views.set_amount, name="set_amount"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:28:    path("applications/<int:app_id>/comment", views.add_comment, name="add_comment"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:29:    path("applications/<int:app_id>/submit", views.submit_application, name="submit"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:34:    path("documents/fetch", views.documents_fetch, name="documents_fetch"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:37:    path("documents/<int:doc_id>", views.document_download, name="document_download"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:39:    path("import", views.import_xml, name="import"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:42:    path("import/session", views.import_session, name="import_session"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:48:    path("profile/update", views.profile_update, name="profile_update"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:50:    path("api/profile", views.api_profile, name="api_profile"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:52:    path("password/reset", views.password_reset, name="password_reset"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:54:    path("notes/preview", views.notes_preview, name="notes_preview"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/urls.py:61:    path("static/app.js", views.static_app_js, name="static_app_js"),  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/settings.py:28:# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/creditflux/settings.py:107:# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/.ebextensions/01-options.config:11:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/templates/search.html:10:  {# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/templates/application_detail.html:34:    {# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/middleware.py:50:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/middleware.py:54:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/middleware.py:61:            # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:115:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:118:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:142:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:157:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:192:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:210:    # le template application_detail.html (filtre |safe). 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:215:@csrf_exempt  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:281:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:283:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:285:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:367:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:412:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:417:        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:475:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:542:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:606:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:709:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:743:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:789:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:826:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:851:@xframe_options_exempt  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/portal/views.py:881:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-05/.platform/nginx/conf.d/00-server-banner.conf:2:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/AccountController.java:38:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/AccountController.java:43:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/AccountController.java:63:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/AccountController.java:74:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:42:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:47:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:81:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:90:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:120:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ApiController.java:126:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/SearchController.java:15:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/SearchController.java:21:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/BeneficiaryController.java:58:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/BeneficiaryController.java:66:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/BeneficiaryController.java:79:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/StatementController.java:44:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/StatementController.java:50:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/PasswordController.java:42:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/PasswordController.java:49:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/PasswordController.java:77:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/PasswordController.java:84:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/WidgetController.java:26:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/WidgetController.java:33:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/TransferController.java:63:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/TransferController.java:70:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ProfileController.java:36:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ProfileController.java:46:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ToolsController.java:25:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/web/ToolsController.java:35:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/TomcatConnectorConfig.java:15:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/TomcatConnectorConfig.java:21:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/LabHeaderFilter.java:33:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/OpenRedirectAuthSuccessHandler.java:15: * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/OpenRedirectAuthSuccessHandler.java:25:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:64:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:77:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:96:                    "/beneficiaries/**",         
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:97:                    "/transfers/**",             
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:98:                    "/password/**",              
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:99:                    "/profile/**",               
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:104:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/config/SecurityConfig.java:106:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/OperationSearchService.java:32:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/OperationSearchService.java:38:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/TransferService.java:82:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/TransferService.java:88:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/PasswordResetService.java:35:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/PasswordResetService.java:41:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/StatementService.java:39:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/StatementService.java:44:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/BeneficiaryService.java:83:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/BeneficiaryService.java:94:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/UserService.java:37:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/UserService.java:50:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/UserService.java:84:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/UserService.java:91:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/AccountService.java:28:     * 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/java/com/lab/helios/service/AccountService.java:32:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/templates/beneficiaries.html:40:                <!-- GT: APP01-V002 — le nom est rendu via th:utext (restitution NON echappee) : XSS stocke. -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/templates/search.html:23:        <!-- GT: APP01-V003 — le terme recherche est reflechi via th:utext (restitution NON echappee). -->
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/application.yml:15:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/application.yml:22:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/application.yml:27:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/src/main/resources/application.yml:47:  app-version: "1.4.2"                                  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/elasticbeanstalk/01-actuator.conf:1:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/elasticbeanstalk/01-actuator.conf:11:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/elasticbeanstalk/01-actuator.conf:18:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/elasticbeanstalk/01-actuator.conf:30:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/elasticbeanstalk/01-actuator.conf:35:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/00-actuator-map.conf:3:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-01/.platform/nginx/conf.d/00-actuator-map.conf:7:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/support/support.controller.ts:28:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/support/support.controller.ts:33:   * GT: APP10-V018 — le terme de recherche `q` est REFLECHI tel quel dans une reponse HTML
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/support/support.controller.ts:40:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/common/doc-store.service.ts:12:  // (cf. GT: APP10-V021 excessive data exposure vs NC: APP10-N013 vue filtree).
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:21:   * GT: APP10-V004 — SSRF inter-service : l'URL fournie est appelee cote serveur SANS allowlist
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:33:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:57:   * GT: APP10-V007 — upload non restreint : ni l'extension ni le type MIME reel (magic bytes)
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:71:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:162:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:172:   * GT: APP10-V020 — la signature n'est PAS verifiee : un jeton `alg: none` (ou a signature
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:181:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:218:  
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:223:   * GT: APP10-V021 — la reponse serialise l'OBJET INTERNE entier (over-exposure) : champs de
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/documents-service/src/documents/documents.controller.ts:237:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:30:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:59:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:81:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:101:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:110:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:124:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:152:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:156:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/proxy/nginx.conf:159:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:78:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:83:     * GT: APP10-V016 — l'en-tete Origin recu est REFLECHI tel quel dans
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:94:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:129:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:134:     * GT: APP10-V017 — la reponse DIFFERE selon l'existence du compte : un compte connu renvoie
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:141:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:160:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:165:     * GT: APP10-V019 — le parametre `next` est utilise comme cible de redirection SANS allowlist :
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AccountController.java:171:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/InternalController.java:39:     * GT: APP10-V001 — contournement du controle d'acces par le reverse proxy : le service
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/InternalController.java:47:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:34:     * GT: APP10-V002 — confiance dans X-Forwarded-* : un appel SANS session mais portant
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:50:    
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:73:     * GT: APP10-V006 — IDOR : aucun controle de propriete ne lie l'identifiant du dossier
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:82:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:89:     * GT: APP10-V008 — mass assignment : le champ de controle `status` est lie depuis le
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:101:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:126:     * GT: APP10-V009 — l'OTP est "verifie" cote client ; le serveur fait confiance au
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/OnboardingController.java:136:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AdminController.java:67:     * GT: APP10-V013 — BFLA : la fonction d'administration ne restreint pas l'acces au role
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/AdminController.java:77:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/MiscController.java:42:     * GT: APP10-V012 — la reponse derive l'URL de base de l'en-tete X-Forwarded-Host
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/MiscController.java:49:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/MiscController.java:64:     * GT: APP10-V010 — injection d'en-tete / CRLF : la valeur de `target` est ecrite dans
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/web/MiscController.java:71:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/src/main/java/com/lab/onboardr/config/PathNormalizationFilter.java:18: * GT: APP10-V003 — normalisation de chemin cote BACKEND, divergente du filtrage proxy.
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-10/onboarding-service/Dockerfile:14:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/.ebextensions/01-options.config:20:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/sessions_controller.rb:20:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:10:  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:18:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:40:  # GET /cards/err  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:53:  # PATCH /cards/:id  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:55:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:62:  # POST /cards/:id/label  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:78:  # POST /cards/:id/toggle  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:92:  # POST /cards/:id/dispute  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:95:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:148:  # GET /cards/lookup?q=...  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:167:  # POST /cards/preview  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:169:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:184:  # GET /cards/:id/embed  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:186:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:203:  # POST /cards/:id/logo  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/cards_controller.rb:205:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/home_controller.rb:5:  # passifs d'en-tetes : 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/base_controller.rb:14:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/profile_controller.rb:7:    # GET /api/profile  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/profile_controller.rb:9:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:3:    # GET /api/cards  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:10:    # GET /api/cards/:id  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:12:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:17:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:25:    # PUT /api/cards/:id  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:30:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:37:    # POST /api/cards/:id/block  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/api/cards_controller.rb:39:      # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/passwords_controller.rb:8:  # POST /password/reset  (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/controllers/passwords_controller.rb:10:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/models/lab_schema.rb:15:        t.string  :api_key           # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/models/api_key.rb:5:# (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/cards/lookup.html.erb:3:  <%# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/cards/embed.html.erb:6:    <%# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/cards/index.html.erb:11:        <%# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/cards/edit.html.erb:4:      
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/cards/show.html.erb:18:  <%# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/app/views/sessions/new.html.erb:4:    <!-- Le parametre redirect est propage (
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/initializers/session_store.rb:1:# 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/application.rb:23:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/application.rb:29:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/application.rb:35:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/environments/production.rb:7:  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/environments/production.rb:27:  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/environments/production.rb:32:  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:6:  post   "/login",  to: "sessions#create"    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:12:  get  "/cards",                 to: "cards#index"          # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:14:  get  "/cards/err",             to: "cards#err"            # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:19:  get  "/cards/lookup",          to: "cards#lookup"         # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:21:  post "/cards/preview",         to: "cards#preview"        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:25:  patch "/cards/:id",            to: "cards#update"         # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:26:  post "/cards/:id/label",       to: "cards#label"          # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:28:  post "/cards/:id/toggle",      to: "cards#toggle"         # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:30:  post "/cards/:id/dispute",     to: "cards#dispute"        # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:33:  get  "/cards/:id/embed",       to: "cards#embed"          # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:35:  post "/cards/:id/logo",        to: "cards#logo"           # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:44:  post "/password/reset",      to: "passwords#reset"       # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:49:    get  "/cards",               to: "cards#index"          # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:50:    put  "/cards/:id",           to: "cards#update"         # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:51:    get  "/cards/:id",           to: "cards#show"           # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:52:    post "/cards/:id/block",     to: "cards#block"          # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:56:    get  "/profile",             to: "profile#show"         # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/config/routes.rb:63:  # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/lib/lab_environment_middleware.rb:5:# - 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/lib/lab_environment_middleware.rb:9:# NOTE — 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-08/lib/lab_environment_middleware.rb:20:    # 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/templates/clients/report.html.twig:4:    {
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/templates/clients/notes.html.twig:6:            {
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/AdminController.php:47:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/AdminController.php:48:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/SecurityController.php:37:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/SecurityController.php:43:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/SecurityController.php:89:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ProfileController.php:41:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/NoteController.php:25:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/NoteController.php:51:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/NoteController.php:76:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ProfilerController.php:16:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ApiController.php:24:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ApiController.php:82:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ExportController.php:25:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ExportController.php:42:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ClientController.php:23:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ClientController.php:28:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ClientController.php:38:        $resp->setHeader('X-Client-Ip', $sourceIp); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/ClientController.php:85:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/UploadController.php:32:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/UploadController.php:50:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/FileController.php:39:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Controller/FileController.php:91:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Session/SessionManager.php:97:            $this->id = $providedId; 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Session/SessionManager.php:107:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Kernel.php:120:                
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Kernel.php:174:            
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Kernel.php:189:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Kernel.php:203:            unset($defaults['X-Frame-Options']); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/src/Kernel.php:211:        
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/public/app_dev.php:3:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/public/app_dev.php:15:$kernel = new Kernel(true); 
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/public/.htaccess:12:
+/tmp/tmp.V8fUCPeNXD/code-source-SAST_20261105/APP-04/public/.htaccess:13:

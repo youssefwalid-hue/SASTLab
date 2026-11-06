@@ -1,0 +1,347 @@
+<!doctype html><html lang="fr" data-lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agréga Open — Guide utilisateur / User guide</title>
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+</style>
+<style>
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head><body>
+<div class="testbar"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<main class="doc"><div class="fr">
+<blockquote>
+<p>🇫🇷 Version française ci-dessous — 🇬🇧 English version below (same content).</p>
+</blockquote>
+<h1 id="agrega-open-guide-utilisateur">Agréga Open — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>Agréga Open est une API d'agrégation de comptes bancaires (Open Banking) exposée aux prestataires tiers (TPP). Elle permet, après consentement d'un utilisateur de banque, de consulter les comptes agrégés, les paiements et de générer des exports. C'est une API pure REST décrite en OpenAPI 3 ; elle n'a pas d'interface graphique propre et s'adresse à des applications clientes de TPP.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://agrega.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>tpp-a</code> — client OAuth (prestataire tiers A), consentement sur l'utilisateur <code>alice</code></li>
+<li><code>tpp-b</code> — client OAuth (prestataire tiers B), consentement sur l'utilisateur <code>bruno</code></li>
+<li><code>alice</code>, <code>bruno</code> — utilisateurs sous-jacents (titulaires des comptes agrégés)</li>
+<li><code>admin</code> — administration de la plateforme (consentements, inventaire)</li>
+<li>Authentification : OAuth2 / OIDC via l'IdP du laboratoire. Les TPP s'authentifient en <code>client_credentials</code> (ou via le parcours d'autorisation utilisateur pour recueillir un consentement). Les appels portent un jeton JWT en <code>Authorization: Bearer &lt;token&gt;</code>, assorti de <code>scope</code> et d'une <code>aud</code>. Une clé d'API TPP (<code>X-API-Key</code>) est acceptée sur certains endpoints de lecture. Code OTP du laboratoire : <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Acteur</th>
+<th>Peut faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tpp-a</code> / <code>tpp-b</code> (client OAuth)</td>
+<td>Obtenir un token, créer/consulter ses consentements, lire les comptes et paiements couverts par son consentement, générer et télécharger ses exports</td>
+</tr>
+<tr>
+<td><code>alice</code> / <code>bruno</code> (utilisateur)</td>
+<td>Donner ou révoquer son consentement à un TPP pour le partage de ses comptes</td>
+</tr>
+<tr>
+<td><code>admin</code></td>
+<td>Gérer l'ensemble des consentements, consulter l'inventaire d'API, administrer la plateforme</td>
+</tr>
+</tbody>
+</table>
+<p>Scopes OAuth2 types : <code>accounts:read</code>, <code>payments:read</code>, <code>payments:write</code>, <code>consents:write</code>.</p>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-obtenir-un-jeton-dacces-client_credentials">1. Obtenir un jeton d'accès (client_credentials)</h3>
+<pre><code>POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&amp;client_id=tpp-a&amp;client_secret=Password1!&amp;scope=accounts:read
+</code></pre>
+<p>Réponse :</p>
+<pre><code class="language-json">{
+  &quot;access_token&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImxhYi0xIn0...sig&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;expires_in&quot;: 3600,
+  &quot;scope&quot;: &quot;accounts:read&quot;
+}
+</code></pre>
+<h3 id="2-recueillir-un-consentement-utilisateur-parcours-dautorisation-oauth2oidc">2. Recueillir un consentement utilisateur (parcours d'autorisation OAuth2/OIDC)</h3>
+<ol>
+<li>Le TPP redirige l'utilisateur vers l'IdP :
+   <code>GET /authorize?response_type=code&amp;client_id=tpp-a&amp;redirect_uri=https://tpp-a.exemple/cb&amp;scope=accounts:read&amp;state=xyz</code></li>
+<li><code>alice</code> s'authentifie (mot de passe <code>Password1!</code>, OTP <code>123456</code>) et valide le partage de ses comptes.</li>
+<li>L'IdP redirige vers le TPP avec un <code>code</code>, échangé contre un token lié au consentement :
+   <code>POST /oauth/token (grant_type=authorization_code&amp;code=...&amp;redirect_uri=...&amp;client_id=tpp-a&amp;client_secret=Password1!)</code></li>
+</ol>
+<h3 id="3-creer-un-consentement-et-un-webhook-de-notification">3. Créer un consentement et un webhook de notification</h3>
+<pre><code>POST /v1/consents
+Authorization: Bearer &lt;token tpp-a&gt;
+Content-Type: application/json
+
+{
+  &quot;user&quot;: &quot;alice&quot;,
+  &quot;permissions&quot;: [&quot;accounts:read&quot;],
+  &quot;callbackUrl&quot;: &quot;https://tpp-a.exemple/webhook&quot;
+}
+</code></pre>
+<p>Réponse :</p>
+<pre><code class="language-json">{ &quot;consentId&quot;: &quot;CONS-3001&quot;, &quot;status&quot;: &quot;AUTHORISED&quot;, &quot;grantedScopes&quot;: [&quot;accounts:read&quot;] }
+</code></pre>
+<h3 id="4-lister-les-comptes-et-consulter-le-detail">4. Lister les comptes et consulter le détail</h3>
+<pre><code>GET /v1/accounts
+Authorization: Bearer &lt;token tpp-a&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;accounts&quot;: [
+    { &quot;accountId&quot;: &quot;ACC-FR-1001&quot;, &quot;holder&quot;: &quot;alice&quot;, &quot;type&quot;: &quot;COURANT&quot;, &quot;currency&quot;: &quot;EUR&quot; }
+  ]
+}
+</code></pre>
+<pre><code>GET /v1/accounts/ACC-FR-1001
+Authorization: Bearer &lt;token tpp-a&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;accountId&quot;: &quot;ACC-FR-1001&quot;,
+  &quot;holder&quot;: &quot;alice&quot;,
+  &quot;iban&quot;: &quot;FR76********0123&quot;,
+  &quot;balance&quot;: { &quot;amount&quot;: 1842.50, &quot;currency&quot;: &quot;EUR&quot; }
+}
+</code></pre>
+<h3 id="5-consulter-les-paiements-scope-dedie">5. Consulter les paiements (scope dédié)</h3>
+<pre><code>GET /v1/payments
+Authorization: Bearer &lt;token tpp-a avec scope payments:read&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;payments&quot;: [
+    { &quot;paymentId&quot;: &quot;PAY-5001&quot;, &quot;amount&quot;: 59.90, &quot;currency&quot;: &quot;EUR&quot;, &quot;status&quot;: &quot;SETTLED&quot; }
+  ]
+}
+</code></pre>
+<h3 id="6-generer-puis-telecharger-un-export-agrege">6. Générer puis télécharger un export agrégé</h3>
+<ol>
+<li>Demande d'export :
+   <code>POST /v1/exports (Authorization: Bearer &lt;token tpp-a&gt;) {"accountId":"ACC-FR-1001","format":"json"}</code>
+   → <code>{ "exportId": "EXP-1007", "status": "READY" }</code></li>
+<li>Téléchargement :
+   <code>GET /v1/exports/EXP-1007 (Authorization: Bearer &lt;token tpp-a&gt;)</code> → fichier d'export des opérations agrégées.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages (console de démonstration et réponses de diagnostic).</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+<hr />
+</div><div class="en">
+<h1 id="english-version">English version</h1>
+<h1 id="agrega-open-user-guide">Agréga Open — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Laboratory application; all data is fictitious.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>Agréga Open is a bank account aggregation API (Open Banking) exposed to third-party providers (TPP). After a bank user's consent, it allows consulting aggregated accounts and payments and generating exports. It is a pure REST API described in OpenAPI 3; it has no graphical interface of its own and is aimed at TPP client applications.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://agrega.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>tpp-a</code> — OAuth client (third-party provider A), consent on user <code>alice</code></li>
+<li><code>tpp-b</code> — OAuth client (third-party provider B), consent on user <code>bruno</code></li>
+<li><code>alice</code>, <code>bruno</code> — underlying users (holders of the aggregated accounts)</li>
+<li><code>admin</code> — platform administration (consents, inventory)</li>
+<li>Authentication: OAuth2 / OIDC via the lab IdP. TPPs authenticate with <code>client_credentials</code> (or via the user authorization flow to collect a consent). Calls carry a JWT token in <code>Authorization: Bearer &lt;token&gt;</code>, together with a <code>scope</code> and an <code>aud</code>. A TPP API key (<code>X-API-Key</code>) is accepted on certain read endpoints. Lab OTP code: <code>123456</code>.</li>
+</ul>
+<h2 id="roles-and-permissions">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tpp-a</code> / <code>tpp-b</code> (OAuth client)</td>
+<td>Obtain a token, create/consult its consents, read the accounts and payments covered by its consent, generate and download its exports</td>
+</tr>
+<tr>
+<td><code>alice</code> / <code>bruno</code> (user)</td>
+<td>Grant or revoke consent to a TPP for sharing their accounts</td>
+</tr>
+<tr>
+<td><code>admin</code></td>
+<td>Manage all consents, consult the API inventory, administer the platform</td>
+</tr>
+</tbody>
+</table>
+<p>Typical OAuth2 scopes: <code>accounts:read</code>, <code>payments:read</code>, <code>payments:write</code>, <code>consents:write</code>.</p>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-obtain-an-access-token-client_credentials">1. Obtain an access token (client_credentials)</h3>
+<pre><code>POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&amp;client_id=tpp-a&amp;client_secret=Password1!&amp;scope=accounts:read
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-json">{
+  &quot;access_token&quot;: &quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImxhYi0xIn0...sig&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;expires_in&quot;: 3600,
+  &quot;scope&quot;: &quot;accounts:read&quot;
+}
+</code></pre>
+<h3 id="2-collect-a-user-consent-oauth2oidc-authorization-flow">2. Collect a user consent (OAuth2/OIDC authorization flow)</h3>
+<ol>
+<li>The TPP redirects the user to the IdP:
+   <code>GET /authorize?response_type=code&amp;client_id=tpp-a&amp;redirect_uri=https://tpp-a.exemple/cb&amp;scope=accounts:read&amp;state=xyz</code></li>
+<li><code>alice</code> authenticates (password <code>Password1!</code>, OTP <code>123456</code>) and approves the sharing of her accounts.</li>
+<li>The IdP redirects to the TPP with a <code>code</code>, exchanged for a token bound to the consent:
+   <code>POST /oauth/token (grant_type=authorization_code&amp;code=...&amp;redirect_uri=...&amp;client_id=tpp-a&amp;client_secret=Password1!)</code></li>
+</ol>
+<h3 id="3-create-a-consent-and-a-notification-webhook">3. Create a consent and a notification webhook</h3>
+<pre><code>POST /v1/consents
+Authorization: Bearer &lt;token tpp-a&gt;
+Content-Type: application/json
+
+{
+  &quot;user&quot;: &quot;alice&quot;,
+  &quot;permissions&quot;: [&quot;accounts:read&quot;],
+  &quot;callbackUrl&quot;: &quot;https://tpp-a.exemple/webhook&quot;
+}
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-json">{ &quot;consentId&quot;: &quot;CONS-3001&quot;, &quot;status&quot;: &quot;AUTHORISED&quot;, &quot;grantedScopes&quot;: [&quot;accounts:read&quot;] }
+</code></pre>
+<h3 id="4-list-accounts-and-consult-the-detail">4. List accounts and consult the detail</h3>
+<pre><code>GET /v1/accounts
+Authorization: Bearer &lt;token tpp-a&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;accounts&quot;: [
+    { &quot;accountId&quot;: &quot;ACC-FR-1001&quot;, &quot;holder&quot;: &quot;alice&quot;, &quot;type&quot;: &quot;COURANT&quot;, &quot;currency&quot;: &quot;EUR&quot; }
+  ]
+}
+</code></pre>
+<pre><code>GET /v1/accounts/ACC-FR-1001
+Authorization: Bearer &lt;token tpp-a&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;accountId&quot;: &quot;ACC-FR-1001&quot;,
+  &quot;holder&quot;: &quot;alice&quot;,
+  &quot;iban&quot;: &quot;FR76********0123&quot;,
+  &quot;balance&quot;: { &quot;amount&quot;: 1842.50, &quot;currency&quot;: &quot;EUR&quot; }
+}
+</code></pre>
+<h3 id="5-consult-payments-dedicated-scope">5. Consult payments (dedicated scope)</h3>
+<pre><code>GET /v1/payments
+Authorization: Bearer &lt;token tpp-a avec scope payments:read&gt;
+</code></pre>
+<pre><code class="language-json">{
+  &quot;payments&quot;: [
+    { &quot;paymentId&quot;: &quot;PAY-5001&quot;, &quot;amount&quot;: 59.90, &quot;currency&quot;: &quot;EUR&quot;, &quot;status&quot;: &quot;SETTLED&quot; }
+  ]
+}
+</code></pre>
+<h3 id="6-generate-then-download-an-aggregated-export">6. Generate then download an aggregated export</h3>
+<ol>
+<li>Export request:
+   <code>POST /v1/exports (Authorization: Bearer &lt;token tpp-a&gt;) {"accountId":"ACC-FR-1001","format":"json"}</code>
+   → <code>{ "exportId": "EXP-1007", "status": "READY" }</code></li>
+<li>Download:
+   <code>GET /v1/exports/EXP-1007 (Authorization: Bearer &lt;token tpp-a&gt;)</code> → export file of the aggregated operations.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages (demo console and diagnostic responses).</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div></main>
+
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+
+</body></html>

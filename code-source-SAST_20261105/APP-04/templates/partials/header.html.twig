@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ConseilDesk - Back-office conseillers</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div class="lab-banner">Environnement de test - donnees fictives ({{ lab.environment }})</div>
+<header class="topbar">
+    <span class="brand">ConseilDesk</span>
+    {% if app.authenticated %}
+        <nav>
+            <a href="/dashboard">Tableau de bord</a>
+            <a href="/clients">Clients</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/history">Historique</a>
+            <a href="/profile">Profil</a>
+            <a href="/help">Aide</a>
+            <span class="who">{{ app.user.username }} ({{ app.user.role }})</span>
+            <form method="post" action="/logout" class="inline"><button type="submit">Deconnexion</button></form>
+        </nav>
+    {% endif %}
+</header>
+<main>

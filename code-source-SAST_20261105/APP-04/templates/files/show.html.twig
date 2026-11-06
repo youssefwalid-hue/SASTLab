@@ -1,0 +1,12 @@
+{% include 'partials/header.html.twig' %}
+<section class="card" data-file-id="{{ file.id }}" data-file-etat="{{ file.etat }}">
+    <h1>Dossier {{ file.id }} - {{ file.intitule }}</h1>
+    <p>Etat courant : <strong class="etat">{{ file.etat }}</strong></p>
+    {% if file.etat %}
+    <form method="post" action="/files/{{ file.id }}/close" class="inline">
+        <input type="hidden" name="_token" value="{{ csrf }}">
+        <button type="submit">Cloturer</button>
+    </form>
+    {% endif %}
+</section>
+{% include 'partials/footer.html.twig' %}

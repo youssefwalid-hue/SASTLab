@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novabourse — Guide utilisateur</title>
+<meta name="description" content="Novabourse — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="fr">Aller au contenu</span><span class="en">Skip to content</span></a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">N</span>
+    <span class="brand">Novabourse<small><span class="fr">Portail titres — laboratoire DAST</span><span class="en">Securities portal — DAST lab</span></small></span>
+    <nav class="top" aria-label="Navigation du document"><a href="USER_GUIDE.html"><span class="fr">Guide utilisateur</span><span class="en">User guide</span></a><a href="ARCHITECTURE.html"><span class="fr">Architecture</span><span class="en">Architecture</span></a><a href="VULNERABILITY_GUIDE.html"><span class="fr">Guide d'exploitation</span><span class="en">Exploitation guide</span></a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="novabourse-guide-utilisateur">Novabourse — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>Novabourse est un portail titres fictif permettant à des investisseurs particuliers de consulter leur portefeuille, de rechercher des instruments financiers, de passer et de suivre des ordres de bourse, puis de consulter leurs avis d'opéré. Les utilisateurs sont des investisseurs (rôle INVESTOR) et des agents de back-office (rôle BACKOFFICE) chargés de la supervision. L'application se compose d'une interface React (SPA) adossée à une API REST FastAPI documentée en OpenAPI.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://novabourse.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>invest-a</code> — rôle INVESTOR (portefeuille PF-1001, compte titres ACC-2001)</li>
+<li><code>invest-b</code> — rôle INVESTOR (portefeuille PF-1002, compte titres ACC-2002)</li>
+<li><code>backoffice</code> — rôle BACKOFFICE (supervision des ordres)</li>
+<li>Authentification : OIDC avec PKCE via l'IdP du laboratoire. La SPA génère un <code>code_verifier</code>, calcule le <code>code_challenge</code> (méthode S256), redirige l'utilisateur vers <code>/authorize</code>, puis échange le <code>code</code> d'autorisation contre un jeton d'accès JWT sur <code>/token</code>. Les appels API portent l'en-tête <code>Authorization: Bearer &lt;jwt&gt;</code>. Le code OTP de laboratoire, si demandé par l'IdP, est <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INVESTOR</td>
+<td>Consulter son portefeuille, rechercher des instruments, passer/annuler ses ordres (états autorisés), consulter ses avis d'opéré</td>
+</tr>
+<tr>
+<td>BACKOFFICE</td>
+<td>Superviser l'ensemble des ordres via les endpoints d'administration, consulter les comptes clients</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion-oidc-pkce">1. Connexion OIDC PKCE</h3>
+<ol>
+<li>L'utilisateur clique sur « Se connecter ». La SPA génère <code>code_verifier</code> et <code>code_challenge</code> (S256).</li>
+<li>Redirection : <code>GET /authorize?response_type=code&amp;client_id=novabourse-spa&amp;redirect_uri=https://novabourse.lab.exemple/callback&amp;code_challenge=&lt;cc&gt;&amp;code_challenge_method=S256&amp;state=&lt;s&gt;</code>.</li>
+<li>L'utilisateur s'authentifie auprès de l'IdP (identifiant + <code>Password1!</code>, OTP <code>123456</code> si demandé).</li>
+<li>Retour : <code>GET /callback?code=&lt;code&gt;&amp;state=&lt;s&gt;</code>. La SPA vérifie le <code>state</code>, puis échange le code :
+   <code>POST /token</code> avec <code>{"grant_type":"authorization_code","code":"&lt;code&gt;","redirect_uri":"https://novabourse.lab.exemple/callback","client_id":"novabourse-spa","code_verifier":"&lt;cv&gt;"}</code>.</li>
+<li>Réponse (fictive) : <code>{"access_token":"&lt;jwt&gt;","token_type":"Bearer","expires_in":3600,"id_token":"&lt;jwt&gt;"}</code>.</li>
+</ol>
+<h3 id="2-consulter-son-portefeuille">2. Consulter son portefeuille</h3>
+<ol>
+<li><code>GET /api/portfolios</code> (en-tête <code>Authorization: Bearer &lt;jwt&gt;</code>) renvoie la liste des portefeuilles de l'utilisateur.</li>
+<li><code>GET /api/portfolios/PF-1001</code> renvoie le détail :
+   <code>json
+   {
+     "id": "PF-1001",
+     "ownerId": "invest-a",
+     "cash": 12500.00,
+     "positions": [
+       {"instrument": "FR-NOVA", "quantity": 120, "avgPrice": 41.80}
+     ]
+   }</code></li>
+</ol>
+<h3 id="3-rechercher-un-instrument">3. Rechercher un instrument</h3>
+<ol>
+<li><code>GET /api/instruments?q=NOVA</code> renvoie les instruments correspondants :
+   <code>json
+   [{"code": "FR-NOVA", "name": "Novabourse Industries", "lastPrice": 42.50}]</code></li>
+</ol>
+<h3 id="4-passer-un-ordre">4. Passer un ordre</h3>
+<ol>
+<li><code>POST /api/orders</code> avec le corps :
+   <code>json
+   {"accountId": "ACC-2001", "instrument": "FR-NOVA", "side": "BUY", "quantity": 10, "price": 42.50}</code></li>
+<li>Réponse <code>201 Created</code> :
+   <code>json
+   {"id": "ORD-3001", "accountId": "ACC-2001", "status": "PENDING", "createdBy": "invest-a"}</code></li>
+</ol>
+<h3 id="5-suivre-et-annuler-un-ordre">5. Suivre et annuler un ordre</h3>
+<ol>
+<li><code>GET /api/orders/ORD-3001</code> renvoie l'état courant (<code>PENDING</code>, <code>PARTIAL</code>, <code>EXECUTED</code>, <code>CANCELLED</code>).</li>
+<li><code>POST /api/orders/ORD-3001/cancel</code> annule un ordre encore annulable (<code>PENDING</code>/<code>PARTIAL</code>) et renvoie <code>200 OK</code>.</li>
+</ol>
+<h3 id="6-consulter-lavis-dopere">6. Consulter l'avis d'opéré</h3>
+<ol>
+<li>Une fois l'ordre <code>EXECUTED</code>, <code>GET /api/orders/ORD-3001</code> expose l'avis d'opéré (quantité exécutée, prix moyen, horodatage).</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="novabourse-user-guide">Novabourse — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>Novabourse is a fictitious securities portal that lets retail investors view their portfolio, search for financial instruments, place and track stock-market orders, then view their trade confirmations. Users are investors (INVESTOR role) and back-office agents (BACKOFFICE role) in charge of supervision. The application consists of a React (SPA) interface backed by a FastAPI REST API documented with OpenAPI.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://novabourse.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>invest-a</code> — INVESTOR role (portfolio PF-1001, securities account ACC-2001)</li>
+<li><code>invest-b</code> — INVESTOR role (portfolio PF-1002, securities account ACC-2002)</li>
+<li><code>backoffice</code> — BACKOFFICE role (order supervision)</li>
+<li>Authentication: OIDC with PKCE via the lab IdP. The SPA generates a <code>code_verifier</code>, computes the <code>code_challenge</code> (S256 method), redirects the user to <code>/authorize</code>, then exchanges the authorization <code>code</code> for a JWT access token at <code>/token</code>. API calls carry the <code>Authorization: Bearer &lt;jwt&gt;</code> header. The lab OTP code, if requested by the IdP, is <code>123456</code>.</li>
+</ul>
+<h2 id="roles-permissions">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INVESTOR</td>
+<td>View own portfolio, search instruments, place/cancel own orders (allowed states), view own trade confirmations</td>
+</tr>
+<tr>
+<td>BACKOFFICE</td>
+<td>Supervise all orders via the administration endpoints, view client accounts</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-oidc-pkce-sign-in">1. OIDC PKCE sign-in</h3>
+<ol>
+<li>The user clicks "Sign in". The SPA generates <code>code_verifier</code> and <code>code_challenge</code> (S256).</li>
+<li>Redirection: <code>GET /authorize?response_type=code&amp;client_id=novabourse-spa&amp;redirect_uri=https://novabourse.lab.exemple/callback&amp;code_challenge=&lt;cc&gt;&amp;code_challenge_method=S256&amp;state=&lt;s&gt;</code>.</li>
+<li>The user authenticates against the IdP (username + <code>Password1!</code>, OTP <code>123456</code> if requested).</li>
+<li>Return: <code>GET /callback?code=&lt;code&gt;&amp;state=&lt;s&gt;</code>. The SPA verifies the <code>state</code>, then exchanges the code:
+   <code>POST /token</code> with <code>{"grant_type":"authorization_code","code":"&lt;code&gt;","redirect_uri":"https://novabourse.lab.exemple/callback","client_id":"novabourse-spa","code_verifier":"&lt;cv&gt;"}</code>.</li>
+<li>Response (fictitious): <code>{"access_token":"&lt;jwt&gt;","token_type":"Bearer","expires_in":3600,"id_token":"&lt;jwt&gt;"}</code>.</li>
+</ol>
+<h3 id="2-view-portfolio">2. View your portfolio</h3>
+<ol>
+<li><code>GET /api/portfolios</code> (header <code>Authorization: Bearer &lt;jwt&gt;</code>) returns the list of the user's portfolios.</li>
+<li><code>GET /api/portfolios/PF-1001</code> returns the detail:
+   <code>json
+   {
+     "id": "PF-1001",
+     "ownerId": "invest-a",
+     "cash": 12500.00,
+     "positions": [
+       {"instrument": "FR-NOVA", "quantity": 120, "avgPrice": 41.80}
+     ]
+   }</code></li>
+</ol>
+<h3 id="3-search-instrument">3. Search for an instrument</h3>
+<ol>
+<li><code>GET /api/instruments?q=NOVA</code> returns the matching instruments:
+   <code>json
+   [{"code": "FR-NOVA", "name": "Novabourse Industries", "lastPrice": 42.50}]</code></li>
+</ol>
+<h3 id="4-place-order">4. Place an order</h3>
+<ol>
+<li><code>POST /api/orders</code> with the body:
+   <code>json
+   {"accountId": "ACC-2001", "instrument": "FR-NOVA", "side": "BUY", "quantity": 10, "price": 42.50}</code></li>
+<li><code>201 Created</code> response:
+   <code>json
+   {"id": "ORD-3001", "accountId": "ACC-2001", "status": "PENDING", "createdBy": "invest-a"}</code></li>
+</ol>
+<h3 id="5-track-cancel-order">5. Track and cancel an order</h3>
+<ol>
+<li><code>GET /api/orders/ORD-3001</code> returns the current state (<code>PENDING</code>, <code>PARTIAL</code>, <code>EXECUTED</code>, <code>CANCELLED</code>).</li>
+<li><code>POST /api/orders/ORD-3001/cancel</code> cancels an order that is still cancellable (<code>PENDING</code>/<code>PARTIAL</code>) and returns <code>200 OK</code>.</li>
+</ol>
+<h3 id="6-trade-confirmation">6. View the trade confirmation</h3>
+<ol>
+<li>Once the order is <code>EXECUTED</code>, <code>GET /api/orders/ORD-3001</code> exposes the trade confirmation (executed quantity, average price, timestamp).</li>
+</ol>
+<h2 id="notes-en">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>Novabourse</strong><br><span class="fr">Service fictif de démonstration</span><span class="en">Fictitious demo service</span><br>novabourse.lab.exemple</div>
+    <div><span class="fr"><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a></span><span class="en"><a href="#">Legal notice</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a></span><br><span class="fr">Assistance (fictive) : support@novabourse.lab.exemple</span><span class="en">Support (fictitious): support@novabourse.lab.exemple</span></div>
+    <div class="fnote"><span class="fr">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</span><span class="en">Test environment — all data, brands and contact details are fictitious. No real data is processed.</span></div>
+  </div>
+</footer>
+<script>
+(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed', b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}
+var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}
+function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}
+if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();
+</script>
+</body>
+</html>

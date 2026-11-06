@@ -1,0 +1,5 @@
+# APP-05 CréditFlux — dépendances applicatives (Python 3.12, Django).
+# Environnement de test — données fictives — usage défensif.
+Django>=5.0,<5.2
+gunicorn>=21.2,<23
+lxml>=5.0,<6

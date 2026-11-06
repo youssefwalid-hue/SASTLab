@@ -1,0 +1,16 @@
+<div class="card">
+  <h2>Historique — carte <%= @card.id %></h2>
+  <p class="muted">Contestations et alimentations de la carte « <%= @card.label %> ».</p>
+  <table>
+    <tr><th>Date</th><th>Type</th><th>Montant</th><th>Statut</th></tr>
+    <% @disputes.each do |d| %>
+      <tr>
+        <td><%= d.created_at&.strftime("%Y-%m-%d") %></td>
+        <td><%= d.status == "topup" ? "Alimentation" : "Contestation" %></td>
+        <td><%= d.amount %> €</td>
+        <td><%= d.status %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="muted"><%= link_to "Retour", card_path(@card) %></p>
+</div>

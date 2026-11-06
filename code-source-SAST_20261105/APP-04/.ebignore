@@ -1,0 +1,15 @@
+# Ne JAMAIS deployer l'oracle de notation du benchmark ni les documents sources sensibles.
+benchmark/
+VULNERABILITY_GUIDE.md
+negative-controls.yaml
+SECURITY_MODEL.md
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+# Artefacts de dev / runtime local
+var/cache/
+var/data.db
+var/sessions/
+var/uploads/
+var/log/
+.git/

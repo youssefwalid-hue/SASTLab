@@ -1,0 +1,9 @@
+<div class="card">
+  <h2>Notifications</h2>
+  <table>
+    <tr><th>Date</th><th>Message</th></tr>
+    <% @items.each do |n| %>
+      <tr><td class="muted"><%= n[:at] %></td><td><%= n[:text] %></td></tr>
+    <% end %>
+  </table>
+</div>

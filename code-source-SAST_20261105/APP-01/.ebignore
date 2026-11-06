@@ -1,0 +1,28 @@
+# .ebignore — ce qui NE DOIT JAMAIS être embarqué dans le bundle déployé sur Elastic Beanstalk.
+# Garde-fou de laboratoire : le dossier benchmark/ (ground-truth, negative-controls, guide) et la
+# documentation d'exploitation ne doivent jamais partir sur l'environnement ni être servis par HTTP.
+# (Le déploiement de référence utilise un bundle maîtrisé construit par deploy/15-package-bundle.sh ;
+#  ce .ebignore est un filet de sécurité pour un éventuel `eb deploy` depuis le répertoire.)
+
+# Code source et build (seul le JAR final est déployé)
+src/
+pom.xml
+target/
+!target/*.jar
+
+# Artefacts de benchmark — NE JAMAIS DÉPLOYER
+benchmark/
+
+# Documentation (guides, conception) — hors environnement
+*.md
+USER_GUIDE.*
+VULNERABILITY_GUIDE.*
+ARCHITECTURE.*
+negative-controls.yaml
+BUILD_SPEC.md
+
+# Scripts de déploiement et divers
+deploy/
+dist/
+.git/
+*.zip

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MobiPay — Guide utilisateur</title>
+<meta name="description" content="MobiPay — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<a class="skip" href="#main"><span class="fr">Aller au contenu</span><span class="en">Skip to content</span></a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">M</span>
+    <span class="brand">MobiPay<small>API mobile (GraphQL) — laboratoire DAST</small></span>
+    <nav class="top" aria-label="Navigation du document"><span class="fr"><a href="USER_GUIDE.html">Guide utilisateur</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Guide d'exploitation</a></span><span class="en"><a href="USER_GUIDE.html">User guide</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Exploitation guide</a></span></nav>
+  </div>
+</header>
+
+<main id="main"><div class="fr">
+<h1 id="mobipay-guide-utilisateur">MobiPay — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>MobiPay est l'API mobile fictive d'une banque de laboratoire. Elle alimente une application mobile de banque au quotidien : consultation des comptes et des cartes, historique des transactions, notifications et gestion du profil. L'API est exposée en GraphQL pur via un endpoint unique ; elle s'adresse aux clients particuliers de la banque et, pour certaines opérations, à un rôle d'administration interne.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://mobipay.lab.exemple</code> (HTTPS)</li>
+<li>Endpoint unique : <code>POST /graphql</code> (corps JSON <code>{"query": "...", "variables": {...}}</code>).</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>mobile-alice</code> — client (rôle USER)</li>
+<li><code>mobile-bruno</code> — client (rôle USER)</li>
+<li><code>mobile-admin</code> — administration mobile (rôle ADMIN)</li>
+<li>Authentification : par JWT. On obtient un token via la mutation <code>login</code>, puis on l'envoie dans l'en-tête <code>Authorization: Bearer &lt;token&gt;</code> à chaque requête. Une empreinte d'appareil (<code>X-Device-Id</code>) accompagne les requêtes de l'application mobile. Code OTP de laboratoire pour les opérations sensibles : <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER (mobile-alice, mobile-bruno)</td>
+<td>Consulter ses propres comptes, cartes et transactions ; lire ses notifications ; mettre à jour son profil ; déclencher et vérifier un OTP pour les opérations sensibles.</td>
+</tr>
+<tr>
+<td>ADMIN (mobile-admin)</td>
+<td>Opérations d'administration mobile (ex. blocage global des cartes, gel de compte) en plus des droits USER.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion-et-obtention-du-token">1. Connexion et obtention du token</h3>
+<p>Requête :</p>
+<pre><code class="language-graphql">mutation Login($u: String!, $p: String!) {
+  login(username: $u, password: $p) {
+    token
+    user { id username role }
+  }
+}
+</code></pre>
+<p>Variables : <code>{"u": "mobile-alice", "p": "Password1!"}</code></p>
+<p>Réponse (fictive) :</p>
+<pre><code class="language-json">{ &quot;data&quot;: { &quot;login&quot;: { &quot;token&quot;: &quot;eyJhbGciOi...&quot;, &quot;user&quot;: { &quot;id&quot;: &quot;1&quot;, &quot;username&quot;: &quot;mobile-alice&quot;, &quot;role&quot;: &quot;USER&quot; } } } }
+</code></pre>
+<p>Le token est ensuite transmis dans <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+<h3 id="2-consultation-de-ses-comptes-et-de-leur-solde">2. Consultation de ses comptes et de leur solde</h3>
+<pre><code class="language-graphql">query {
+  me {
+    id
+    accounts { id iban balance currency }
+  }
+}
+</code></pre>
+<p>Réponse (fictive) : liste des comptes de l'utilisateur courant avec IBAN fictif et solde.</p>
+<h3 id="3-affichage-des-cartes-donnees-masquees">3. Affichage des cartes (données masquées)</h3>
+<pre><code class="language-graphql">query {
+  me {
+    cards { id panMasked expiry status }
+  }
+}
+</code></pre>
+<p>Réponse (fictive) : <code>panMasked = "4000 **** **** 1234"</code>, sans exposer le numéro complet ni le cryptogramme.</p>
+<h3 id="4-historique-des-transactions-filtre">4. Historique des transactions filtré</h3>
+<pre><code class="language-graphql">query Transactions($cat: TransactionCategory, $from: Date, $to: Date) {
+  transactions(category: $cat, from: $from, to: $to) {
+    id amount label date category
+  }
+}
+</code></pre>
+<p>Variables : <code>{"cat": "FOOD", "from": "2026-01-01", "to": "2026-03-31"}</code></p>
+<h3 id="5-mise-a-jour-du-profil">5. Mise à jour du profil</h3>
+<pre><code class="language-graphql">mutation UpdateProfile($in: UpdateProfileInput!) {
+  updateProfile(input: $in) { id displayName email }
+}
+</code></pre>
+<p>Variables : <code>{"in": {"displayName": "Alice D.", "email": "alice@exemple.test"}}</code>
+Seuls les champs autorisés (nom affiché, e-mail) sont modifiables par l'utilisateur.</p>
+<h3 id="6-operation-sensible-avec-otp">6. Opération sensible avec OTP</h3>
+<ol>
+<li>Déclencher l'envoi de l'OTP :</li>
+</ol>
+<pre><code class="language-graphql">mutation { requestOtp(action: &quot;TRANSFER&quot;) { challengeId } }
+</code></pre>
+<ol start="2">
+<li>Vérifier le code reçu (code de laboratoire <code>123456</code>) :</li>
+</ol>
+<pre><code class="language-graphql">mutation VerifyOtp($c: String!) {
+  verifyOtp(code: $c) { ok }
+}
+</code></pre>
+<p>Variables : <code>{"c": "123456"}</code></p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages (et dans l'écran d'accueil de l'application mobile).</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="mobipay-user-guide">MobiPay — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>MobiPay is the fictitious mobile API of a lab bank. It powers an everyday mobile banking application: viewing accounts and cards, transaction history, notifications and profile management. The API is exposed as pure GraphQL via a single endpoint; it serves the bank's retail customers and, for some operations, an internal administration role.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://mobipay.lab.exemple</code> (HTTPS)</li>
+<li>Single endpoint: <code>POST /graphql</code> (JSON body <code>{"query": "...", "variables": {...}}</code>).</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>mobile-alice</code> — customer (USER role)</li>
+<li><code>mobile-bruno</code> — customer (USER role)</li>
+<li><code>mobile-admin</code> — mobile administration (ADMIN role)</li>
+<li>Authentication: via JWT. A token is obtained through the <code>login</code> mutation, then sent in the <code>Authorization: Bearer &lt;token&gt;</code> header on every request. A device fingerprint (<code>X-Device-Id</code>) accompanies the mobile application's requests. Lab OTP code for sensitive operations: <code>123456</code>.</li>
+</ul>
+<h2 id="roles-and-rights">Roles and rights</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Rights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER (mobile-alice, mobile-bruno)</td>
+<td>View their own accounts, cards and transactions; read their notifications; update their profile; trigger and verify an OTP for sensitive operations.</td>
+</tr>
+<tr>
+<td>ADMIN (mobile-admin)</td>
+<td>Mobile administration operations (e.g. global card blocking, account freeze) in addition to USER rights.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-login-and-token-retrieval">1. Login and token retrieval</h3>
+<p>Request:</p>
+<pre><code class="language-graphql">mutation Login($u: String!, $p: String!) {
+  login(username: $u, password: $p) {
+    token
+    user { id username role }
+  }
+}
+</code></pre>
+<p>Variables: <code>{"u": "mobile-alice", "p": "Password1!"}</code></p>
+<p>Response (fictitious):</p>
+<pre><code class="language-json">{ &quot;data&quot;: { &quot;login&quot;: { &quot;token&quot;: &quot;eyJhbGciOi...&quot;, &quot;user&quot;: { &quot;id&quot;: &quot;1&quot;, &quot;username&quot;: &quot;mobile-alice&quot;, &quot;role&quot;: &quot;USER&quot; } } } }
+</code></pre>
+<p>The token is then sent in <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+<h3 id="2-viewing-ones-accounts-and-balances">2. Viewing one's accounts and balances</h3>
+<pre><code class="language-graphql">query {
+  me {
+    id
+    accounts { id iban balance currency }
+  }
+}
+</code></pre>
+<p>Response (fictitious): list of the current user's accounts with fictitious IBAN and balance.</p>
+<h3 id="3-displaying-cards-masked-data">3. Displaying cards (masked data)</h3>
+<pre><code class="language-graphql">query {
+  me {
+    cards { id panMasked expiry status }
+  }
+}
+</code></pre>
+<p>Response (fictitious): <code>panMasked = "4000 **** **** 1234"</code>, without exposing the full number nor the security code.</p>
+<h3 id="4-filtered-transaction-history">4. Filtered transaction history</h3>
+<pre><code class="language-graphql">query Transactions($cat: TransactionCategory, $from: Date, $to: Date) {
+  transactions(category: $cat, from: $from, to: $to) {
+    id amount label date category
+  }
+}
+</code></pre>
+<p>Variables: <code>{"cat": "FOOD", "from": "2026-01-01", "to": "2026-03-31"}</code></p>
+<h3 id="5-profile-update">5. Profile update</h3>
+<pre><code class="language-graphql">mutation UpdateProfile($in: UpdateProfileInput!) {
+  updateProfile(input: $in) { id displayName email }
+}
+</code></pre>
+<p>Variables: <code>{"in": {"displayName": "Alice D.", "email": "alice@exemple.test"}}</code>
+Only the allowed fields (display name, e-mail) can be modified by the user.</p>
+<h3 id="6-sensitive-operation-with-otp">6. Sensitive operation with OTP</h3>
+<ol>
+<li>Trigger the OTP send:</li>
+</ol>
+<pre><code class="language-graphql">mutation { requestOtp(action: &quot;TRANSFER&quot;) { challengeId } }
+</code></pre>
+<ol>
+<li>Verify the received code (lab code <code>123456</code>):</li>
+</ol>
+<pre><code class="language-graphql">mutation VerifyOtp($c: String!) {
+  verifyOtp(code: $c) { ok }
+}
+</code></pre>
+<p>Variables: <code>{"c": "123456"}</code></p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on every page (and on the mobile application's home screen).</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div></main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>MobiPay</strong><br><span class="fr">Service fictif de démonstration</span><span class="en">Fictitious demonstration service</span><br>mobipay.lab.exemple</div>
+    <div><span class="fr"><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@mobipay.lab.exemple</span><span class="en"><a href="#">Legal notice</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a><br>Support (fictitious): support@mobipay.lab.exemple</span></div>
+    <div class="fnote"><span class="fr">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</span><span class="en">Test environment — all data, brands and contact details are fictitious. No real data is processed.</span></div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Mot de passe oublié')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+
+<main class="auth-wrap">
+    <section class="auth-card">
+        <div class="auth-brand">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span class="brand-name">Hélios Banque</span>
+        </div>
+        <h1>Réinitialisation du mot de passe</h1>
+        <p class="muted">Saisissez votre adresse courriel. Un lien de réinitialisation vous sera adressé.</p>
+
+        <!-- POST /password/reset (email) -->
+        <form th:action="@{/password/reset}" method="post" class="form">
+            <div class="form-row">
+                <label for="email">Adresse courriel</label>
+                <input id="email" name="email" type="email" required/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Recevoir le lien</button>
+        </form>
+
+        <!-- Boite de laboratoire : affiche le dernier lien genere (canal secondaire fictif) -->
+        <div th:if="${resetUrl}" class="alert alert-info lab-mailbox" role="status">
+            <p><strong>Boîte de laboratoire</strong> — message fictif pour <span th:text="${email}">email</span> :</p>
+            <p class="mono break" th:text="${resetUrl}">https://helios.lab.exemple/password/reset/confirm?token=…</p>
+        </div>
+
+        <p class="auth-help"><a th:href="@{/login}">Retour à la connexion</a></p>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

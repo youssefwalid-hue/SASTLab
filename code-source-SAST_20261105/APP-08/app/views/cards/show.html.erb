@@ -1,0 +1,41 @@
+<div class="card">
+  <h2>Carte <%= @card.id %> — <%= raw @card.label %></h2>
+  <p class="muted">Numéro : <%= @card.pan_masked %> · Type : <%= @card.virtual ? "virtuelle" : "physique" %></p>
+  <table>
+    <tr><th>Plafond</th><td><%= @card.limit %> €</td></tr>
+    <tr><th>Disponible</th><td><%= @card.available %> €</td></tr>
+    <tr><th>Statut</th><td><%= @card.status %></td></tr>
+    <%# // NC: APP08-N005 — la note est rendue avec l'echappement ERB par defaut
+        (pas de html_safe) : une charge HTML/JS y est affichee comme texte inerte. %>
+    <tr><th>Note</th><td><%= @card.note %></td></tr>
+  </table>
+
+  <p style="margin-top:14px">
+    <%= link_to "Éditer", edit_card_path(@card), class: "btn" %>
+  </p>
+
+  <h3>Opposition</h3>
+  <%# 
+  <%= form_with url: "/cards/#{@card.id}/toggle", method: :post, local: true do %>
+    <%= submit_tag (@card.status == "active" ? "Mettre en opposition" : "Réactiver"), class: "btn" %>
+  <% end %>
+
+  <h3>Renommer (NC — protégé CSRF)</h3>
+  <%# // NC: APP08-N004 — action rename protegee par verify_authenticity_token. %>
+  <%= form_with url: "/cards/#{@card.id}/rename", method: :post, local: true do %>
+    <%= text_field_tag :label, @card.label %>
+    <%= submit_tag "Renommer", class: "btn" %>
+  <% end %>
+
+  <h3>Note (NC — échappée)</h3>
+  <%= form_with url: "/cards/#{@card.id}/note", method: :post, local: true do %>
+    <%= text_field_tag :note, @card.note %>
+    <%= submit_tag "Enregistrer la note", class: "btn" %>
+  <% end %>
+
+  <h3>Contester une opération</h3>
+  <%= form_with url: "/cards/#{@card.id}/dispute", method: :post, local: true do %>
+    <%= number_field_tag :amount, 200 %>
+    <%= submit_tag "Contester (recrédit provisoire)", class: "btn" %>
+  <% end %>
+</div>

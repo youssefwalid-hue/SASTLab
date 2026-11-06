@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "deployments": {
+    "custom": [
+      {
+        "name": "PayGate",
+        "scripts": {
+          "install":   { "file": "win-deploy/install.ps1" },
+          "restart":   { "file": "win-deploy/restart.ps1" },
+          "uninstall": { "file": "win-deploy/uninstall.ps1" }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+<%-- Endpoint d'administration INTERNE (NC APP07-N004 / N005).
+     Non publie dans le WSDL public ; acces restreint par web.config
+     (<location path="AdminService.svc"> + authorization deny). --%>
+<%@ ServiceHost Language="C#" Debug="false"
+    Service="PayGate.Services.AdminService"
+    Factory="System.ServiceModel.Activation.ServiceHostFactory" %>

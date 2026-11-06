@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConseilDesk — Guide utilisateur</title>
+<meta name="description" content="ConseilDesk — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">C</span>
+    <span class="brand">ConseilDesk<small>Back-office conseillers — laboratoire DAST</small></span>
+    <nav class="top" aria-label="Navigation du document"><a href="USER_GUIDE.html">Guide utilisateur</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Guide d'exploitation</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="conseildesk-guide-utilisateur">ConseilDesk — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>ConseilDesk est le back-office des conseillers d'une banque de détail fictive. Il permet de rechercher des clients, de consulter et tenir à jour leurs dossiers et notes internes, de produire des exports, et — pour l'encadrement — d'administrer les rôles des collaborateurs. Les utilisateurs sont des conseillers de clientèle et des directeurs d'agence.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://conseildesk.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>conseiller1</code> — rôle Conseiller</li>
+<li><code>conseiller2</code> — rôle Conseiller</li>
+<li><code>directeur1</code> — rôle Directeur</li>
+<li>Authentification par formulaire web (<code>POST /login</code>), session serveur portée par le cookie <code>PHPSESSID</code>. Pas de 2FA sur ce périmètre.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conseiller</td>
+<td>Rechercher les clients de son portefeuille, consulter dossiers et notes de ses clients, ajouter des notes, produire des exports standard, faire progresser les dossiers selon le workflow.</td>
+</tr>
+<tr>
+<td>Directeur</td>
+<td>Tous les droits du conseiller, plus : accès transverse aux dossiers, exports complets (champs restreints), clôture des dossiers validés, et administration des rôles des utilisateurs (<code>/admin/users</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion">1. Connexion</h3>
+<ol>
+<li>Ouvrir <code>https://conseildesk.lab.exemple</code>.</li>
+<li>Saisir l'identifiant (<code>conseiller1</code>) et le mot de passe (<code>Password1!</code>).</li>
+<li>Après <code>POST /login</code>, redirection vers le tableau de bord ; la session est portée par <code>PHPSESSID</code>.</li>
+</ol>
+<h3 id="2-recherche-et-consultation-dun-client">2. Recherche et consultation d'un client</h3>
+<ol>
+<li>Depuis le tableau de bord, utiliser le champ de recherche.</li>
+<li><code>GET /clients?search=Durand</code> affiche la liste filtrée du portefeuille.</li>
+<li>Cliquer sur un client ouvre sa fiche ; <code>GET /clients/{id}/notes</code> affiche l'historique des notes internes.</li>
+</ol>
+<h3 id="3-ajout-dune-note-interne">3. Ajout d'une note interne</h3>
+<ol>
+<li>Depuis la fiche client, ouvrir « Nouvelle note ».</li>
+<li>Saisir le texte et valider : <code>POST /clients/{id}/notes</code> avec le champ <code>body</code>.</li>
+<li>La note apparaît dans l'historique, visible par les collaborateurs habilités sur ce dossier.</li>
+</ol>
+<h3 id="4-export-dun-dossier">4. Export d'un dossier</h3>
+<ol>
+<li>Depuis la fiche client, choisir « Exporter » et sélectionner un gabarit.</li>
+<li><code>GET /export?template=dossier&amp;id={id}</code> génère le document de synthèse.</li>
+<li>L'export standard masque les champs réservés ; l'export complet n'est destiné qu'aux directeurs.</li>
+</ol>
+<h3 id="5-cloture-dun-dossier">5. Clôture d'un dossier</h3>
+<ol>
+<li>Un dossier validé propose l'action « Clôturer ».</li>
+<li><code>POST /files/{id}/close</code> enregistre la clôture.</li>
+<li>Le dossier passe à l'état <code>CLOTURE</code> et sort de la file active.</li>
+</ol>
+<h3 id="6-administration-des-roles-directeur">6. Administration des rôles (directeur)</h3>
+<ol>
+<li>Ouvrir « Administration » → « Utilisateurs » (visible pour le rôle Directeur).</li>
+<li>Sélectionner un collaborateur et choisir son nouveau rôle.</li>
+<li><code>POST /admin/users/{id}/role</code> avec le champ <code>role</code> enregistre le changement.</li>
+</ol>
+<h3 id="api-legere-rest">API légère (REST)</h3>
+<p>Le front consomme une API JSON interne, portée par le cookie de session.
+- Requête : <code>GET /api/clients/{id}</code> avec <code>Accept: application/json</code>.
+- Réponse (fictive) :
+  <code>json
+  { "id": 1500, "nom": "Durand", "segment": "Particulier", "conseiller": "conseiller1" }</code></p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="conseildesk-user-guide">ConseilDesk — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>ConseilDesk is the advisor back-office of a fictitious retail bank. It lets you search for clients, view and maintain their case files and internal notes, produce exports, and — for management — administer staff roles. The users are client advisors and branch directors.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://conseildesk.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>conseiller1</code> — Advisor role</li>
+<li><code>conseiller2</code> — Advisor role</li>
+<li><code>directeur1</code> — Director role</li>
+<li>Web form authentication (<code>POST /login</code>), server session carried by the <code>PHPSESSID</code> cookie. No 2FA on this scope.</li>
+</ul>
+<h2 id="roles-and-rights">Roles and rights</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Rights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advisor</td>
+<td>Search the clients in their portfolio, view their clients' case files and notes, add notes, produce standard exports, advance case files according to the workflow.</td>
+</tr>
+<tr>
+<td>Director</td>
+<td>All advisor rights, plus: cross-cutting access to case files, full exports (restricted fields), closure of validated case files, and administration of user roles (<code>/admin/users</code>).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-login">1. Login</h3>
+<ol>
+<li>Open <code>https://conseildesk.lab.exemple</code>.</li>
+<li>Enter the username (<code>conseiller1</code>) and the password (<code>Password1!</code>).</li>
+<li>After <code>POST /login</code>, redirect to the dashboard; the session is carried by <code>PHPSESSID</code>.</li>
+</ol>
+<h3 id="2-searching-and-viewing-a-client">2. Searching and viewing a client</h3>
+<ol>
+<li>From the dashboard, use the search field.</li>
+<li><code>GET /clients?search=Durand</code> displays the filtered list of the portfolio.</li>
+<li>Clicking a client opens their record; <code>GET /clients/{id}/notes</code> displays the history of internal notes.</li>
+</ol>
+<h3 id="3-adding-an-internal-note">3. Adding an internal note</h3>
+<ol>
+<li>From the client record, open "New note".</li>
+<li>Enter the text and submit: <code>POST /clients/{id}/notes</code> with the <code>body</code> field.</li>
+<li>The note appears in the history, visible to the staff authorized on this case file.</li>
+</ol>
+<h3 id="4-exporting-a-case-file">4. Exporting a case file</h3>
+<ol>
+<li>From the client record, choose "Export" and select a template.</li>
+<li><code>GET /export?template=dossier&amp;id={id}</code> generates the summary document.</li>
+<li>The standard export hides the reserved fields; the full export is intended for directors only.</li>
+</ol>
+<h3 id="5-closing-a-case-file">5. Closing a case file</h3>
+<ol>
+<li>A validated case file offers the "Close" action.</li>
+<li><code>POST /files/{id}/close</code> records the closure.</li>
+<li>The case file moves to the <code>CLOTURE</code> state and leaves the active queue.</li>
+</ol>
+<h3 id="6-role-administration-director">6. Role administration (director)</h3>
+<ol>
+<li>Open "Administration" → "Users" (visible to the Director role).</li>
+<li>Select a staff member and choose their new role.</li>
+<li><code>POST /admin/users/{id}/role</code> with the <code>role</code> field records the change.</li>
+</ol>
+<h3 id="lightweight-api-rest">Lightweight API (REST)</h3>
+<p>The front end consumes an internal JSON API, carried by the session cookie.
+- Request: <code>GET /api/clients/{id}</code> with <code>Accept: application/json</code>.
+- Response (fictitious):
+  <code>json
+  { "id": 1500, "nom": "Durand", "segment": "Particulier", "conseiller": "conseiller1" }</code></p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on every page.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>ConseilDesk</strong><br>Service fictif de démonstration<br>conseildesk.lab.exemple</div>
+    <div><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@conseildesk.lab.exemple</div>
+    <div class="fnote">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

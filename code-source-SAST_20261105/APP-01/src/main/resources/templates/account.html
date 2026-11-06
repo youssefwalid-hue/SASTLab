@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Détail du compte')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('accounts', ${username})}"></header>
+
+<main class="container">
+    <nav class="breadcrumb"><a th:href="@{/}">Tableau de bord</a> / <span th:text="${account.accountId}">ACC-1001</span></nav>
+
+    <h1 th:text="${account.label}">Compte</h1>
+    <div class="account-summary">
+        <div><span class="muted">Identifiant</span><strong th:text="${account.accountId}">ACC-1001</strong></div>
+        <div><span class="muted">Solde</span>
+            <strong th:text="${#numbers.formatDecimal(account.balance, 1, 'POINT', 2, 'COMMA')} + ' ' + ${account.currency}">0,00 EUR</strong>
+        </div>
+    </div>
+
+    <section class="panel">
+        <div class="panel-head">
+            <h2>Opérations</h2>
+            <a class="btn btn-secondary" th:href="@{'/accounts/' + ${account.accountId} + '/transactions'}">Filtrer les opérations</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr><th>Date</th><th>Libellé</th><th>Contrepartie</th><th class="num">Montant</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="op : ${operations}">
+                <td th:text="${op.date}">2026-01-01</td>
+                <td th:text="${op.label}">libellé</td>
+                <td th:text="${op.counterparty}">contrepartie</td>
+                <td class="num" th:text="${#numbers.formatDecimal(op.amount, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+            </tr>
+            <tr th:if="${operations.isEmpty()}"><td colspan="4" class="muted">Aucune opération.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

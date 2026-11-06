@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Recherche')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('search', ${username})}"></header>
+
+<main class="container">
+    <h1>Recherche</h1>
+
+    <section class="panel">
+        <!-- GET /search?q= -->
+        <form th:action="@{/search}" method="get" class="filter-form">
+            <div class="form-row">
+                <label for="q">Rechercher</label>
+                <input id="q" name="q" type="text" th:value="${query}" placeholder="opération, bénéficiaire, virement…"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </section>
+
+    <section class="panel" th:if="${query != null and !query.isEmpty()}">
+        <p class="search-echo">Résultats pour <strong th:utext="${query}">terme</strong></p>
+        <p class="muted">Aucun résultat dans ce jeu de données de démonstration.</p>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

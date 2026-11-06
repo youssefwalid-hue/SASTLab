@@ -1,0 +1,10 @@
+<div class="card" style="max-width:480px">
+  <h2>Éditer la carte <%= @card.id %></h2>
+  <%# Parcours fonctionnel : seul le libelle est cense etre modifiable.
+      un champ card[status] ajoute a la requete PATCH /cards/:id reactive une carte bloquee. %>
+  <%= form_with url: card_path(@card), method: :patch, local: true do |f| %>
+    <p><label>Libellé<br><%= text_field_tag "card[label]", @card.label %></label></p>
+    <p><%= submit_tag "Enregistrer", class: "btn" %></p>
+  <% end %>
+  <p class="muted"><%= link_to "Retour", card_path(@card) %></p>
+</div>

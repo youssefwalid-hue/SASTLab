@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Profil')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('profile', ${username})}"></header>
+
+<main class="container">
+    <h1>Mon profil</h1>
+
+    <section class="panel">
+        <h2>Informations</h2>
+        <div class="account-summary">
+            <div><span class="muted">Identifiant</span><strong th:text="${profile.username}">alice</strong></div>
+            <div><span class="muted">Nom affiché</span><strong th:text="${profile.displayName}">Alice Martin</strong></div>
+            <div><span class="muted">Courriel</span><strong th:text="${profile.email}">alice@helios.lab.exemple</strong></div>
+            <div><span class="muted">Téléphone</span><strong th:text="${profile.phone}">+33 1 00 00 00 01</strong></div>
+            <div><span class="muted">Rôle</span><strong th:text="${profile.role}">CLIENT</strong></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Modifier mon profil</h2>
+        <!-- POST /profile/update (displayName, email) -->
+        <form th:action="@{/profile/update}" method="post" class="form">
+            <div class="form-row">
+                <label for="displayName">Nom affiché</label>
+                <input id="displayName" name="displayName" type="text" th:value="${profile.displayName}"/>
+            </div>
+            <div class="form-row">
+                <label for="email">Courriel</label>
+                <input id="email" name="email" type="email" th:value="${profile.email}"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

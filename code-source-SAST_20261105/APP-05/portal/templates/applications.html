@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Mes dossiers — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Suivi des dossiers</h2>
+  <form method="get" action="/applications">
+    <label>Filtrer par statut
+      <select name="status">
+        <option value="">(tous)</option>
+        <option value="DRAFT">DRAFT</option>
+        <option value="SUBMITTED">SUBMITTED</option>
+        <option value="APPROVED">APPROVED</option>
+      </select>
+    </label>
+    <button type="submit">Filtrer</button>
+  </form>
+  <table>
+    <thead><tr><th>#</th><th>Libellé</th><th>Montant</th><th>Statut</th><th>Emprunteur</th></tr></thead>
+    <tbody>
+      {% for r in rows %}
+      <tr><td><a href="/applications/{{ r.0 }}">{{ r.0 }}</a></td><td>{{ r.1 }}</td><td>{{ r.2 }}</td><td>{{ r.3 }}</td><td>{{ r.4 }}</td></tr>
+      {% empty %}
+      <tr><td colspan="5" class="muted">Aucun dossier.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

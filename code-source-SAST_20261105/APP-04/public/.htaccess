@@ -1,0 +1,11 @@
+# public/.htaccess - reecriture Apache (plateforme EB PHP).
+# app_dev.php reste servi directement (ecart volontaire APP04-V013).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Laisser servir les fichiers existants (index.php, app_dev.php, uploads...).
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    # Tout le reste -> front controller de production.
+    RewriteRule ^ index.php [L]
+</IfModule>
+

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConseilDesk — Document d&#x27;architecture</title>
+<meta name="description" content="ConseilDesk — Document d&#x27;architecture (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">C</span>
+    <span class="brand">ConseilDesk<small>Back-office conseillers — laboratoire DAST</small></span>
+    <nav class="top" aria-label="Navigation du document"><a href="USER_GUIDE.html">Guide utilisateur</a><a href="ARCHITECTURE.html">Architecture</a><a href="VULNERABILITY_GUIDE.html">Guide d'exploitation</a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="conseildesk-document-darchitecture">ConseilDesk — Document d'architecture</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> ConseilDesk (Back-office conseillers) est une application de laboratoire
+du Banking DAST Benchmark Lab. Toutes les données sont fictives ; aucune marque réelle n'est utilisée.</p>
+</blockquote>
+<h2 id="1-vue-densemble">1. Vue d'ensemble</h2>
+<ul>
+<li><strong>Finalité</strong> : Recherche clients, dossiers, notes internes, exports, administration des rôles.</li>
+<li><strong>Pile technique</strong> : PHP 8, Symfony, rendu serveur Twig.</li>
+<li><strong>Protocole principal</strong> : Web classique + REST léger.</li>
+<li><strong>Hôte de laboratoire</strong> : <code>https://conseildesk.lab.exemple</code> (HTTPS, HTTP 80 redirigé en 443).</li>
+<li><strong>Thème de sécurité</strong> : Contrôle d'accès vertical : élévation conseiller→directeur, CSRF de rôle, SQLi legacy, LFI export.</li>
+</ul>
+<h2 id="2-architecture-aws-https-sans-filtrage-ip-moindre-cout">2. Architecture AWS (HTTPS, sans filtrage IP, moindre coût)</h2>
+<div class="diagram"><svg viewBox="0 0 634 178" role="img" aria-label="Diagramme d'architecture APP-04"><defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="currentColor" class="diag-arrow"/></marker></defs><rect class="diag-box" x="10" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="94.0" y="42" text-anchor="middle"><tspan x="94.0" dy="0">Internet</tspan></text><text class="diag-text" x="94.0" y="58" text-anchor="middle"><tspan x="94.0" dy="0">scanner / client</tspan></text><rect class="diag-box" x="218" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="302.0" y="42" text-anchor="middle"><tspan x="302.0" dy="0">ALB + ACM</tspan></text><text class="diag-text" x="302.0" y="58" text-anchor="middle"><tspan x="302.0" dy="0">HTTPS 443 · 80→443</tspan></text><line class="diag-arrow" x1="178" y1="49.0" x2="216" y2="49.0" marker-end="url(#ah)"/><rect class="diag-box" x="426" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="510.0" y="42" text-anchor="middle"><tspan x="510.0" dy="0">Elastic Beanstalk</tspan></text><text class="diag-text" x="510.0" y="58" text-anchor="middle"><tspan x="510.0" dy="0">PHP</tspan><tspan x="510.0" dy="14">instance unique</tspan></text><line class="diag-arrow" x1="386" y1="49.0" x2="424" y2="49.0" marker-end="url(#ah)"/><rect class="diag-store" x="426" y="96" rx="9" width="168" height="58"/><text class="diag-text b" x="510.0" y="120" text-anchor="middle">Données</text><text class="diag-text" x="510.0" y="136" text-anchor="middle">RDS MySQL</text><line class="diag-arrow" x1="510.0" y1="78" x2="510.0" y2="95" marker-end="url(#ah)"/></svg></div>
+<ul>
+<li><strong>Elastic Beanstalk</strong> en <strong>instance unique</strong> (<code>SingleInstance</code>), runtime <strong>PHP</strong>.</li>
+<li><strong>HTTPS</strong> via <strong>ALB mutualisé + certificat ACM</strong> ; redirection HTTP 80 → 443.</li>
+<li><strong>Accès ouvert sans filtrage IP</strong> : Security Group entrant <code>0.0.0.0/0</code> sur 443 (et 80), compensé par
+  données fictives, arrêt hors campagne, rôle IAM minimal et réseau sortant restreint.</li>
+<li><strong>Ressources</strong> : instance t3.micro, RDS MySQL.</li>
+<li><strong>Moindre coût</strong> : mono-AZ, pas d'auto-scaling, pas de NAT Gateway, environnement arrêté hors fenêtres de scan
+  (<code>deploy/30-start.sh</code> / <code>31-stop.sh</code>), suppression complète en fin de projet (<code>deploy/90-destroy.sh</code>).</li>
+</ul>
+<h2 id="3-architecture-logique-et-composants">3. Architecture logique et composants</h2>
+<ul>
+<li>Frontend SSR Twig</li>
+<li>Contrôleurs Symfony</li>
+<li>Authentification par formulaire et session</li>
+<li>Service de recherche et de gestion des dossiers</li>
+<li>Module d'export (gabarits)</li>
+<li>API REST légère interne</li>
+</ul>
+<h2 id="4-flux-reseau">4. Flux réseau</h2>
+<ol>
+<li>Le client (ou le scanner) atteint l'<strong>ALB</strong> en <strong>HTTPS (443)</strong> ; tout trafic <strong>HTTP (80)</strong> est redirigé en 443.</li>
+<li>L'ALB transmet à l'instance <strong>Elastic Beanstalk</strong> (PHP).</li>
+<li>L'application accède à <strong>RDS MySQL</strong>.</li>
+<li>Les en-têtes de sécurité (HSTS, CSP, cookies durcis, suppression de bannière) sont gérés par l'application
+   et le reverse proxy — certains écarts volontaires constituent des vulnérabilités du corpus.</li>
+</ol>
+<h2 id="5-modele-dauthentification">5. Modèle d'authentification</h2>
+<p>Authentification par formulaire, session, rôles conseiller / directeur.</p>
+<h2 id="6-modele-de-donnees-entites-principales">6. Modèle de données (entités principales)</h2>
+<ul>
+<li>Utilisateur (rôle conseiller/directeur)</li>
+<li>Client</li>
+<li>Dossier client</li>
+<li>Note interne</li>
+<li>Export</li>
+</ul>
+<h2 id="7-surface-de-securite">7. Surface de sécurité</h2>
+<p>L'application est <strong>sécurisée par défaut</strong> ; les <strong>22 vulnérabilités</strong> du référentiel sont des <strong>écarts localisés</strong>
+(voir <code>VULNERABILITY_GUIDE.md</code> et <code>ground-truth.yaml</code>, non exposés par HTTP). Des <strong>negative controls</strong>
+fournissent des routes comparables correctement sécurisées. Couche d'accent : <strong>Contrôle d'accès vertical </strong>.</p>
+<h2 id="8-deploiement-et-exploitation">8. Déploiement et exploitation</h2>
+<ul>
+<li>Déploiement : <code>deploy/20-deploy-eb.sh</code> (environnement EB + listener HTTPS 443 + redirection 80).</li>
+<li>Démarrage / arrêt hors campagne : <code>deploy/30-start.sh</code> / <code>deploy/31-stop.sh</code>.</li>
+<li>Suppression complète : <code>deploy/90-destroy.sh</code>.</li>
+<li>Variables d'environnement injectées au déploiement ; aucun secret dans le dépôt.</li>
+</ul>
+<h2 id="9-rappels-de-laboratoire">9. Rappels de laboratoire</h2>
+<ul>
+<li>Bandeau permanent « Environnement de test – données fictives » sur toutes les pages.</li>
+<li>Réinitialisation de l'état de démonstration : <code>POST /admin/reset</code>.</li>
+<li><code>VULNERABILITY_GUIDE.md</code>, <code>negative-controls.yaml</code> et <code>ground-truth.yaml</code> ne sont <strong>jamais exposés par HTTP</strong>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="conseildesk-architecture-document">ConseilDesk — Architecture document</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> ConseilDesk (Advisor back-office) is a lab application
+of the Banking DAST Benchmark Lab. All data is fictitious; no real brand is used.</p>
+</blockquote>
+<h2 id="1-overview">1. Overview</h2>
+<ul>
+<li><strong>Purpose</strong>: Client search, case files, internal notes, exports, role administration.</li>
+<li><strong>Technical stack</strong>: PHP 8, Symfony, server-side Twig rendering.</li>
+<li><strong>Main protocol</strong>: Classic web + lightweight REST.</li>
+<li><strong>Lab host</strong>: <code>https://conseildesk.lab.exemple</code> (HTTPS, HTTP 80 redirected to 443).</li>
+<li><strong>Security theme</strong>: Vertical access control: advisor→director elevation, role CSRF, legacy SQLi, export LFI.</li>
+</ul>
+<h2 id="2-aws-architecture-https-no-ip-filtering-lowest-cost">2. AWS architecture (HTTPS, no IP filtering, lowest cost)</h2>
+<div class="diagram"><svg viewBox="0 0 634 178" role="img" aria-label="Diagramme d'architecture APP-04"><defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="currentColor" class="diag-arrow"/></marker></defs><rect class="diag-box" x="10" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="94.0" y="42" text-anchor="middle"><tspan x="94.0" dy="0">Internet</tspan></text><text class="diag-text" x="94.0" y="58" text-anchor="middle"><tspan x="94.0" dy="0">scanner / client</tspan></text><rect class="diag-box" x="218" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="302.0" y="42" text-anchor="middle"><tspan x="302.0" dy="0">ALB + ACM</tspan></text><text class="diag-text" x="302.0" y="58" text-anchor="middle"><tspan x="302.0" dy="0">HTTPS 443 · 80→443</tspan></text><line class="diag-arrow" x1="178" y1="49.0" x2="216" y2="49.0" marker-end="url(#ah)"/><rect class="diag-box" x="426" y="20" rx="9" width="168" height="58"/><text class="diag-text b" x="510.0" y="42" text-anchor="middle"><tspan x="510.0" dy="0">Elastic Beanstalk</tspan></text><text class="diag-text" x="510.0" y="58" text-anchor="middle"><tspan x="510.0" dy="0">PHP</tspan><tspan x="510.0" dy="14">instance unique</tspan></text><line class="diag-arrow" x1="386" y1="49.0" x2="424" y2="49.0" marker-end="url(#ah)"/><rect class="diag-store" x="426" y="96" rx="9" width="168" height="58"/><text class="diag-text b" x="510.0" y="120" text-anchor="middle">Données</text><text class="diag-text" x="510.0" y="136" text-anchor="middle">RDS MySQL</text><line class="diag-arrow" x1="510.0" y1="78" x2="510.0" y2="95" marker-end="url(#ah)"/></svg></div>
+<ul>
+<li><strong>Elastic Beanstalk</strong> as a <strong>single instance</strong> (<code>SingleInstance</code>), <strong>PHP</strong> runtime.</li>
+<li><strong>HTTPS</strong> via <strong>shared ALB + ACM certificate</strong>; HTTP 80 → 443 redirection.</li>
+<li><strong>Open access without IP filtering</strong>: inbound Security Group <code>0.0.0.0/0</code> on 443 (and 80), offset by
+  fictitious data, shutdown outside campaigns, minimal IAM role and restricted outbound network.</li>
+<li><strong>Resources</strong>: t3.micro instance, RDS MySQL.</li>
+<li><strong>Lowest cost</strong>: single-AZ, no auto-scaling, no NAT Gateway, environment stopped outside scan windows
+  (<code>deploy/30-start.sh</code> / <code>31-stop.sh</code>), full teardown at end of project (<code>deploy/90-destroy.sh</code>).</li>
+</ul>
+<h2 id="3-logical-architecture-and-components">3. Logical architecture and components</h2>
+<ul>
+<li>Twig SSR frontend</li>
+<li>Symfony controllers</li>
+<li>Form and session authentication</li>
+<li>Search and case-management service</li>
+<li>Export module (templates)</li>
+<li>Internal lightweight REST API</li>
+</ul>
+<h2 id="4-network-flow">4. Network flow</h2>
+<ol>
+<li>The client (or the scanner) reaches the <strong>ALB</strong> over <strong>HTTPS (443)</strong>; all <strong>HTTP (80)</strong> traffic is redirected to 443.</li>
+<li>The ALB forwards to the <strong>Elastic Beanstalk</strong> instance (PHP).</li>
+<li>The application accesses <strong>RDS MySQL</strong>.</li>
+<li>The security headers (HSTS, CSP, hardened cookies, banner removal) are handled by the application
+   and the reverse proxy — some deliberate deviations constitute vulnerabilities of the corpus.</li>
+</ol>
+<h2 id="5-authentication-model">5. Authentication model</h2>
+<p>Form authentication, session, advisor / director roles.</p>
+<h2 id="6-data-model-main-entities">6. Data model (main entities)</h2>
+<ul>
+<li>User (advisor/director role)</li>
+<li>Client</li>
+<li>Client case file</li>
+<li>Internal note</li>
+<li>Export</li>
+</ul>
+<h2 id="7-security-surface">7. Security surface</h2>
+<p>The application is <strong>secure by default</strong>; the <strong>22 vulnerabilities</strong> of the benchmark are <strong>localized deviations</strong>
+(see <code>VULNERABILITY_GUIDE.md</code> and <code>ground-truth.yaml</code>, not exposed over HTTP). <strong>Negative controls</strong>
+provide comparable, correctly secured routes. Focus layer: <strong>Vertical access control </strong>.</p>
+<h2 id="8-deployment-and-operation">8. Deployment and operation</h2>
+<ul>
+<li>Deployment: <code>deploy/20-deploy-eb.sh</code> (EB environment + HTTPS 443 listener + 80 redirection).</li>
+<li>Startup / shutdown outside campaigns: <code>deploy/30-start.sh</code> / <code>deploy/31-stop.sh</code>.</li>
+<li>Full teardown: <code>deploy/90-destroy.sh</code>.</li>
+<li>Environment variables injected at deployment; no secret in the repository.</li>
+</ul>
+<h2 id="9-lab-reminders">9. Lab reminders</h2>
+<ul>
+<li>Permanent "Test environment – fictitious data" banner on every page.</li>
+<li>Demo state reset: <code>POST /admin/reset</code>.</li>
+<li><code>VULNERABILITY_GUIDE.md</code>, <code>negative-controls.yaml</code> and <code>ground-truth.yaml</code> are <strong>never exposed over HTTP</strong>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>ConseilDesk</strong><br>Service fictif de démonstration<br>conseildesk.lab.exemple</div>
+    <div><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@conseildesk.lab.exemple</div>
+    <div class="fnote">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

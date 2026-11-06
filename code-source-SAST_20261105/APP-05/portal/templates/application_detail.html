@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Dossier #{{ app.pk }} — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Dossier #{{ app.pk }} — {{ app.label }}</h2>
+  <p>Montant : <strong>{{ app.amount }}</strong> — Statut : <strong>{{ app.status }}</strong> — Emprunteur : {{ app.owner.username }}</p>
+
+  {% if app.status == "DRAFT" %}
+  <form method="post" action="/applications/{{ app.pk }}/amount" onsubmit="return false" class="muted">
+    {% csrf_token %}
+    <label>Montant <input name="amount" value="{{ app.amount }}"></label>
+    <button type="submit">Mettre à jour (DRAFT uniquement)</button>
+  </form>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h3>Justificatifs</h3>
+  <ul>
+    {% for d in docs %}<li><a href="/documents/{{ d.pk }}">{{ d.filename }}</a> <span class="muted">({{ d.content_type }})</span></li>
+    {% empty %}<li class="muted">Aucune pièce.</li>{% endfor %}
+  </ul>
+  <form method="post" action="/applications/{{ app.pk }}/documents" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <button type="submit">Ajouter une pièce</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Commentaires d'analyse</h3>
+  {% for c in comments %}
+    <div class="muted">{{ c.author.username }} :</div>
+    {# 
+    <div class="comment">{{ c.text|safe }}</div>
+    <hr>
+  {% empty %}
+    <p class="muted">Aucun commentaire.</p>
+  {% endfor %}
+  {% if user.role == "ANALYSTE" %}
+  <form method="post" action="/applications/{{ app.pk }}/comment">
+    {% csrf_token %}
+    <textarea name="text" rows="2" style="width:100%"></textarea>
+    <button type="submit">Commenter</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

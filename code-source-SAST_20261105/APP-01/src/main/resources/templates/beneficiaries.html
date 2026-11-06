@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Bénéficiaires')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('beneficiaries', ${username})}"></header>
+
+<main class="container">
+    <h1>Bénéficiaires</h1>
+
+    <section class="panel">
+        <h2>Ajouter un bénéficiaire</h2>
+        <!-- POST /beneficiaries (name, iban, note) -->
+        <form th:action="@{/beneficiaries}" method="post" class="form form-inline">
+            <div class="form-row">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" required/>
+            </div>
+            <div class="form-row">
+                <label for="iban">IBAN</label>
+                <input id="iban" name="iban" type="text" required/>
+            </div>
+            <div class="form-row">
+                <label for="note">Note</label>
+                <input id="note" name="note" type="text"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Vos bénéficiaires</h2>
+        <table class="table">
+            <thead>
+            <tr><th>Identifiant</th><th>Nom</th><th>IBAN</th><th>Note</th><th>Statut</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${beneficiaries}">
+                <td th:text="${b.id}">BEN-01</td>
+                <td th:utext="${b.name}">Nom</td>
+                <td class="mono" th:text="${b.iban}">FR76...</td>
+                <!-- NC: APP01-N002 — la note est rendue via th:text (echappement HTML automatique). -->
+                <td th:text="${b.note}">note</td>
+                <td>
+                    <span th:if="${b.active}" class="badge badge-ok">Actif</span>
+                    <span th:unless="${b.active}" class="badge badge-wait">En attente d'activation</span>
+                </td>
+            </tr>
+            <tr th:if="${beneficiaries.isEmpty()}"><td colspan="5" class="muted">Aucun bénéficiaire.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

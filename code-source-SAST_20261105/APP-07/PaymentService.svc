@@ -1,0 +1,3 @@
+<%@ ServiceHost Language="C#" Debug="true"
+    Service="PayGate.Services.PaymentService"
+    Factory="PayGate.Hosting.PaymentServiceHostFactory" %>

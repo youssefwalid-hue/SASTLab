@@ -1,0 +1,5 @@
+/* APP-10 OnboardR — feuille de style de laboratoire (donnees fictives) */
+body { font-family: system-ui, Arial, sans-serif; margin: 0; color: #1b1f23; }
+.lab-banner { background:#fff4ce; border-bottom:1px solid #e3c766; padding:8px 12px; font-size:14px; }
+h1 { padding: 0 16px; }
+p { padding: 0 16px; }

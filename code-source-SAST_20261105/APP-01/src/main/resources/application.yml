@@ -1,0 +1,111 @@
+# APP-01 Helios Banque — configuration de laboratoire (donnees fictives)
+# Securisee par defaut ; les ecarts volontaires sont tagues "GT: APP01-Vxxx".
+
+spring:
+  application:
+    name: helios-banque
+  thymeleaf:
+    cache: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+server:
+  # En production derriere Nginx, "server_tokens on" complete cet ecart.
+  server-header: "Apache Tomcat/10.1"
+  forward-headers-strategy: framework   # respecte X-Forwarded-Proto/Host (ALB)
+  servlet:
+    session:
+      cookie:
+        http-only: false
+        secure: false
+        # SameSite laisse volontairement non defini (aucun attribut SameSite emis).
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,env,beans,configprops,mappings,loggers"
+      base-path: /actuator
+  endpoint:
+    env:
+      show-values: ALWAYS
+    configprops:
+      show-values: ALWAYS
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+# Proprietes applicatives de laboratoire
+helios:
+  app-version: "1.4.2"                                  
+  canonical-base-url: "https://helios.lab.exemple"      # NC: APP01-N007 (base canonique)
+  statements-dir: "${HELIOS_STATEMENTS_DIR:./data/statements}"
+
+info:
+  app:
+    name: Helios Banque (lab)
+    environment: "test-data-fictives"
+
+---
+# Profil local : H2 en memoire, port 8080
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: "jdbc:h2:mem:helios;DB_CLOSE_DELAY=-1;MODE=PostgreSQL"
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: false
+server:
+  port: 8080
+
+---
+# Profil ebstandalone : H2 embarque, port 5000 (Elastic Beanstalk SANS base externe).
+# Mode par defaut pour un deploiement immediat du laboratoire (donnees 100% fictives,
+# reinitialisables via POST /admin/reset). Aucune dependance RDS requise.
+spring:
+  config:
+    activate:
+      on-profile: ebstandalone
+  datasource:
+    url: "jdbc:h2:mem:helios;DB_CLOSE_DELAY=-1;MODE=PostgreSQL"
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 5000
+  forward-headers-strategy: native   # derriere Nginx/ALB sur EB
+helios:
+  statements-dir: "${HELIOS_STATEMENTS_DIR:/var/app/data/statements}"
+
+---
+# Profil prod : PostgreSQL via variables d'environnement, port 5000 (Elastic Beanstalk)
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: "${DB_URL}"
+    username: "${DB_USER}"
+    password: "${DB_PASS}"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 5000
+  forward-headers-strategy: native   # derriere Nginx/ALB sur EB
+helios:
+  statements-dir: "${HELIOS_STATEMENTS_DIR:/var/app/data/statements}"

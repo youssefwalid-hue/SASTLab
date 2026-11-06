@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Impression dossier #{{ app.pk }} — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Fiche imprimable — Dossier #{{ app.pk }}</h2>
+  <p>Libellé : {{ app.label }}</p>
+  <p>Montant : {{ app.amount }}</p>
+  <p>Statut : {{ app.status }}</p>
+  <p>Emprunteur : {{ app.owner.username }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Opérations')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('accounts', ${username})}"></header>
+
+<main class="container">
+    <nav class="breadcrumb">
+        <a th:href="@{/}">Tableau de bord</a> /
+        <a th:href="@{'/accounts/' + ${account.accountId}}" th:text="${account.accountId}">ACC-1001</a> /
+        <span>Opérations</span>
+    </nav>
+
+    <h1>Opérations — <span th:text="${account.accountId}">ACC-1001</span></h1>
+
+    <section class="panel">
+        <!-- Filtre par libelle (recherche standard de l'utilisateur) -->
+        <form th:action="@{'/accounts/' + ${account.accountId} + '/transactions'}" method="get" class="filter-form">
+            <div class="form-row">
+                <label for="label">Filtrer par libellé</label>
+                <input id="label" name="label" type="text" th:value="${label}" placeholder="ex. courses"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+
+        <!-- Filtre par contrepartie (recherche avancee) -->
+        <form th:action="@{'/accounts/' + ${account.accountId} + '/transactions'}" method="get" class="filter-form">
+            <div class="form-row">
+                <label for="counterparty">Filtrer par contrepartie</label>
+                <input id="counterparty" name="counterparty" type="text" th:value="${counterparty}" placeholder="ex. Employeur Fictif SA"/>
+            </div>
+            <button type="submit" class="btn btn-secondary">Rechercher</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <table class="table">
+            <thead>
+            <tr><th>Date</th><th>Libellé</th><th>Contrepartie</th><th class="num">Montant</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="op : ${operations}">
+                <td th:text="${op.date}">2026-01-01</td>
+                <td th:text="${op.label}">libellé</td>
+                <td th:text="${op.counterparty}">contrepartie</td>
+                <td class="num" th:text="${#numbers.formatDecimal(op.amount, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+            </tr>
+            <tr th:if="${operations.isEmpty()}"><td colspan="4" class="muted">Aucune opération ne correspond.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

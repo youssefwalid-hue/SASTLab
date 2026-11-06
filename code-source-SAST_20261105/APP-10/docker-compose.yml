@@ -1,0 +1,47 @@
+# =============================================================================
+# APP-10 OnboardR — orchestration microservices (Banking DAST Benchmark Lab).
+# Donnees 100% FICTIVES, usage defensif. Securise par defaut ; seuls les ecarts
+# listes du corpus sont vulnerables.
+#
+# LOCAL  : `docker compose up --build` -> proxy sur http://localhost:8080
+# EB      : plateforme "Docker running on 64bit Amazon Linux 2023" lit ce meme
+#           docker-compose.yml ; l'ALB/terminaison TLS route 443 -> proxy:80.
+#           (Aucune option EB depreciee : voir .ebextensions, variables UNIQUEMENT.)
+#
+# Secrets ci-dessous = valeurs de LABORATOIRE fictives. En EB reel, surcharger via
+# les variables d'environnement de l'environnement (SESSION_SECRET, GATEWAY_SECRET).
+# =============================================================================
+services:
+
+  # Reverse proxy Nginx DEDIE — porte les ecarts de couche Reverse Proxy.
+  proxy:
+    build: ./proxy
+    ports:
+      - "8080:80"     # LOCAL : hote 8080 -> proxy 80. En EB, l'ALB route 443 -> 80.
+    depends_on:
+      - kyc-internal
+      - documents
+    restart: unless-stopped
+
+  # Service d'onboarding KYC (Java / Spring Boot). Nom d'hote = cible SSRF du guide.
+  kyc-internal:
+    build: ./onboarding-service
+    environment:
+      PORT: "8080"
+      SESSION_SECRET: "lab-onboardr-session-secret-fictif"
+      GATEWAY_SECRET: "lab-gw-6f2c1e9a-NON-DEVINABLE"
+      DOCUMENTS_BASE_URL: "http://documents:3000"
+    expose:
+      - "8080"        # interne au reseau compose uniquement (jamais publie)
+    restart: unless-stopped
+
+  # Service documents (Node / NestJS).
+  documents:
+    build: ./documents-service
+    environment:
+      PORT: "3000"
+      SESSION_SECRET: "lab-onboardr-session-secret-fictif"
+      GATEWAY_SECRET: "lab-gw-6f2c1e9a-NON-DEVINABLE"
+    expose:
+      - "3000"        # interne au reseau compose uniquement (jamais publie)
+    restart: unless-stopped

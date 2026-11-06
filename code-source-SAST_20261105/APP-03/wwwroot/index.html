@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tresoria - Portail trésorerie (laboratoire)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    SPA minimale du laboratoire Tresoria (donnees 100% fictives).
+    NB : ce front sert a EXERCER le rendu du libelle de virement (GT: APP03-V009)
+    et la navigation. L'API reste la source de verite des endpoints.
+  -->
+  <header>
+    <h1>Trésoria <small>— portail trésorerie entreprises (laboratoire)</small></h1>
+    <p class="lab">DONNÉES 100% FICTIVES · environnement de test DAST défensif</p>
+  </header>
+
+  <main>
+    <section id="login-view">
+      <h2>Connexion</h2>
+      <label>Utilisateur <input id="u" value="saisie1" /></label>
+      <label>Mot de passe <input id="p" type="password" value="Password1!" /></label>
+      <button id="btn-login">Se connecter</button>
+      <p id="login-msg"></p>
+    </section>
+
+    <section id="app-view" hidden>
+      <p>Connecté : <strong id="who"></strong> · <button id="btn-logout">Déconnexion</button></p>
+
+      <h2>Lots de l'entreprise</h2>
+      <button id="btn-batches">Rafraîchir les lots</button>
+      <ul id="batches"></ul>
+
+      <h2>Virements d'un lot</h2>
+      <label>batchId <input id="bid" value="9001" /></label>
+      <button id="btn-transfers">Afficher les virements</button>
+      <table>
+        <thead><tr><th>IBAN</th><th>Montant</th><th>Libellé</th></tr></thead>
+        <tbody id="transfers"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

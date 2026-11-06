@@ -1,0 +1,12 @@
+<div class="card">
+  <h2>Recherche de cartes (sure)</h2>
+  <%# // NC: APP08-N007 — le terme de recherche est rendu avec l'echappement ERB par
+      defaut (pas de raw) : une charge HTML/JS est affichee comme texte inerte. %>
+  <p class="muted">Resultats pour « <%= @q %> »</p>
+  <table>
+    <tr><th>ID</th><th>Libelle</th><th>Statut</th></tr>
+    <% @results.each do |c| %>
+      <tr><td><%= c.id %></td><td><%= c.label %></td><td><%= c.status %></td></tr>
+    <% end %>
+  </table>
+</div>

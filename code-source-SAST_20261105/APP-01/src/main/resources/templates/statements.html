@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Relevés')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('statements', ${username})}"></header>
+
+<main class="container">
+    <h1>Relevés</h1>
+
+    <section class="panel">
+        <table class="table">
+            <thead>
+            <tr><th>Période</th><th>Compte</th><th>Fichier</th><th>Téléchargement</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="st : ${statements}">
+                <td th:text="${st.period}">2026-01</td>
+                <td th:text="${st.accountId}">ACC-1001</td>
+                <td class="mono" th:text="${st.fileName}">releve-2026-01.pdf</td>
+                <td>
+                    <!-- Telechargement par nom de fichier -->
+                    <a class="btn btn-secondary" th:href="@{/statements/download(file=${st.fileName})}">Par nom</a>
+                    <!-- Telechargement par identifiant interne (NC) -->
+                    <a class="btn btn-ghost" th:href="@{'/statements/by-id/' + ${st.id}}">Par identifiant</a>
+                </td>
+            </tr>
+            <tr th:if="${statements.isEmpty()}"><td colspan="4" class="muted">Aucun relevé disponible.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

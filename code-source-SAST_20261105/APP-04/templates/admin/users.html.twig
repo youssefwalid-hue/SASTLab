@@ -1,0 +1,25 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Administration des utilisateurs</h1>
+    <table class="grid">
+        <thead><tr><th>ID</th><th>Identifiant</th><th>Nom</th><th>Role</th><th>Action</th></tr></thead>
+        <tbody>
+        {% for u in users %}
+            <tr class="user-row" data-username="{{ u.username }}" data-role="{{ u.role }}">
+                <td>{{ u.id }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.nom_complet }}</td>
+                <td>{{ u.role }}</td>
+                <td>
+                    <form method="post" action="/admin/roles/{{ u.id }}/assign" class="inline">
+                        <input type="hidden" name="_token" value="{{ csrf }}">
+                        <input type="hidden" name="role" value="DIRECTEUR">
+                        <button type="submit">Promouvoir directeur</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% include 'partials/footer.html.twig' %}

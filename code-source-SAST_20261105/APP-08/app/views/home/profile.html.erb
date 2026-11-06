@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>Mon profil</h2>
+  <table>
+    <tr><th>Identifiant</th><td><%= @client.username %></td></tr>
+    <tr><th>E-mail</th><td><%= @client.email %></td></tr>
+    <tr><th>Role</th><td><%= @client.role %></td></tr>
+    <tr><th>Cartes</th><td><%= @client.cards.count %></td></tr>
+  </table>
+  <p class="muted"><%= link_to "Mes cartes", "/cards" %> · <%= link_to "Notifications", "/notifications" %></p>
+</div>

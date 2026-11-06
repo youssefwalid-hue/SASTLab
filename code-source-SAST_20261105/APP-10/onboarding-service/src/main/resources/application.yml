@@ -1,0 +1,25 @@
+# APP-10 OnboardR — service d'onboarding KYC (Spring Boot).
+# Securise par defaut ; les ecarts volontaires sont tagues "GT: APP10-Vxxx".
+# Ce service est derriere le reverse proxy Nginx dedie ; les en-tetes de securite
+# (HSTS/CSP/...) sont du ressort du proxy (ecart V014 porte cote proxy).
+spring:
+  application:
+    name: onboardr-kyc
+server:
+  port: ${PORT:8080}
+  # Pas de banniere serveur applicative ; le proxy termine TLS et porte les en-tetes.
+  forward-headers-strategy: none   # le service lit lui-meme X-Forwarded-* (voir V002)
+
+onboardr:
+  # Hote canonique de laboratoire (utilise par les reponses correctement securisees).
+  canonical-host: "onboardr.lab.exemple"
+  # Secret de session partage entre services (HMAC du cookie OBRSESSION). Donnee de labo.
+  session-secret: "${SESSION_SECRET:lab-onboardr-session-secret-fictif}"
+  # Secret de passerelle reel attendu par les routes internes CORRECTEMENT securisees (N001).
+  # Non devinable, injecte par le proxy uniquement : un client ne le possede pas.
+  gateway-secret: "${GATEWAY_SECRET:lab-gw-6f2c1e9a-NON-DEVINABLE}"
+  # En-tete de confiance "en clair" historique, accepte a tort par la route interne V001.
+  internal-trust-header-name: "X-Internal-Auth"
+  # URL interne du service documents (reseau Docker) pour la reinitialisation en cascade.
+  documents-base-url: "${DOCUMENTS_BASE_URL:http://documents:3000}"
+  app-version: "1.0.0"

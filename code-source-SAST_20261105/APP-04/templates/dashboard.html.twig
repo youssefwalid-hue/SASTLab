@@ -1,0 +1,11 @@
+{% include 'partials/header.html.twig' %}
+<section class="card" data-dashboard="1">
+    <h1>Tableau de bord</h1>
+    <p>Bienvenue, {{ user.nom_complet }} ({{ user.role }}).</p>
+    <ul>
+        <li><a href="/clients?search=">Rechercher un client</a></li>
+        <li><a href="/clients/1500/notes">Notes du client 1500</a></li>
+        {% if app.user.role %}<li><a href="/admin/users">Administration des utilisateurs (directeur)</a></li>{% endif %}
+    </ul>
+</section>
+{% include 'partials/footer.html.twig' %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Tableau de bord')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('dashboard', ${username})}"></header>
+
+<main class="container">
+    <h1>Tableau de bord</h1>
+    <p class="muted">Bonjour <span th:text="${username}">utilisateur</span>, voici vos comptes.</p>
+
+    <section class="card-grid">
+        <article class="account-card" th:each="acc : ${accounts}">
+            <div class="account-card-head">
+                <span class="account-id" th:text="${acc.accountId}">ACC-1001</span>
+                <span class="account-currency" th:text="${acc.currency}">EUR</span>
+            </div>
+            <h2 class="account-label" th:text="${acc.label}">Compte courant</h2>
+            <p class="account-balance">
+                <span th:text="${#numbers.formatDecimal(acc.balance, 1, 'POINT', 2, 'COMMA')}">0,00</span>
+                <span th:text="${acc.currency}">EUR</span>
+            </p>
+            <div class="account-actions">
+                <a class="btn btn-secondary" th:href="@{'/accounts/' + ${acc.accountId}}">Détail</a>
+                <a class="btn btn-ghost" th:href="@{'/accounts/' + ${acc.accountId} + '/transactions'}">Opérations</a>
+            </div>
+        </article>
+    </section>
+
+    <section class="panel" th:if="${accounts.isEmpty()}">
+        <p>Aucun compte associé à ce profil.</p>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

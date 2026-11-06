@@ -1,0 +1,23 @@
+<div class="card">
+  <h2>Mes cartes</h2>
+  <p class="muted">Tri : <%= link_to "libellé", "/cards?order=label" %> ·
+    <%= link_to "date", "/cards?order=created_at" %> ·
+    <%= link_to "recherche sûre (NC)", "/cards/search?filter=label" %></p>
+  <table>
+    <tr><th>ID</th><th>Libellé</th><th>Numéro</th><th>Plafond</th><th>Disponible</th><th>Statut</th><th></th></tr>
+    <% @cards.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <%# 
+            desactivant l'echappement HTML automatique d'ERB. Une charge stockee via
+            POST /cards/:id/label s'execute ici au rendu. %>
+        <td><%= raw c.label %></td>
+        <td class="muted"><%= c.pan_masked %></td>
+        <td><%= c.limit %> €</td>
+        <td><%= c.available %> €</td>
+        <td><%= c.status %></td>
+        <td><%= link_to "Détail", card_path(c) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

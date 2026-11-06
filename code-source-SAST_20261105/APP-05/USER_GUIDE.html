@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr" data-theme="" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CréditFlux — Guide utilisateur / User guide</title>
+<meta name="description" content="CréditFlux — Guide utilisateur (environnement de test, données fictives).">
+<style>
+:root{
+  --navy:#1f3a5f; --navy-2:#15293f; --blue:#2e5a9e; --blue-soft:#eaf0f8;
+  --ink:#1a2430; --muted:#5b6b7d; --line:#d7dee8; --bg:#f4f6f9; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#7a5b00; --warn-line:#e4c14d;
+  --conf-bg:#fbe9e9; --conf-ink:#8a2b2b; --conf-line:#e0a3a3;
+  --crit:#9b2226; --high:#bb4d00; --med:#8a6d00; --low:#3f6212;
+  --radius:10px; --maxw:960px;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+    --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+    --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+    --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0f1d2e; --navy-2:#0a1420; --blue:#6d9be0; --blue-soft:#17202c;
+  --ink:#e7edf4; --muted:#9fb0c2; --line:#273244; --bg:#0c131c; --card:#121c28;
+  --warn-bg:#2e2510; --warn-ink:#f1d98a; --warn-line:#6a5618;
+  --conf-bg:#2c1414; --conf-ink:#f0a9a9; --conf-line:#5e2626;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px}
+.testbar{position:sticky;top:0;z-index:50;background:var(--warn-bg);color:var(--warn-ink);
+  border-bottom:1px solid var(--warn-line);text-align:center;font-weight:600;font-size:.9rem;
+  padding:8px 16px;letter-spacing:.02em}
+header.site{background:linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;padding:22px 16px}
+.hwrap{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9px;
+  background:#fff;color:var(--navy);font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.brand{font-weight:700;font-size:1.25rem;line-height:1.15}
+.brand small{display:block;font-weight:400;font-size:.8rem;color:#c7d4e6}
+nav.top{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+nav.top a{color:#dce7f5;text-decoration:none;font-size:.9rem;padding:6px 2px;border-bottom:2px solid transparent}
+nav.top a:hover,nav.top a:focus{border-bottom-color:#fff;color:#fff}
+.doclabel{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.conf{margin:16px auto 0;background:var(--conf-bg);color:var(--conf-ink);border:1px solid var(--conf-line);
+  border-radius:var(--radius);padding:10px 14px;font-size:.88rem;font-weight:600}
+main{max-width:var(--maxw);margin:0 auto;padding:8px 16px 48px}
+main h1{font-size:1.7rem;color:var(--navy);margin:22px 0 6px}
+:root[data-theme="dark"] main h1,@media(prefers-color-scheme:dark){}
+main h2{font-size:1.15rem;margin:30px 0 10px;padding:12px 14px;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;scroll-margin-top:90px}
+main h3{font-size:1.02rem;color:var(--navy);margin:20px 0 6px}
+main p,main li{color:var(--ink)}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--blue-soft);border-left:4px solid var(--blue);
+  border-radius:6px;color:var(--ink)}
+code{background:var(--blue-soft);padding:.12em .4em;border-radius:5px;font-size:.88em;
+  font-family:"SF Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;word-break:break-word}
+pre{background:var(--navy-2);color:#e7edf4;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--line)}
+pre code{background:transparent;color:inherit;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.92rem;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);color:var(--navy);font-weight:700}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--blue)}
+ul,ol{padding-left:22px}
+.sev-critical{color:var(--crit);font-weight:700}
+.sev-high{color:var(--high);font-weight:700}
+.sev-medium{color:var(--med);font-weight:700}
+.sev-low{color:var(--low);font-weight:700}
+footer.site{background:var(--navy-2);color:#c7d4e6;margin-top:30px;padding:26px 16px;font-size:.85rem}
+.fwrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer.site a{color:#dce7f5}
+footer .fnote{width:100%;border-top:1px solid #243247;margin-top:16px;padding-top:12px;color:#8ea2ba}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:100;border-radius:6px}
+.diagram{width:100%;overflow-x:auto;margin:16px 0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.diagram svg{display:block;min-width:620px;max-width:100%;height:auto}
+.diag-box{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.5}
+.diag-store{fill:var(--card);stroke:var(--muted);stroke-width:1.5}
+.diag-proxy{fill:#fff4d6;stroke:#e4c14d;stroke-width:1.5}
+:root[data-theme="dark"] .diag-proxy,@media(prefers-color-scheme:dark){.diag-proxy{fill:#2e2510;stroke:#6a5618}}
+.diag-text{fill:var(--ink);font-size:12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.diag-text.b{font-weight:700}
+.diag-arrow{stroke:var(--muted);stroke-width:1.6}
+@media(max-width:600px){nav.top{width:100%;margin-left:0}.brand{font-size:1.1rem}}
+</style>
+<style>
+.lang-switch{position:fixed;top:.55rem;right:.6rem;z-index:1000;display:flex;gap:.25rem}
+.lang-switch button{font:600 12px system-ui,Arial,sans-serif;padding:.3rem .62rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#e2e8f0;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+html[data-lang="fr"] .en{display:none} html[data-lang="en"] .fr{display:none}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="fr">Aller au contenu</span><span class="en">Skip to content</span></a>
+<div class="testbar" role="note"><span class="fr">Environnement de test – données fictives</span><span class="en">Test environment – fictitious data</span></div>
+<div class="lang-switch"><button type="button" data-set="fr" aria-pressed="true">FR</button><button type="button" data-set="en" aria-pressed="false">EN</button></div>
+<header class="site">
+  <div class="hwrap">
+    <span class="logo" aria-hidden="true">C</span>
+    <span class="brand">CréditFlux<small><span class="fr">Portail de crédit — laboratoire DAST</span><span class="en">Credit portal — DAST lab</span></small></span>
+    <nav class="top" aria-label="Navigation du document / Document navigation"><a href="USER_GUIDE.html"><span class="fr">Guide utilisateur</span><span class="en">User guide</span></a><a href="ARCHITECTURE.html"><span class="fr">Architecture</span><span class="en">Architecture</span></a><a href="VULNERABILITY_GUIDE.html"><span class="fr">Guide d'exploitation</span><span class="en">Vulnerability guide</span></a></nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="fr">
+<h1 id="creditflux-guide-utilisateur">CréditFlux — Guide utilisateur</h1>
+<blockquote>
+<p><strong>Environnement de test – données fictives.</strong> Application de laboratoire ; toutes les données sont fictives.</p>
+</blockquote>
+<h2 id="presentation">Présentation</h2>
+<p>CréditFlux est un portail de crédit fictif permettant à des emprunteurs de déposer une demande de prêt, de joindre leurs justificatifs et de suivre l'avancement de leur dossier. Les analystes crédit y instruisent les demandes, commentent les dossiers et rendent une décision. L'application repose sur une pile Python/Django avec rendu serveur et dépôt de pièces en multipart.</p>
+<h2 id="acces">Accès</h2>
+<ul>
+<li>URL : <code>https://creditflux.lab.exemple</code> (HTTPS)</li>
+<li>Comptes de démonstration (mot de passe <code>Password1!</code>) :</li>
+<li><code>emprunteur1</code> — rôle EMPRUNTEUR</li>
+<li><code>emprunteur2</code> — rôle EMPRUNTEUR</li>
+<li><code>analyste1</code> — rôle ANALYSTE</li>
+<li>Authentification par formulaire de connexion, session serveur et jeton anti-CSRF sur les actions à effet de bord. Code OTP de laboratoire si demandé : <code>123456</code>.</li>
+</ul>
+<h2 id="roles-et-droits">Rôles et droits</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Droits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMPRUNTEUR</td>
+<td>Créer une demande de prêt, saisir le montant en phase brouillon, déposer et consulter ses propres justificatifs, importer une pièce depuis une URL, soumettre son dossier, suivre son avancement.</td>
+</tr>
+<tr>
+<td>ANALYSTE</td>
+<td>Consulter les dossiers soumis, importer des documents structurés, commenter un dossier, approuver ou refuser une demande.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parcours-principaux">Parcours principaux</h2>
+<h3 id="1-connexion">1. Connexion</h3>
+<ol>
+<li>Ouvrir <code>https://creditflux.lab.exemple/login</code>.</li>
+<li>Saisir l'identifiant (ex. <code>emprunteur1</code>) et le mot de passe <code>Password1!</code>.</li>
+<li>Après authentification, redirection vers le tableau de bord des dossiers (paramètre <code>next</code> interne).</li>
+</ol>
+<h3 id="2-creer-une-demande-de-pret-et-fixer-le-montant">2. Créer une demande de prêt et fixer le montant</h3>
+<ol>
+<li>Depuis le tableau de bord, choisir « Nouvelle demande » : un dossier est créé au statut <code>DRAFT</code>.</li>
+<li>Renseigner le montant souhaité : <code>POST /applications/{id}/amount</code> avec <code>amount=10000</code>.</li>
+<li>Le dossier reste modifiable tant qu'il est en brouillon.</li>
+</ol>
+<h3 id="3-deposer-un-justificatif">3. Déposer un justificatif</h3>
+<ol>
+<li>Ouvrir le détail du dossier puis « Ajouter une pièce ».</li>
+<li>Téléverser un fichier : <code>POST /applications/{id}/documents</code> (multipart, champ <code>file</code>), par exemple un bulletin au format PDF.</li>
+<li>La pièce apparaît dans la liste des justificatifs du dossier et reste consultable par son propriétaire via <code>GET /documents/{id}</code>.</li>
+</ol>
+<h3 id="4-importer-une-piece-depuis-une-url">4. Importer une pièce depuis une URL</h3>
+<ol>
+<li>Dans l'écran de dépôt, choisir « Importer depuis une URL ».</li>
+<li>Fournir l'adresse d'un justificatif de laboratoire : <code>POST /documents/fetch</code> avec <code>{"applicationId":{id},"url":"https://creditflux.lab.exemple/media/sample.pdf"}</code>.</li>
+<li>Le serveur récupère la ressource et la rattache au dossier.</li>
+</ol>
+<h3 id="5-soumettre-et-suivre-le-dossier">5. Soumettre et suivre le dossier</h3>
+<ol>
+<li>Une fois les pièces déposées, soumettre la demande : <code>POST /applications/{id}/submit</code> (jeton anti-CSRF requis). Le statut passe à <code>SUBMITTED</code>.</li>
+<li>Suivre l'avancement depuis le tableau de bord ou en filtrant la liste : <code>GET /applications?status=SUBMITTED</code>.</li>
+</ol>
+<h3 id="6-instruction-par-lanalyste">6. Instruction par l'analyste</h3>
+<ol>
+<li>L'analyste se connecte (<code>analyste1</code>) et ouvre un dossier soumis.</li>
+<li>Il peut importer un document structuré : <code>POST /import</code> (multipart, champ <code>file</code>).</li>
+<li>Il ajoute un commentaire : <code>POST /applications/{id}/comment</code> avec <code>text=...</code>.</li>
+<li>Il rend une décision ; à l'approbation, le dossier passe au statut <code>APPROVED</code> et le montant est verrouillé.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Bandeau « Environnement de test – données fictives » présent sur toutes les pages.</li>
+<li>Pour réinitialiser les données de démonstration : <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+<div class="en">
+<h1 id="creditflux-user-guide">CréditFlux — User guide</h1>
+<blockquote>
+<p><strong>Test environment – fictitious data.</strong> Lab application; all data is fictitious.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>CréditFlux is a fictitious credit portal that lets borrowers file a loan application, attach their supporting documents and track the progress of their file. Credit analysts review the applications, comment on the files and issue a decision. The application is built on a Python/Django stack with server-side rendering and multipart attachment submission.</p>
+<h2 id="access">Access</h2>
+<ul>
+<li>URL: <code>https://creditflux.lab.exemple</code> (HTTPS)</li>
+<li>Demo accounts (password <code>Password1!</code>):</li>
+<li><code>emprunteur1</code> — EMPRUNTEUR role</li>
+<li><code>emprunteur2</code> — EMPRUNTEUR role</li>
+<li><code>analyste1</code> — ANALYSTE role</li>
+<li>Authentication via a login form, a server session and an anti-CSRF token on side-effecting actions. Lab OTP code if requested: <code>123456</code>.</li>
+</ul>
+<h2 id="roles-and-permissions">Roles and permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMPRUNTEUR</td>
+<td>Create a loan application, enter the amount in the draft phase, submit and view their own supporting documents, import an attachment from a URL, submit their file, track its progress.</td>
+</tr>
+<tr>
+<td>ANALYSTE</td>
+<td>View submitted files, import structured documents, comment on a file, approve or reject an application.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-journeys">Main journeys</h2>
+<h3 id="1-login">1. Login</h3>
+<ol>
+<li>Open <code>https://creditflux.lab.exemple/login</code>.</li>
+<li>Enter the username (e.g. <code>emprunteur1</code>) and the password <code>Password1!</code>.</li>
+<li>After authentication, redirect to the applications dashboard (internal <code>next</code> parameter).</li>
+</ol>
+<h3 id="2-create-a-loan-application-and-set-the-amount">2. Create a loan application and set the amount</h3>
+<ol>
+<li>From the dashboard, choose "New application": a file is created with status <code>DRAFT</code>.</li>
+<li>Enter the desired amount: <code>POST /applications/{id}/amount</code> with <code>amount=10000</code>.</li>
+<li>The file remains editable as long as it is a draft.</li>
+</ol>
+<h3 id="3-submit-a-supporting-document">3. Submit a supporting document</h3>
+<ol>
+<li>Open the file detail then "Add an attachment".</li>
+<li>Upload a file: <code>POST /applications/{id}/documents</code> (multipart, field <code>file</code>), for example a pay slip in PDF format.</li>
+<li>The attachment appears in the file's list of supporting documents and remains viewable by its owner via <code>GET /documents/{id}</code>.</li>
+</ol>
+<h3 id="4-import-an-attachment-from-a-url">4. Import an attachment from a URL</h3>
+<ol>
+<li>In the submission screen, choose "Import from a URL".</li>
+<li>Provide the address of a lab supporting document: <code>POST /documents/fetch</code> with <code>{"applicationId":{id},"url":"https://creditflux.lab.exemple/media/sample.pdf"}</code>.</li>
+<li>The server fetches the resource and attaches it to the file.</li>
+</ol>
+<h3 id="5-submit-and-track-the-file">5. Submit and track the file</h3>
+<ol>
+<li>Once the attachments are submitted, submit the application: <code>POST /applications/{id}/submit</code> (anti-CSRF token required). The status changes to <code>SUBMITTED</code>.</li>
+<li>Track progress from the dashboard or by filtering the list: <code>GET /applications?status=SUBMITTED</code>.</li>
+</ol>
+<h3 id="6-review-by-the-analyst">6. Review by the analyst</h3>
+<ol>
+<li>The analyst logs in (<code>analyste1</code>) and opens a submitted file.</li>
+<li>They can import a structured document: <code>POST /import</code> (multipart, field <code>file</code>).</li>
+<li>They add a comment: <code>POST /applications/{id}/comment</code> with <code>text=...</code>.</li>
+<li>They issue a decision; on approval, the file changes to status <code>APPROVED</code> and the amount is locked.</li>
+</ol>
+<h2 id="notes-en">Notes</h2>
+<ul>
+<li>"Test environment – fictitious data" banner present on all pages.</li>
+<li>To reset the demo data: <code>POST /admin/reset</code>.</li>
+</ul>
+</div>
+</main>
+<footer class="site">
+  <div class="fwrap">
+    <div><strong>CréditFlux</strong><br><span class="fr">Service fictif de démonstration</span><span class="en">Fictitious demonstration service</span><br>creditflux.lab.exemple</div>
+    <div><span class="fr"><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a> · <a href="#">Accessibilité</a><br>Assistance (fictive) : support@creditflux.lab.exemple</span><span class="en"><a href="#">Legal notice</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a><br>Support (fictitious): support@creditflux.lab.exemple</span></div>
+    <div class="fnote"><span class="fr">Environnement de test — toutes les données, marques et coordonnées sont fictives. Aucune donnée réelle n'est traitée.</span><span class="en">Test environment — all data, brands and contact details are fictitious. No real data is processed.</span></div>
+  </div>
+</footer>
+<script>(function(){var h=document.documentElement;function set(l){h.setAttribute('data-lang',l);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===l?'true':'false');}try{localStorage.setItem('labLang',l);}catch(e){}}var init='fr';try{var s=localStorage.getItem('labLang');if(s==='en'||s==='fr')init=s;}catch(e){}function wire(){set(init);var b=document.querySelectorAll('.lang-switch button');for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){set(this.getAttribute('data-set'));});}}if(document.readyState!=='loading')wire();else document.addEventListener('DOMContentLoaded',wire);})();</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Notifications</h1>
+    <ul class="notifs">
+        {% for n in items %}
+            <li class="notif">
+                <span class="notif-date">{{ n.date }}</span>
+                <strong>{{ n.titre }}</strong> - {{ n.detail }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% if items %}{% else %}<p class="hint">Aucune notification.</p>{% endif %}
+</section>
+{% include 'partials/footer.html.twig' %}

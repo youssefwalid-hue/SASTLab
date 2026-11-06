@@ -1,0 +1,19 @@
+# Base SQLite — profil standalone/local (demarrage immediat, donnees fictives).
+# L'architecture AWS cible RDS PostgreSQL ; le profil de lab reproductible utilise SQLite
+# afin de booter sans base externe (cf. BUILD_SPEC.md).
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: storage/development.sqlite3
+
+test:
+  <<: *default
+  database: storage/test.sqlite3
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("CARTAVIE_DB_PATH") { "storage/production.sqlite3" } %>

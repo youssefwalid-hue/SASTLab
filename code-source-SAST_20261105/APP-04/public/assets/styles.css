@@ -1,0 +1,19 @@
+:root { --bg:#f5f6f8; --ink:#1f2430; --accent:#1d4e89; --warn:#8a2b00; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:system-ui,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+.lab-banner { background:#ffe8cc; color:var(--warn); text-align:center; padding:.4rem; font-weight:600; font-size:.9rem; }
+.topbar { display:flex; justify-content:space-between; align-items:center; background:var(--accent); color:#fff; padding:.6rem 1rem; }
+.topbar .brand { font-weight:700; font-size:1.1rem; }
+.topbar nav { display:flex; gap:1rem; align-items:center; }
+.topbar a { color:#fff; text-decoration:none; }
+.topbar .who { opacity:.85; font-size:.85rem; }
+main { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+.card { background:#fff; border:1px solid #e1e4e8; border-radius:8px; padding:1.2rem 1.5rem; margin-bottom:1rem; }
+.grid { width:100%; border-collapse:collapse; margin-top:.8rem; }
+.grid th, .grid td { border:1px solid #e1e4e8; padding:.4rem .6rem; text-align:left; font-size:.9rem; }
+.form label, .form-inline input { display:block; margin:.4rem 0; }
+button { background:var(--accent); color:#fff; border:0; border-radius:4px; padding:.4rem .8rem; cursor:pointer; }
+.inline { display:inline; }
+.error { color:var(--warn); font-weight:600; }
+.hint { color:#555; font-size:.85rem; }
+.footer { text-align:center; color:#777; padding:1rem; font-size:.8rem; }

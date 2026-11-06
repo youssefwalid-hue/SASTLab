@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Notifications — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Notifications</h2>
+  <ul>
+    {% for n in items %}
+      <li><strong>{{ n.title }}</strong> — {{ n.body }} <span class="muted">{% if n.is_read %}(lu){% else %}(non lu){% endif %}</span></li>
+    {% empty %}<li class="muted">Aucune notification.</li>{% endfor %}
+  </ul>
+</div>
+{% endblock %}

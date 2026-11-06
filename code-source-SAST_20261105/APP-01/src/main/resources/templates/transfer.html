@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Virements')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('transfers', ${username})}"></header>
+
+<main class="container">
+    <h1>Virements</h1>
+
+    <section class="panel">
+        <h2>Nouveau virement</h2>
+        <!-- POST /transfers (sourceAccount, beneficiaryId, amount) -->
+        <form th:action="@{/transfers}" method="post" class="form form-inline">
+            <div class="form-row">
+                <label for="sourceAccount">Compte à débiter</label>
+                <select id="sourceAccount" name="sourceAccount" required>
+                    <option th:each="acc : ${accounts}" th:value="${acc.accountId}" th:text="${acc.accountId}">ACC-1001</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="beneficiaryId">Bénéficiaire</label>
+                <select id="beneficiaryId" name="beneficiaryId" required>
+                    <option th:each="b : ${beneficiaries}" th:value="${b.id}" th:text="${b.id}">BEN-01</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="amount">Montant (EUR)</label>
+                <input id="amount" name="amount" type="number" step="0.01" min="0.01" required/>
+            </div>
+            <button type="submit" class="btn btn-primary">Initier</button>
+        </form>
+        <p class="muted">Un code OTP de laboratoire est requis : <code>123456</code>.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Vos virements</h2>
+        <table class="table">
+            <thead>
+            <tr><th>Réf.</th><th>Source</th><th>Bénéficiaire</th><th class="num">Montant</th><th>État</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="t : ${transfers}">
+                <td th:text="${t.id}">TRF-01</td>
+                <td th:text="${t.sourceAccount}">ACC-1001</td>
+                <td th:text="${t.beneficiaryId}">BEN-01</td>
+                <td class="num" th:text="${#numbers.formatDecimal(t.amount, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+                <td>
+                    <span th:if="${t.status.name() == 'EXECUTED'}" class="badge badge-ok">Exécuté</span>
+                    <span th:unless="${t.status.name() == 'EXECUTED'}" class="badge badge-wait">En attente OTP</span>
+                </td>
+                <td class="actions-cell" th:if="${t.status.name() != 'EXECUTED'}">
+                    <!-- Etape OTP legitime -->
+                    <form th:action="@{'/transfers/' + ${t.id} + '/validate-otp'}" method="post" class="inline-form">
+                        <input name="otp" type="text" inputmode="numeric" placeholder="OTP" size="7"/>
+                        <button type="submit" class="btn btn-ghost">Valider l'OTP</button>
+                    </form>
+                    <!-- Confirmation -->
+                    <form th:action="@{'/transfers/' + ${t.id} + '/confirm'}" method="post" class="inline-form">
+                        <input name="otp" type="hidden" value="123456"/>
+                        <button type="submit" class="btn btn-secondary">Confirmer</button>
+                    </form>
+                    <!-- Finalisation (revérifie l'OTP) -->
+                    <form th:action="@{'/transfers/' + ${t.id} + '/finalize'}" method="post" class="inline-form">
+                        <input name="otp" type="hidden" value="123456"/>
+                        <button type="submit" class="btn btn-primary">Finaliser</button>
+                    </form>
+                </td>
+                <td th:unless="${t.status.name() != 'EXECUTED'}" class="muted">—</td>
+            </tr>
+            <tr th:if="${transfers.isEmpty()}"><td colspan="6" class="muted">Aucun virement.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

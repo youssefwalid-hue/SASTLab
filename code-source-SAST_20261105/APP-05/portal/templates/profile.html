@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Mon profil — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Mon profil</h2>
+  <p>Identifiant : <strong>{{ user.username }}</strong> — Rôle : <strong>{{ user.role }}</strong></p>
+  <p>Nom affiché : {{ user.display_name }}</p>
+  <p>Email : {{ user.email }}</p>
+  <p>Téléphone : {{ user.phone }}</p>
+  <p>Bio : {{ user.bio }}</p>
+  <p class="muted"><a href="/notifications">Mes notifications</a> · <a href="/applications/export">Exporter mes dossiers (CSV)</a></p>
+</div>
+{% endblock %}

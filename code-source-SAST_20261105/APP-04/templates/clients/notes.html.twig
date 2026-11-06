@@ -1,0 +1,19 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Notes internes - {{ client.nom }} (client {{ client.id }})</h1>
+    <ul class="notes">
+        {% for note in notes %}
+            {
+            <li class="note" data-note-id="{{ note.id }}">
+                <span class="meta">{{ note.auteur }} - {{ note.created_at }} :</span>
+                <span class="body">{{ note.body|raw }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/clients/{{ client.id }}/notes" class="form">
+        <input type="hidden" name="_token" value="{{ csrf }}">
+        <label>Nouvelle note <input type="text" name="body"></label>
+        <button type="submit">Ajouter</button>
+    </form>
+</section>
+{% include 'partials/footer.html.twig' %}

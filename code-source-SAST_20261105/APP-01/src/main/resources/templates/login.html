@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Connexion')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+
+<main class="auth-wrap">
+    <section class="auth-card">
+        <div class="auth-brand">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span class="brand-name">Hélios Banque</span>
+        </div>
+        <h1>Connexion à votre espace</h1>
+
+        <p th:if="${error}" class="alert alert-error" role="alert">
+            Identifiants invalides. Veuillez réessayer.
+        </p>
+        <p th:if="${logout}" class="alert alert-info" role="status">
+            Vous avez été déconnecté.
+        </p>
+
+        <!-- POST /login (username, password, returnUrl) -->
+        <form th:action="@{/login}" method="post" class="form">
+            <input type="hidden" name="returnUrl" th:value="${returnUrl}"/>
+            <div class="form-row">
+                <label for="username">Identifiant</label>
+                <input id="username" name="username" type="text" autocomplete="username" required autofocus/>
+            </div>
+            <div class="form-row">
+                <label for="password">Mot de passe</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required/>
+            </div>
+            <div class="form-row form-check">
+                <input id="remember-me" name="remember-me" type="checkbox"/>
+                <label for="remember-me">Se souvenir de moi</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+        </form>
+
+        <p class="auth-help">
+            <a th:href="@{/password/forgot}">Mot de passe oublié ?</a>
+        </p>
+        <p class="auth-note">
+            Comptes de démonstration : alice, bruno, claire, admin — mot de passe <code>Password1!</code>
+        </p>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

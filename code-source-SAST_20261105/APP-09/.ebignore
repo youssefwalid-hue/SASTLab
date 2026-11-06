@@ -1,0 +1,16 @@
+# Ne JAMAIS deployer l'oracle de notation du benchmark ni les documents sensibles.
+benchmark/
+VULNERABILITY_GUIDE.md
+negative-controls.yaml
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+SECURITY_MODEL.md
+# Artefacts de dev / caches
+__pycache__/
+*.pyc
+.git/
+.venv/
+venv/
+validation-report.json
+validation-report.html

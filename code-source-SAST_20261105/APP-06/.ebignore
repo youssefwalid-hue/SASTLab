@@ -1,0 +1,15 @@
+# Ne JAMAIS deployer l'oracle de notation du benchmark ni la documentation sensible.
+# NB : la plateforme EB Go COMPILE depuis les sources -> on CONSERVE les fichiers .go.
+benchmark/
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+VULNERABILITY_GUIDE.md
+SECURITY_MODEL.md
+negative-controls.yaml
+# Artefacts locaux
+mobipay
+*.test
+validation-report.json
+validation-report.html
+.git/

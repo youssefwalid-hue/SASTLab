@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="~{fragments :: head('Recherche de bénéficiaires')}"></head>
+<body>
+<div th:replace="~{fragments :: labBanner}"></div>
+<header th:replace="~{fragments :: header('beneficiaries', ${username})}"></header>
+
+<main class="container">
+    <h1>Recherche de bénéficiaires</h1>
+
+    <section class="panel">
+        <!-- GET /beneficiaries/search?name= -->
+        <form th:action="@{/beneficiaries/search}" method="get" class="filter-form">
+            <div class="form-row">
+                <label for="name">Nom du bénéficiaire</label>
+                <input id="name" name="name" type="text" th:value="${name}" placeholder="ex. Durand"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <table class="table">
+            <thead>
+            <tr><th>Identifiant</th><th>Nom</th><th>IBAN</th><th>Note</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${results}">
+                <td th:text="${b.id}">BEN-01</td>
+                <!-- Rendu échappé (th:text) : route bénigne, pas d'écart -->
+                <td th:text="${b.name}">Nom</td>
+                <td class="mono" th:text="${b.iban}">FR76...</td>
+                <td th:text="${b.note}">note</td>
+            </tr>
+            <tr th:if="${results.isEmpty()}"><td colspan="4" class="muted">Aucun bénéficiaire ne correspond.</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

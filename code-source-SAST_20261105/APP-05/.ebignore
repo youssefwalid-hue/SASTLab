@@ -1,0 +1,14 @@
+# Ne JAMAIS déployer l'oracle de notation du benchmark ni les sources sensibles.
+benchmark/
+VULNERABILITY_GUIDE.md
+negative-controls.yaml
+ARCHITECTURE.md
+BUILD_SPEC.md
+USER_GUIDE.md
+SECURITY_MODEL.md
+# Artefacts locaux
+db.sqlite3
+media/
+__pycache__/
+*.pyc
+.git/

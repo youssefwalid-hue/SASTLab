@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Recherche — CréditFlux{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Recherche de dossiers</h2>
+  <form method="get" action="/applications/search">
+    <input name="q" value="{{ q }}" placeholder="Libellé du dossier">
+    <button type="submit">Rechercher</button>
+  </form>
+  {# 
+  <p class="muted">Résultats pour : <span class="echo">{{ q|safe }}</span></p>
+  <table>
+    <thead><tr><th>#</th><th>Libellé</th><th>Montant</th><th>Statut</th></tr></thead>
+    <tbody>
+      {% for a in results %}
+      <tr><td><a href="/applications/{{ a.pk }}">{{ a.pk }}</a></td><td>{{ a.label }}</td><td>{{ a.amount }}</td><td>{{ a.status }}</td></tr>
+      {% empty %}<tr><td colspan="4" class="muted">Aucun dossier.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

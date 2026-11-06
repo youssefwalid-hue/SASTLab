@@ -1,0 +1,21 @@
+{% include 'partials/header.html.twig' %}
+<section class="card">
+    <h1>Mon profil</h1>
+    <dl class="profile">
+        <dt>Identifiant</dt><dd>{{ user.username }}</dd>
+        <dt>Nom complet</dt><dd>{{ user.nom_complet }}</dd>
+        <dt>Role</dt><dd>{{ user.role }}</dd>
+        <dt>Email</dt><dd>{{ user.email }}</dd>
+        <dt>Telephone</dt><dd>{{ user.phone }}</dd>
+        <dt>Bio</dt><dd>{{ user.bio }}</dd>
+    </dl>
+    <form method="post" action="/profile/update" class="form">
+        <input type="hidden" name="_token" value="{{ csrf }}">
+        <label>Nom complet <input type="text" name="nom_complet" value="{{ user.nom_complet }}"></label>
+        <label>Email <input type="email" name="email" value="{{ user.email }}"></label>
+        <label>Telephone <input type="text" name="phone" value="{{ user.phone }}"></label>
+        <label>Bio <input type="text" name="bio" value="{{ user.bio }}"></label>
+        <button type="submit">Enregistrer</button>
+    </form>
+</section>
+{% include 'partials/footer.html.twig' %}
